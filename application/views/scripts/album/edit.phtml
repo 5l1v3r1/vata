@@ -1,0 +1,73 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header"><?php echo $this->params["terrorist"]["name"]?></h1>
+		<p>Додав:
+			<a target = "_blank" href = "<?php echo $this->profile($this->params["publisher"]["social"])?><?php echo $this->params["publisher"]["facebook_id"]?>"><?php echo $this->params["publisher"]["first_name"]?> <?php echo $this->params["publisher"]["last_name"]?></a>
+		</p>
+		<form role="form" method = "POST" action = "/album/edit/<?php echo $this->params["terrorist"]["id"]?>" enctype="multipart/form-data">
+			<input type = "hidden" name = "owner_id" value = "<?php echo $this->params["terrorist"]["owner_id"]?>">
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorFirstName" placeholder="Імя" name = "name" value = "<?php echo $this->params["terrorist"]["name"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorFirstName" placeholder="Рік народження" name = "birthdate" value = "<?php echo $this->params["terrorist"]["birthdate"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorCity" placeholder="Місто" name = "city" value = "<?php echo $this->params["terrorist"]["city"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorArmyNum" placeholder="Військова частина" name = "army" value = "<?php echo $this->params["terrorist"]["army"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorVk" placeholder="Сторінка в VK" name = "vk" value = "<?php echo $this->params["terrorist"]["vk"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorFb" placeholder="Сторінка Facebook" name = "fb" value = "<?php echo $this->params["terrorist"]["fb"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorTwitter" placeholder="Сторінка Twitter" name = "tw" value = "<?php echo $this->params["terrorist"]["tw"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorVidoe" placeholder="Відео" name = "video" value = "<?php echo $this->params["terrorist"]["video"]?>">
+			</div>
+			<div class="form-group">
+				<select class="form-control" id="TerrorStatus" name = "type">
+					<option value = "">Тип</option>
+					<option value = "Найманці з Росії" <?php if($this->params["terrorist"]["type"] == "Найманці з Росії") echo "selected"?>>Найманці з Росії</option>
+					<option value = "Російські військові" <?php if($this->params["terrorist"]["type"] == "Російські військові") echo "selected"?>>Російські військові</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select class="form-control" id="TerrorStatus" name = "status">
+					<option value="">Статус</option>
+					<option value="Вбитий" <?php if($this->params["terrorist"]["status"] == "Вбитий") echo "selected"?>>Вбитий</option>
+					<option value="Полонений" <?php if($this->params["terrorist"]["status"] == "Полонений") echo "selected"?>>Полонений</option>
+					<option value="Помічений в Україні" <?php if($this->params["terrorist"]["status"] == "Помічений в Україні") echo "selected"?>>Помічений в Україні</option>
+					<option value="Можливо був в Україні" <?php if($this->params["terrorist"]["status"] == "Можливо був в Україні") echo "selected"?>>Можливо був в Україні</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<textarea name = "description" cols = "120" rows = "10" id ="TerrorDescription" name = "TerrorDescription" placeholder = "Додаткова інформація"><?php echo $this->params["terrorist"]["description"]?></textarea>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile">Завантаження фото</label>
+				<input type="file" id="exampleInputFile" name = "photos[]" multiple>
+			</div>
+			<?php if(isset($this->params["images"][0]["img_name"])):?>
+			<div class="form-group">
+				<?php foreach($this->params["images"] as $key => $value):?>
+					<div class = "img-holder">
+						<i data-id = "<?php echo $value["id"]?>" class="fa fa-trash-o drop-terror-img"></i>
+						<a class="fancybox" href="http://lostivan200.s3.amazonaws.com/<?php echo $value["img_name"]?>" data-fancybox-group="gallery">
+							<img class="grouped_elements img-thumbnail" rel="group1" src="http://lostivan200.s3.amazonaws.com/<?php echo $value["img_name"]?>">
+						</a>
+					</div>
+				<?php endforeach;?>
+			</div>
+			<?php endif;?>
+			<div class = "clearfix"></div>
+			<button type="submit" class="btn btn-success">Зберегти</button>
+		</form>
+	</div>
+</div>
+

@@ -1,0 +1,18 @@
+.flag {
+    width: 16px;
+    height: 11px;
+    background:url(/data/img/design/flags.png) no-repeat;
+    position:relative;
+    top:-1px;
+}
+
+.flag.flag-ge {background-position: -18px 0}
+.flag.flag-fr {background-position: -36px 0}
+.flag.flag-en {background-position: -54px 0}
+.flag.flag-gr {background-position: 0 -12px}
+.flag.flag-it {background-position: -18px -12px}
+.flag.flag-lt {background-position: -36px -12px}
+.flag.flag-lv {background-position: -54px -12px}
+.flag.flag-pl {background-position: 0 -24px}
+.flag.flag-ru {background-position: -18px -24px}
+.flag.flag-ua {background-position: -36px -24px}

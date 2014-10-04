@@ -1,0 +1,17 @@
+.idea
+.idea/
+.idea\
+www\data\lucene\
+www/data/lucene/
+www\data\cache\
+www/data/cache/
+library/Zend/
+library\Zend\
+setup/
+setup\
+www\log.txt
+www/log.txt
+www\index.php
+www/index.php
+application\configs\application.ini
+application/configs/application.ini

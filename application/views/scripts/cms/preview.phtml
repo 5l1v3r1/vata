@@ -1,0 +1,45 @@
+<div class="row news-list-row">
+	<div class="col-md-12 article-text">
+		<h1 class = "article-main"><?php echo $this->params["article"]["article_name"]?></h1>
+		<p class = "translate-row">
+			<?php echo $this->translate("Перекласти сторінку")?>
+		<div id="google_translate_element"></div><script type="text/javascript">
+			function googleTranslateElementInit() {
+				new google.translate.TranslateElement({pageLanguage: 'ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+			}
+		</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+		</p>
+		<img class = "img-rounded img-responsive" src = "/data/img/news/<?php echo $this->params["article"]["article_img"]?>" title = "<?php echo $value["article_name"]?>">
+		<br>
+		<?php echo $this->params["article"]["article_text"]?>
+		<hr>
+		<p><?php echo $this->translate("Додано:")?> <?php echo $this->params["article"]["article_created"]?></p>
+		<?php if(isset($this->params["article"]["article_updated"])):?>
+			<p><?php echo $this->translate("Оновлено:")?> <?php echo $this->params["article"]["article_updated"]?></p>
+		<?php endif;?>
+		<?php if(isset($this->params["article"]["article_source"]) && !empty($this->params["article"]["article_source"])):?>
+		<p><?php echo $this->translate("Джерело:")?>
+			<a href = "<?php echo $this->params["article"]["article_source"]?>"><?php echo parse_url($this->params["article"]["article_source"], PHP_URL_HOST)?></a>
+		</p>
+		<?php endif;?>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			var disqus_shortname = 'lostivancom'; // required: replace example with your forum shortname
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by
+	</div>
+</div>

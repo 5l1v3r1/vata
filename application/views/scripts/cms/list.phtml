@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-md-12">
+		<a href = "/cms/create" class = "btn btn-info" style = "margin-bottom: 20px;">Create</a>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered list-of-albums">
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Action</td>
+			</tr>
+			<?php foreach($this->params["approved"] as $value):?>
+				<tr>
+					<td><?php echo $value["id"]?></td>
+					<td><?php echo $value["article_name"]?></td>
+					<td>
+						<a target = "_blank" href = "/news/<?php echo $value["id"]?>"><i data-id = "<?php echo $value["id"]?>" class="fa fa-eye"></i></a>
+						<a href = "/cms/edit/<?php echo $value["id"]?>"><i class="fa fa-edit"></i></a>
+						<?php if($this->params["identity"]->role == "admin"):?>
+							<i data-id = "<?php echo $value["id"]?>" class="fa fa-trash-o drop-article"></i>
+						<?php endif;?>
+					</td>
+				</tr>
+			<?php endforeach;?>
+			<tr>
+				<td>***</td>
+				<td>***</td>
+				<td>***</td>
+			</tr>
+			<?php foreach($this->params["pending"] as $value):?>
+				<tr>
+					<td><?php echo $value["id"]?></td>
+					<td><?php echo $value["article_name"]?></td>
+					<td>
+						<a target = "_blank" href = "/news/<?php echo $value["id"]?>">
+							<i data-id = "<?php echo $value["id"]?>" class="fa fa-eye"></i>
+						</a>
+						<i data-id = "<?php echo $value["id"]?>" class="fa fa-plus approve-article"></i>
+						<a href = "/cms/edit/<?php echo $value["id"]?>"><i class="fa fa-edit"></i></a>
+					</td>
+				</tr>
+			<?php endforeach;?>
+		</table>
+	</div>
+</div>
+

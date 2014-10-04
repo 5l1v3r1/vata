@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered list-of-albums">
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Action</td>
+			</tr>
+			<?php foreach($this->params["users"] as $value):?>
+				<tr>
+					<td><?php echo $value["id"]?></td>
+					<td>
+						<a target = "_blank" href = "<?php echo $this->profile($value["social"])?><?php echo $value["facebook_id"]?>">
+							<?php echo "{$value["first_name"]} {$value["last_name"]}"?>
+						</a>
+					</td>
+					<td>
+						<i data-id = "<?php echo $value["id"]?>" class="fa fa-trash-o ban-user"></i>
+					</td>
+				</tr>
+			<?php endforeach;?>
+			<tr>
+				<td>***</td>
+				<td>***</td>
+				<td>***</td>
+			</tr>
+			<?php foreach($this->params["banned"] as $value):?>
+				<tr>
+					<td><?php echo $value["id"]?></td>
+					<td>
+						<a href = "<?php echo $this->profile($value["social"])?><?php echo $value["facebook_id"]?>">
+							<?php echo "{$value["first_name"]} {$value["last_name"]}"?><
+						</a>
+					</td>
+					<td>
+					</td>
+				</tr>
+			<?php endforeach;?>
+		</table>
+	</div>
+</div>
+

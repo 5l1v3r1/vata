@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-12">
+		<form role="form" action = "/cms/edit/<?php echo $this->params["article"]["id"]?>" method = "POST" enctype="multipart/form-data">
+			<div class="form-group">
+				<input type="text" name = "article_name" class="form-control" id="exampleInputName" placeholder="<?php echo $this->translate("Назва")?>" value = "<?php echo $this->params["article"]["article_name"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" name = "article_description" class="form-control" id="exampleInputName" placeholder="<?php echo $this->translate("Короткий опис")?>" value = "<?php echo $this->params["article"]["article_description"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" name = "article_source" class="form-control" id="exampleInputPassword1" placeholder="<?php echo $this->translate("Джерело")?>" value = "<?php echo $this->params["article"]["article_source"]?>">
+			</div>
+			<div class="form-group">
+				<select class="form-control" id="type" name = "type">
+					<option value = "link" <?php if($this->params["article"]["type"] == "mother") echo "selected";?>><?php echo $this->translate("Новини з інтернету")?></option>
+					<option value = "mother" <?php if($this->params["article"]["type"] == "mother") echo "selected";?>><?php echo $this->translate("Комітет солдатських метерів")?></option>
+					<option value = "news" <?php if($this->params["article"]["type"] == "news") echo "selected";?>><?php echo $this->translate("Новини сайту")?></option>
+					<option value = "ads" <?php if($this->params["article"]["type"] == "ads") echo "selected";?>><?php echo $this->translate("Реклама")?></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<?php echo $this->translate("Головне зображення статті")?><input type="file" id="photos" name = "photos">
+			</div>
+			<div class="form-group">
+				<textarea cols = "30" rows = "5" id ="TerrorDescription" name = "article_text" placeholder = "<?php echo $this->translate("Додаткова інформація")?>">
+					<?php echo $this->params["article"]["article_text"]?>
+				</textarea>
+			</div>
+			<button type="submit" class="btn btn-success"><?php echo $this->translate("Зберегти")?></button>
+		</form>
+	</div>
+</div>

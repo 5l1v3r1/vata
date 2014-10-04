@@ -1,0 +1,71 @@
+<?php $obl = new Application_Model_DbTable_Oblast();?>
+<!-- Modal -->
+<div class="modal fade" id="addRussian" tabindex="-1" role="dialog" aria-labelledby="addRussianLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel"><?php echo $this->translate("Додавання нового запису")?></h4>
+			</div>
+			<div class="modal-body">
+				<form role="form" method = "POST" action = "/album/create" enctype="multipart/form-data">
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorFirstName" placeholder="<?php echo $this->translate("Ім'я")?>" name = "first_name">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorLastName" placeholder="<?php echo $this->translate("Прізвище")?>" name = "last_name">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorFirstName" placeholder="<?php echo $this->translate("Дата народження")?>" name = "birthdate">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorVk" placeholder="<?php echo $this->translate("Сторінка в VK")?>" name = "vk">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorFb" placeholder="<?php echo $this->translate("Сторінка Facebook")?>" name = "fb">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorTwitter" placeholder="<?php echo $this->translate("Сторінка Twitter")?>" name = "tw">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorOk" placeholder="<?php echo $this->translate("Сторінка OK")?>" name = "ok">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="TerrorVideo" placeholder="<?php echo $this->translate("Відео")?>" name = "video">
+					</div>
+					<div class="form-group">
+						<select class="form-control" id="TerrorObl" name = "oblast">
+							<option value = ""><?php echo $this->translate("Область")?></option>
+							<?php foreach($obl->getItemsList() as $value):?>
+								<option value = "<?php echo $value["id"]?>"><?php echo $this->translate($value["oblast"])?></option>
+							<?php endforeach;?>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control" id="TerrorCity" name = "city" disabled>
+							<option value = ""><?php echo $this->translate("Місто")?></option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control" id="TerrorStatus" name = "type">
+							<option value = ""><?php echo $this->translate("Тип")?></option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control" id="TerrorStatus" name = "status">
+							<option value = ""><?php echo $this->translate("Статус")?></option>
+						</select>
+					</div>
+					<div class="form-group">
+						<textarea name = "description" cols = "30" rows = "5" id ="TerrorDescription" placeholder = "<?php echo $this->translate("Додаткова інформація")?>"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputFile"><?php echo $this->translate("Завантаження фото")?></label>
+						<input type="file" id="exampleInputFile" name = "photos[]" multiple>
+						</div>
+					<button type="submit" class="btn btn-success"><?php echo $this->translate("Додати")?></button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

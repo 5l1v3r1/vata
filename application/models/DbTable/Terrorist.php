@@ -1,0 +1,126 @@
+<?php
+
+class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abstract
+{
+
+	protected $_name = 'terrorist';
+
+	public function getFreshMeat(){
+
+		$data = $this   ->select()
+						->from($this->_name)
+						->where("checked = 1")
+						->where("create_date > ?", date('Y-m-d 00:00:00'));
+
+		return $data->query()->fetchAll();
+
+	}
+
+    public function getByIdAndStatus($id, $status = 1){
+
+        $data = $this   ->select()
+                        ->from($this->_name)
+                        ->where("checked = ?", $status)
+                        ->where("id = ?", $id);
+
+        return $this->memcachePdo($data, 0, 1);
+
+    }
+
+	public function getTerrorists($checked, $start = 0, $step = 10, $cache = 1, $type = null, $status = null, $more = null)
+	{
+
+		/**
+		 * getUserAlbums
+		 *
+		 * Get user albums list or one album
+		 *
+		 * @param $email (string) user mail
+		 * @param $social (string) type of social network
+		 * @return (array) user data
+		 */
+
+		if(isset($type)){
+			if($type == 1)$type = "AND type = 'Найманці з Росії'";
+			if($type == 2)$type = "AND type = 'Російські військові'";
+		}else $type = "";
+
+		if(isset($status)){
+			if($status == 1)$status = "AND status = 'Вбитий'";
+			if($status == 2)$status = "AND status = 'Полонений'";
+			if($status == 3)$status = "AND status = 'Помічений в Україні'";
+			if($status == 4)$status = "AND status = 'Можливо був в Україні'";
+		}else $status = "";
+
+		if(isset($more)){
+			if($more == 1)$more = "AND video != ''";
+			if($more == 2)$more = "AND (description like '%нацис%' OR description like '%фашис%')";
+		}else $more = "";
+
+		$data = "SELECT id, first_name, last_name, description FROM terrorist  WHERE checked = {$checked} {$type} {$status} {$more} ORDER BY terrorist.id DESC LIMIT {$start}, {$step};";
+		return $this->memcachePdo($data, 1, $cache);
+
+	}
+
+	public function getForSocialPosting($social){
+
+		$data = "SELECT * FROM terrorist  WHERE checked = 1 and {$social} = 0 limit 0, 5";
+		return $this->memcachePdo($data, 1, 0);
+
+	}
+
+	public function getSameName($name){
+
+		$data = $this   ->select()
+						->from($this->_name)
+						->where("name = ?", $name);
+
+		return $this->memcachePdo($data, 1, 1);
+
+	}
+
+	public function findTerrorists($in)
+	{
+
+		$in = implode(",", $in);
+		$data = "SELECT
+	                    terrorist.*,
+	                    images.img_name
+	                FROM
+	                    images
+	                    INNER JOIN terrorist
+	                        ON (images.album_id = terrorist.id)
+	                WHERE checked = 1
+	                AND terrorist.id IN ({$in})
+	                GROUP BY terrorist.id
+	                ORDER BY terrorist.name ASC;";
+
+		return $this->memcachePdo($data, 1, 1);
+
+	}
+
+	public function countTerrors($type = null, $status = null, $more = null){
+
+		if(isset($type)){
+			if($type == 1)$type = "AND type = 'Найманці з Росії'";
+			if($type == 2)$type = "AND type = 'Російські військові'";
+		}else $type = "";
+
+		if(isset($status)){
+			if($status == 1)$status = "AND status = 'Вбитий'";
+			if($status == 2)$status = "AND status = 'Полонений'";
+			if($status == 3)$status = "AND status = 'Помічений в Україні'";
+			if($status == 4)$status = "AND status = 'Можливо був в Україні'";
+		}else $status = "";
+
+		if(isset($more)){
+			if($more == 1)$more = "AND video != ''";
+			if($more == 2)$more = "AND (description like '%нацис%' OR description like '%фашис%')";
+		}else $more = "";
+
+		$data = "SELECT COUNT(*) AS num FROM terrorist WHERE checked = 1 {$type} {$status} {$more}";
+		return $this->memcachePdo($data, 0, 1);
+	}
+
+
+}

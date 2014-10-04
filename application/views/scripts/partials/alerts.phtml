@@ -1,0 +1,16 @@
+<?php if(isset($_GET["mailsend"]) || isset($_GET["infosend"]) || isset($_GET["subscribe"]) || isset($_GET["unsubscribe"]) || isset($_GET["editsend"])) :?>
+	<div class="alert alert-success" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">X</span></button>
+		<?php if(isset($_GET["mailsend"])):?>
+			<strong><?php echo $this->translate("Дякуємо")?> !</strong> <?php echo $this->translate("Ми отримали Вашого листа")?>.
+		<?php elseif(isset($_GET["infosend"])):?>
+			<strong><?php echo $this->translate("Дякуємо")?> !</strong> <?php echo $this->translate("Дані будуть опубліковані після модерації")?>.
+		<?php elseif(isset($_GET["subscribe"])):?>
+			<strong><?php echo $this->translate("Дякуємо")?> !</strong> <?php echo $this->translate("Ви підписані на наші новини")?>.
+		<?php elseif(isset($_GET["unsubscribe"])):?>
+			<strong></strong> <?php echo $this->translate("Ви відписалися від наших новин")?>.
+		<?php elseif(isset($_GET["editsend"])):?>
+			<strong></strong> <?php echo $this->translate("Ваші пропозиції отримано і чекають на перевірку адміністратора")?>.
+		<?php endif;?>
+	</div>
+<?php endif;?>

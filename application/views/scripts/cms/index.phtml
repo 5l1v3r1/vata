@@ -1,0 +1,33 @@
+<div class="row news-list-row">
+	<div class="col-md-12">
+		<h1 class = "news-header">
+			<?php echo $this->translate("Новини на тему російського вторгнення в Україну")?>
+		</h1>
+		<p class = "translate-row">
+			<?php echo $this->translate("Перекласти сторінку")?>
+		<div id="google_translate_element"></div><script type="text/javascript">
+			function googleTranslateElementInit() {
+				new google.translate.TranslateElement({pageLanguage: 'ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+			}
+		</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>		</p>
+	</div>
+</div>
+
+<?php $c = 0;?>
+<?php foreach($this->params["news"] as $value):?>
+	<?php $url = "/news/{$value["article_url"]}.html" ?>
+	<?php if(!($c % 3)):?><div class="row news-list-row"><?php endif;?>
+	<div class="col-md-4 portfolio-item news-item">
+		<div class = "terror-holder">
+			<a class = "ivan-holder" href="<?php echo $url?>" title = "<?php echo $value["article_name"]?>">
+				<img class = "img-rounded img-responsive" src = "/data/img/news/s_<?php echo $value["article_img"]?>" title = "<?php echo $value["article_name"]?>">
+			</a>
+			<h3 class = "news-list-header">
+				<a href="<?php echo $url?>"><?php echo $value["article_name"]?></a>
+			</h3>
+			<p class = "terror_info news-list-info"><?php echo $value["article_description"]?>.</p>
+		</div>
+	</div>
+	<?php $c++;?>
+	<?php if(!($c % 3)):?></div><?php endif;?>
+<?php endforeach;?>

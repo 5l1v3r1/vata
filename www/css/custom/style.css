@@ -1,0 +1,29 @@
+.portfolio-item .ivan-holder{display: block;height: 200px;overflow: hidden;}
+.login-button{width:50px;height:50px;}
+.list-of-albums i, .navbar-nav a, .propose-update{cursor:pointer;}
+.portfolio-item .terror_info{height:50px;overflow: hidden}
+footer cite{padding:5px;display:block;font-size: 10px;color:grey;}
+.page-header{margin:5px 0;font-size: 28px;}
+.container .navbar-nav .followUs{color: white;font-weight: bold;}
+.sorting-form{margin:10px 0}
+.img-holder{max-width: 250px;overflow: hidden;max-height:250px;float:left;padding-right:10px;padding-bottom: 10px;}
+.sort-form{float:left;}
+.or-span{font-weight: bold;display: inline-block;margin-left:5px;}
+.terror-holder{background-color: white;border-radius: 5px;padding: 5px;}
+body{background-color: #F1F1F1}
+.ivan-holder .img-thumbnail{border:none}
+.terrorist-name{font-size:19px;font-weight: bold;padding:5px 0 5px 5px;margin:0}
+.webmoney-form{float:left;}
+.photos-header{margin-top:0}
+.follow-form{padding:0}
+.news-list-header{padding:0;margin:5px;}
+.news-item .news-list-info{height: auto;  margin: 5px;}
+.article-text{background-color: white;border-radius: 5px;}
+.news-item .terror-holder{max-height: 400px;overflow: hidden;}
+.news-item .ivan-holder{padding:5px;}
+.news-header, .article-main{padding:0;margin:10px 0 3px 0}
+.propose-update{position: relative;  top: 3px;color:#357ebd}
+.propose-delete{color:#d43f3a}
+.cities-list{font-size: 14px;  list-style: none outside none;  margin: 0;  padding: 0;}
+.panel-body{padding-bottom: 8px;  padding-top: 8px;}
+.picture-holder{display: inline-block;  max-height: 200px; overflow: hidden;}
