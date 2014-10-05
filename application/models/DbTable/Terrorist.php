@@ -99,26 +99,16 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 
 	}
 
-	public function countTerrors($type = null, $status = null, $more = null){
+	public function vataInDaClub($city, $start, $step){
 
-		if(isset($type)){
-			if($type == 1)$type = "AND type = 'Найманці з Росії'";
-			if($type == 2)$type = "AND type = 'Російські військові'";
-		}else $type = "";
+		$data = "SELECT terrorist.* FROM terrorist JOIN city WHERE city.city = '{$city}' AND terrorist.city = city.id AND checked = 1 ORDER BY terrorist.id DESC LIMIT {$start}, {$step};";
+		return $this->memcachePdo($data, 1, 1);
 
-		if(isset($status)){
-			if($status == 1)$status = "AND status = 'Вбитий'";
-			if($status == 2)$status = "AND status = 'Полонений'";
-			if($status == 3)$status = "AND status = 'Помічений в Україні'";
-			if($status == 4)$status = "AND status = 'Можливо був в Україні'";
-		}else $status = "";
+	}
 
-		if(isset($more)){
-			if($more == 1)$more = "AND video != ''";
-			if($more == 2)$more = "AND (description like '%нацис%' OR description like '%фашис%')";
-		}else $more = "";
+	public function countTerrors($city = null){
 
-		$data = "SELECT COUNT(*) AS num FROM terrorist WHERE checked = 1 {$type} {$status} {$more}";
+		$data = "SELECT COUNT(*) as num FROM terrorist JOIN city WHERE city.city = '{$city}' AND checked = 1 AND terrorist.city = city.id";
 		return $this->memcachePdo($data, 0, 1);
 	}
 

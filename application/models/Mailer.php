@@ -84,4 +84,36 @@ class Application_Model_Mailer{
 
 	}
 
+	public function subscribeForNews($params){
+
+		$identity = Zend_Auth::getInstance()->getStorage()->read();
+		$notifyDb    = new Application_Model_DbTable_Notify();
+		$validator = new Zend_Validate_EmailAddress();
+		$subscribeDb = new Application_Model_DbTable_Subscribe();
+
+		if(isset($params["subscribe"])){
+			if($validator->isValid($params["subscribe"]))$subscribeDb->createItem(array("email" => $params["subscribe"], "unsubscribe" => md5($params["subscribe"])));
+		}
+
+		$vars = array(
+
+			"email" => $params["email"],
+			"name" => $params["name"],
+			"theme" => $params["theme"],
+			"text" => $params["description"],
+
+		);
+
+		$arr = array(
+
+			"email" => "vataclub@gmail.com",
+			"vars" => json_encode($vars),
+			"action" => "contact"
+
+		);
+
+		if(isset($params["description"]) || isset($params["email"]) && isset($identity->id))$notifyDb->createItem($arr);
+
+	}
+
 }
