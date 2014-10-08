@@ -18,12 +18,10 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 
     public function getByIdAndStatus($id, $status = 1){
 
-        $data = $this   ->select()
-                        ->from($this->_name)
-                        ->where("checked = ?", $status)
-                        ->where("id = ?", $id);
+	    $id = (int)$id;
+	    $data = "SELECT terrorist.*, oblast.oblast AS oblname, city.city AS cityname FROM terrorist JOIN oblast JOIN city WHERE terrorist.oblast = oblast.id AND terrorist.city = city.id AND terrorist.id = {$id} AND terrorist.checked = {$status}";
 
-        return $this->memcachePdo($data, 0, 1);
+	    return $this->memcachePdo($data, 0, 1);
 
     }
 

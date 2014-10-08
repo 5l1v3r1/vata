@@ -107,14 +107,8 @@ header('Expires: '.gmdate(DATE_RFC1123,time()+60*60*24));
 						<span class="caret"></span>
 					</button >
 					<ul class="dropdown-menu" role="menu" >
-						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "en") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "en" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-en" alt="English" /> English</a></li><?php endif;?>
 						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "ru") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "ru" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-ru" alt="Русский" /> Русский</a></li><?php endif;?>
 						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "ua") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "ua" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-ua" alt="Українська" /> Українська</a></li><?php endif;?>
-						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "pl") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "pl" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-pl" alt="Polskie" /> Polskie</a></li><?php endif;?>
-						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "lv") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "lv" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-lv" alt="Latviešu" /> Latviešu</a></li><?php endif;?>
-						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "lt") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "lt" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-lt" alt="Latviešu" /> Lithuanian </a></li><?php endif;?>
-						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "ge") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "ge" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-ge" alt="Deutsch" /> Deutsch</a></li><?php endif;?>
-						<?php if((isset($_COOKIE["language"]) && $_COOKIE["language"] != "it") || !isset($_COOKIE["language"])):?><li><a class = "lang-select" href="#" data-lang = "it" data-href = "<?php echo $_SERVER['REQUEST_URI']?>"><img src="/data/img/design/1px.png" class="flag flag-it" alt="Italiano" /> Italiano</a></li><?php endif;?>
 					</ul>
 				</li>
 

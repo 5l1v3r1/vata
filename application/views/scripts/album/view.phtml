@@ -1,10 +1,14 @@
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-lg-7">
 		<h1 class="page-header">
 			<?php $targetUpdate = isset($this->params["identity"]->id) ? "myEdit" : "myModal"; ?>
 			<?php $targetDelete = isset($this->params["identity"]->id) ? "myDelete" : "myModal"; ?>
 			<?php echo $this->translate("")?><?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>
+			<i class="fa fa-edit propose-update" data-toggle="modal" data-target="#<?php echo $targetUpdate;?>"></i>
+			<i class="fa fa-trash-o propose-delete" data-toggle="modal" data-target="#<?php echo $targetDelete;?>"></i>
 		</h1>
+	</div>
+	<div class="col-lg-5">
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<div class="addthis_sharing_toolbox"></div>
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -24,12 +28,12 @@
 					<td><?php echo $this->params["terrorist"]["birthdate"]?></td>
 				</tr>
 				<tr>
-					<td><?php echo $this->translate("Місто");?></td>
-					<td><?php echo $this->params["terrorist"]["city"]?></td>
+					<td><?php echo $this->translate("Область");?></td>
+					<td><?php echo $this->params["terrorist"]["oblname"]?></td>
 				</tr>
 				<tr>
-					<td><?php echo $this->translate("Військова частина")?></td>
-					<td><?php echo $this->params["terrorist"]["army"]?></td>
+					<td><?php echo $this->translate("Місто");?></td>
+					<td><?php echo $this->params["terrorist"]["cityname"]?></td>
 				</tr>
 				<tr>
 					<td>Vkontakte</td>
@@ -191,9 +195,6 @@
 								<input value = "<?php echo $this->params["terrorist"]["city"]?>"  type="text" class="form-control" id="TerrorCity" placeholder="<?php echo $this->translate("Місто")?>" name = "city">
 							</div>
 							<div class="form-group">
-								<input value = "<?php echo $this->params["terrorist"]["army"]?>"  type="text" class="form-control" id="TerrorArmyNum" placeholder="<?php echo $this->translate("Військова частина")?>" name = "army">
-							</div>
-							<div class="form-group">
 								<input value = "<?php echo $this->params["terrorist"]["vk"]?>"  type="text" class="form-control" id="TerrorVk" placeholder="<?php echo $this->translate("Сторінка в VK")?>" name = "vk">
 							</div>
 							<div class="form-group">
@@ -235,24 +236,6 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-lg-12">
-		<div id="disqus_thread"></div>
-		<script type="text/javascript">
-			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-			var disqus_shortname = 'vataclub'; // required: replace example with your forum shortname
-
-			/* * * DON'T EDIT BELOW THIS LINE * * */
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		<a href="http://disqus.com" class="dsq-brlink">comments powered by
-	</div>
-</div>
 
 
 
