@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "/www/vata.club/webstat"
+AuthUserFile /var/www/ivan/data/etc/1326192.passwd
+DirectoryIndex index.html
+<Limit GET POST>
+	require valid-user
+</Limit>
