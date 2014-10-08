@@ -83,10 +83,7 @@
 	</div>
 	<div class="col-lg-5">
 		<?php if(isset($this->params["images"][0]["img_name"])):?>
-			<h4 class = "photos-header">
-				<?php echo $this->translate("Фотографії")?>
-			</h4>
-
+			
 			<?php if(isset($this->params["closed"])):?>
 				<p style = "color:red"><?php echo $this->translate("Для перегляду фото 18+ необхідна авторизація")?></p>
 			<?php endif;?>
