@@ -25,7 +25,7 @@ class AjaxController extends Zend_Controller_Action
 
 		if(isset($post["language"])){
 
-			$url = preg_replace("/ua|ru|en|ge|it|lv|pl|lt/", $post["language"], $post["page"]);
+			$url = preg_replace("/ua|ru/", $post["language"], $post["page"]);
 			setcookie("language",$post["language"],time()+31556926 ,'/');
 			$this->view->link = $url;
 
@@ -64,7 +64,7 @@ class AjaxController extends Zend_Controller_Action
 
 		if (isset($post["getCityByObl"])) {
 
-			$option = "<option value = ''>{$this->lang->translate("Область")}</option>";
+			$option = "<option value = ''>{$this->lang->translate("Місто")}</option>";
 			foreach($cityDb->getByOblId($post["getCityByObl"]) as $value){
 				$option.="<option value = '{$value["id"]}'>{$value["city"]}</option>";
 			}

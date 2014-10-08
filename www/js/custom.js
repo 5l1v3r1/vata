@@ -242,7 +242,7 @@ $(document).ready(function () {
 	$("#TerrorObl").change(function(){
 
 		var obl = $(this).val();
-		//$("#TerrorCity").attr("disabled", "disabled");
+		$("#TerrorCity").attr("disabled", "disabled");
 		$.ajax({
 
 			url: "/ajax/user/",
@@ -253,8 +253,8 @@ $(document).ready(function () {
 
 			},success: function(response){
 
-				$("#TerrorCity").append(response.city);
-				//$("#TerrorCity").removeAttr("disabled");
+				$("#TerrorCity").html(response.city);
+				$("#TerrorCity").removeAttr("disabled");
 
 			}
 
