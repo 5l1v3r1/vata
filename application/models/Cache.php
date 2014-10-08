@@ -15,7 +15,7 @@ class Application_Model_Cache
 		$memcache->connect('localhost', 11211) or die ("Could not connect");
 		foreach($this->getKeys(1) as $key => $value){
 
-			if(preg_match("#ivan#", $value))$memcache->delete($value);
+			if(preg_match("#vata#", $value))$memcache->delete($value);
 
 		}
 
@@ -45,7 +45,7 @@ class Application_Model_Cache
 					}
 
 					foreach ($dump as $key => $value) {
-						if(preg_match("#ivan#", $key))$keysFound[] = $key;
+						if(preg_match("#vata#", $key))$keysFound[] = $key;
 
 						if (count($keysFound) == 10000) {
 							return $keysFound;
