@@ -27,3 +27,4 @@ body{background-color: #F1F1F1}
 .cities-list{font-size: 14px;  list-style: none outside none;  margin: 0;  padding: 0;}
 .panel-body{padding-bottom: 8px;  padding-top: 8px;}
 .picture-holder{display: inline-block;  max-height: 200px; overflow: hidden;}
+.cropIt{margin:20px 0 0 0;}

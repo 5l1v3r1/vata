@@ -237,12 +237,12 @@ $(document).ready(function () {
 
 		return false;
 
-	})
+	});
 
 	$("#TerrorObl").change(function(){
 
 		var obl = $(this).val();
-		$("#TerrorCity").attr("disabled", "disabled");
+		//$("#TerrorCity").attr("disabled", "disabled");
 		$.ajax({
 
 			url: "/ajax/user/",
@@ -254,13 +254,70 @@ $(document).ready(function () {
 			},success: function(response){
 
 				$("#TerrorCity").append(response.city);
-				$("#TerrorCity").removeAttr("disabled", "disabled");
+				//$("#TerrorCity").removeAttr("disabled");
 
 			}
 
 		});
 
 	});
+
+	$(".is_main").click(function(){
+
+		var img = $(this).val();
+
+		$.ajax({
+
+			url: "/ajax/user/",
+			type:"post",
+			data:{
+
+				"mainImg" : img
+
+			},success: function(response){
+
+				$("#cropSrc").attr("src", response.img);
+				$("#cropImg").modal("toggle");
+
+			}
+
+		});
+
+	});
+
+	$('#cropImg').on('shown.bs.modal', function (e) {
+		$('img#cropSrc').imgAreaSelect({x1: 0, y1: 0, x2: 270, y2: 200});
+	})
+	$('#cropImg').on('hide.bs.modal', function (e) {
+		$('img#cropSrc').imgAreaSelect({hide:true})
+	})
+
+	$(".cropIt").click(function(){
+
+		$.ajax({
+
+			url: "/ajax/user/",
+			type:"post",
+			data:{
+
+				"imageCrop" : $("#cropSrc").attr("src"),
+				"x1" : $('input[name="x1"]').val(),
+				"y1" : $('input[name="y1"]').val(),
+				"x2" : $('input[name="x2"]').val(),
+				"y2" : $('input[name="y2"]').val()
+
+			},success: function(response){
+
+				$('img#cropSrc').imgAreaSelect({hide:true})
+				$("#cropImg").modal("toggle");
+
+			}
+
+		});
+
+		return false;
+
+	})
 
 });
 

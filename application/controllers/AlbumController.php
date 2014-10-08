@@ -29,45 +29,45 @@ class AlbumController extends Zend_Controller_Action
 			$params["create_date"] = date('Y-m-d H:i:s');
 			$params["checked"] = ($identity->role == "admin") ? 1 : 0;
 
-			for($i = 0; $i< 10; $i++) {
-				$id = $terroristDb->createItem($params);
 
-				$pic["owner_id"] = $identity->id;
-				$pic["album_id"] = $id;
+			$id = $terroristDb->createItem($params);
 
-				$dir = './data/img/vata/';
+			$pic["owner_id"] = $identity->id;
+			$pic["album_id"] = $id;
 
-				$images = $_FILES;
+			$dir = './data/img/vata/';
 
-				$c = 1;
-				foreach ($images["photos"]["name"] as $key => $value) {
+			$images = $_FILES;
 
-					$pic["img_name"] = basename($images["photos"]["name"][$key]);
-					$tmp = $images["photos"]["tmp_name"][$key];
-					$exstension = end(explode('.', $pic["img_name"]));
+			$c = 1;
+			foreach ($images["photos"]["name"] as $key => $value) {
 
-					if (in_array($exstension, array("gif", "jpeg", "jpg", "png"))) {
+				$pic["img_name"] = basename($images["photos"]["name"][$key]);
+				$tmp = $images["photos"]["tmp_name"][$key];
+				$exstension = end(explode('.', $pic["img_name"]));
 
-						move_uploaded_file($tmp, $dir . $pic["img_name"]);
+				if (in_array($exstension, array("gif", "jpeg", "jpg", "png"))) {
 
-						$new = $userModel->transliterate(trim("{$params["last_name"]}_{$params["first_name"]}"));
-						$new = preg_replace("#[^A-Za-z_]#", "", $new);
-						$new = "{$new}_{$c}_.{$exstension}";
-						rename($dir . $pic["img_name"], $dir . $new);
-						$pic["img_name"] = $new;
-						$watermark->addWatermark($dir . $new, "LostIvan.com");
-						$resizerClass->load($dir . $new)->fit_to_width(400)->save("{$dir}small_{$new}");
-						$watermark->addWatermark("{$dir}small_{$new}", "LostIvan.com");
-						$amazonModel->goToCloud($new);
-						$amazonModel->goToCloud("small_{$new}");
-						$imagesDb->createItem($pic);
+					move_uploaded_file($tmp, $dir . $pic["img_name"]);
 
-					}
-
-					$c++;
+					$new = $userModel->transliterate(trim("{$params["last_name"]}_{$params["first_name"]}"));
+					$new = preg_replace("#[^A-Za-z_]#", "", $new);
+					$new = "{$new}_{$c}_.{$exstension}";
+					rename($dir . $pic["img_name"], $dir . $new);
+					$pic["img_name"] = $new;
+					#$watermark->addWatermark($dir . $new, "LostIvan.com");
+					$resizerClass->load($dir . $new)->best_fit(400, 400)->save("{$dir}small_{$new}");
+					#$watermark->addWatermark("{$dir}small_{$new}", "Vata.Club");
+					$amazonModel->goToCloud($new);
+					$amazonModel->goToCloud("small_{$new}");
+					$imagesDb->createItem($pic);
 
 				}
+
+				$c++;
+
 			}
+
 			if($identity->role != "admin"){
 
 
@@ -168,17 +168,17 @@ class AlbumController extends Zend_Controller_Action
 				if(in_array($exstension, array("gif", "jpeg", "jpg", "png"))){
 
 					move_uploaded_file($tmp, $dir . $pic["img_name"]);
-					$amazonModel->goToCloud($pic["img_name"]);
+
 
 					$new = $randomModel->transliterate(trim("{$params["last_name"]}_{$params["first_name"]}"));
 					$new = preg_replace("#[^A-Za-z_]#", "", $new);
 					$new = "{$new}_{$c}_.{$exstension}";
 					rename($dir.$pic["img_name"], $dir.$new);
-					$pic["img_name"] = $new;
 
-					$watermark->addWatermark($dir . $new, "LostIvan.com");
-					$resizerClass->load($dir . $new)->fit_to_width(400)->save("{$dir}small_{$new}");
-					$watermark->addWatermark("{$dir}small_{$new}", "LostIvan.com");
+					$pic["img_name"] = $new;
+					#$watermark->addWatermark($dir . $new, "Vata.Club");
+					$resizerClass->load($dir . $new)->best_fit(400, 400)->save("{$dir}small_{$new}");
+					#$watermark->addWatermark("{$dir}small_{$new}", "Vata.Club");
 					$amazonModel->goToCloud($new);
 					$amazonModel->goToCloud("small_{$new}");
 
@@ -196,8 +196,9 @@ class AlbumController extends Zend_Controller_Action
 
 		$view["terrorist"] = $terror;
 		$view["publisher"] = $usersDb->getItem($terror["owner_id"]);
-		$view["images"] = $imagesDb->getAlbumImages($id, 1, array("img_name", "id"), 0);
+		$view["images"] = $imagesDb->getAlbumImages($id, 1, array("img_name", "id", "is_main"), 0);
 		$view["fancybox"] = 1;
+		$view["crop"] = 1;
 		$view["ckeditor"] = 1;
 
 		$this->view->params = $view;

@@ -36,10 +36,30 @@ class AjaxController extends Zend_Controller_Action
 	{
 		$usersDb = new Application_Model_DbTable_Users();
 		$cityDb = new Application_Model_DbTable_City();
+		$imagesDb = new Application_Model_DbTable_Images();
+		$random = new My_Resizer();
 		$this->lang = Zend_Registry::get('Zend_Translate');
 
 		$post = $this->getRequest()->getParams();
 		if (isset($post["banUser"])) $usersDb->updateItem(array("banned" => 1), $post["banUser"]);
+		if (isset($post["mainImg"])) {
+
+			$imagesDb->updateItem(array("is_main" => 1), $post["mainImg"]);
+
+			$img = $imagesDb->getItem($post["mainImg"]);
+			$this->view->img = "/data/img/vata/small_{$img["img_name"]}";
+
+		}
+
+		if (isset($post["imageCrop"])) {
+
+			$name = basename($post["imageCrop"]);
+			$dir = "./data/img/vata/";
+			unlink("{$dir}crop_small_{$name}");
+			$random->load("{$dir}{$name}")->crop($post["x1"], $post["y1"], $post["x2"], $post["y2"])->save("{$dir}crop_{$name}");
+
+		}
+
 		if (isset($post["getCityByObl"])) {
 
 			$option = "<option value = ''>{$this->lang->translate("Область")}</option>";

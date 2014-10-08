@@ -201,6 +201,26 @@ header('Expires: '.gmdate(DATE_RFC1123,time()+60*60*24));
 <?php endif;?>
 
 
+<?php if(isset($this->params["crop"])):?>
+	<script type="text/javascript" src="/js/libs/jquery/jquery.imgareaselect.pack.js"></script>
+	<link href="/css/crop/imgareaselect-animated.css" rel="stylesheet">
+	<script type = "text/javascript">
+		$(document).ready(function () {
+			$('img#cropSrc').imgAreaSelect({
+				maxWidth: 270,
+				maxHeight: 200,
+				onSelectEnd: function (img, selection) {
+					$('input[name="x1"]').val(selection.x1);
+					$('input[name="y1"]').val(selection.y1);
+					$('input[name="x2"]').val(selection.x2);
+					$('input[name="y2"]').val(selection.y2);
+				}
+			})
+		});
+	</script>
+<?php endif;?>
+
+
 <script src="/js/custom.js"></script>
 
 

@@ -1,22 +1,24 @@
+<?php $obl = new Application_Model_DbTable_Oblast();?>
+<?php $imgFolder = (APPLICATION_ENV == "testing") ? "/data/img/vata/" : "http://lostivan200.s3.amazonaws.com/"?>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header"><?php echo $this->params["terrorist"]["name"]?></h1>
+		<h1 class="page-header"><?php echo  "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?></h1>
 		<p>Додав:
 			<a target = "_blank" href = "<?php echo $this->profile($this->params["publisher"]["social"])?><?php echo $this->params["publisher"]["facebook_id"]?>"><?php echo $this->params["publisher"]["first_name"]?> <?php echo $this->params["publisher"]["last_name"]?></a>
 		</p>
 		<form role="form" method = "POST" action = "/album/edit/<?php echo $this->params["terrorist"]["id"]?>" enctype="multipart/form-data">
 			<input type = "hidden" name = "owner_id" value = "<?php echo $this->params["terrorist"]["owner_id"]?>">
 			<div class="form-group">
-				<input type="text" class="form-control" id="TerrorFirstName" placeholder="Імя" name = "name" value = "<?php echo $this->params["terrorist"]["name"]?>">
+				<input type="text" class="form-control" id="TerrorFirstName" placeholder="<?php echo $this->translate("Ім'я")?>" name = "first_name" value = "<?php echo $this->params["terrorist"]["first_name"]?>">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="TerrorLastName" placeholder="<?php echo $this->translate("Прізвище")?>" name = "last_name" value = "<?php echo $this->params["terrorist"]["last_name"]?>">
 			</div>
 			<div class="form-group">
 				<input type="text" class="form-control" id="TerrorFirstName" placeholder="Рік народження" name = "birthdate" value = "<?php echo $this->params["terrorist"]["birthdate"]?>">
 			</div>
 			<div class="form-group">
 				<input type="text" class="form-control" id="TerrorCity" placeholder="Місто" name = "city" value = "<?php echo $this->params["terrorist"]["city"]?>">
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" id="TerrorArmyNum" placeholder="Військова частина" name = "army" value = "<?php echo $this->params["terrorist"]["army"]?>">
 			</div>
 			<div class="form-group">
 				<input type="text" class="form-control" id="TerrorVk" placeholder="Сторінка в VK" name = "vk" value = "<?php echo $this->params["terrorist"]["vk"]?>">
@@ -29,6 +31,19 @@
 			</div>
 			<div class="form-group">
 				<input type="text" class="form-control" id="TerrorVidoe" placeholder="Відео" name = "video" value = "<?php echo $this->params["terrorist"]["video"]?>">
+			</div>
+			<div class="form-group">
+				<select class="form-control" id="TerrorObl" name = "oblast">
+					<option value = ""><?php echo $this->translate("Область")?></option>
+					<?php foreach($obl->getItemsList() as $value):?>
+						<option value = "<?php echo $value["id"]?>"><?php echo $this->translate($value["oblast"])?></option>
+					<?php endforeach;?>
+				</select>
+			</div>
+			<div class="form-group">
+				<select class="form-control" id="TerrorCity" name = "city">
+					<option value = ""><?php echo $this->translate("Місто")?></option>
+				</select>
 			</div>
 			<div class="form-group">
 				<select class="form-control" id="TerrorStatus" name = "type">
@@ -53,21 +68,54 @@
 				<label for="exampleInputFile">Завантаження фото</label>
 				<input type="file" id="exampleInputFile" name = "photos[]" multiple>
 			</div>
-			<?php if(isset($this->params["images"][0]["img_name"])):?>
-			<div class="form-group">
-				<?php foreach($this->params["images"] as $key => $value):?>
-					<div class = "img-holder">
-						<i data-id = "<?php echo $value["id"]?>" class="fa fa-trash-o drop-terror-img"></i>
-						<a class="fancybox" href="http://lostivan200.s3.amazonaws.com/<?php echo $value["img_name"]?>" data-fancybox-group="gallery">
-							<img class="grouped_elements img-thumbnail" rel="group1" src="http://lostivan200.s3.amazonaws.com/<?php echo $value["img_name"]?>">
-						</a>
-					</div>
-				<?php endforeach;?>
-			</div>
-			<?php endif;?>
 			<div class = "clearfix"></div>
 			<button type="submit" class="btn btn-success">Зберегти</button>
 		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h3>Фото</h3>
+	</div>
+</div>
+<?php $r = 0;?>
+<?php foreach($this->params["images"] as $key => $value):?>
+
+	<?php if(!($r % 4)):?><div class="row"><?php endif;?>
+
+		<div class="col-sm-3 col-lg-3 col-md-3">
+			<div class = "img-holder">
+				<i data-id = "<?php echo $value["id"]?>" class="fa fa-trash-o drop-terror-img"></i>
+				<input type = "radio" name = "is_main" value = "<?php echo $value["id"]?>" class = "is_main" <?php if($value["is_main"] == 1) echo "checked"?>>
+				<a class="fancybox" href="<?php echo $imgFolder.$value["img_name"]?>" data-fancybox-group="gallery">
+					<img class="grouped_elements img-thumbnail" rel="group1" src="<?php echo $imgFolder.$value["img_name"]?>">
+				</a>
+			</div>
+		</div>
+	<?php $r++?>
+
+	<?php if(!($r % 4)):?></div><?php endif;?>
+
+<?php endforeach;?>
+
+<div class="modal fade" id="cropImg" tabindex="-1" role="dialog" aria-labelledby="cropImgLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="cropImgLabel"><?php echo $this->translate("Обробка зображення")?></h4>
+			</div>
+			<div class="modal-body text-center">
+				<div><img id = "cropSrc" src = ""></div>
+				<form action="crop.php" method="post">
+					<input type="hidden" name="x1" value="" />
+					<input type="hidden" name="y1" value="" />
+					<input type="hidden" name="x2" value="" />
+					<input type="hidden" name="y2" value="" />
+					<button class = "btn btn-success cropIt">CROP</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 
