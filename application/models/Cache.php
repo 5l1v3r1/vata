@@ -11,17 +11,21 @@ class Application_Model_Cache
 
 	public function clearCache(){
 
+		$config = Zend_Registry::get('config');
+
 		$memcache = new Memcache;
 		$memcache->connect('localhost', 11211) or die ("Could not connect");
 		foreach($this->getKeys(1) as $key => $value){
 
-			if(preg_match("#vata#", $value))$memcache->delete($value);
+			if(preg_match("#{$config->cache->frontend->options->cache_id_prefix}#", $value))$memcache->delete($value);
 
 		}
 
 	}
 
 	public function getKeys($return = 0){
+
+		$config = Zend_Registry::get('config');
 
 		$memcache = new Memcache;
 		$memcache->connect('localhost', 11211) or die ("Could not connect");
@@ -45,7 +49,7 @@ class Application_Model_Cache
 					}
 
 					foreach ($dump as $key => $value) {
-						if(preg_match("#vata#", $key))$keysFound[] = $key;
+						if(preg_match("#{{$config->cache->frontend->options->cache_id_prefix}}#", $key))$keysFound[] = $key;
 
 						if (count($keysFound) == 10000) {
 							return $keysFound;
