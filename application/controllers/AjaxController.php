@@ -56,7 +56,7 @@ class AjaxController extends Zend_Controller_Action
 
 			$name = basename($post["imageCrop"]);
 			$dir = "./data/img/vata/";
-			unlink("{$dir}crop_small_{$name}");
+			unlink("{$dir}crop_{$name}");
 			$random->load("{$dir}{$name}")->crop($post["x1"], $post["y1"], $post["x2"], $post["y2"])->save("{$dir}crop_{$name}");
 			$amazonModel->goToCloud("crop_small_{$name}");
 
