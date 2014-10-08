@@ -47,7 +47,7 @@ class Application_Model_Cache
 					foreach ($dump as $key => $value) {
 						if(preg_match("#vata#", $key))$keysFound[] = $key;
 
-						if (count($keysFound) == 10000) {
+						if (!isset($keysFound) && count($keysFound) == 10000) {
 							return $keysFound;
 						}
 					}
