@@ -37,6 +37,7 @@ class AjaxController extends Zend_Controller_Action
 		$usersDb = new Application_Model_DbTable_Users();
 		$cityDb = new Application_Model_DbTable_City();
 		$imagesDb = new Application_Model_DbTable_Images();
+		$amazonModel = new Application_Model_Amazon();
 		$random = new My_Resizer();
 		$this->lang = Zend_Registry::get('Zend_Translate');
 
@@ -57,6 +58,7 @@ class AjaxController extends Zend_Controller_Action
 			$dir = "./data/img/vata/";
 			unlink("{$dir}crop_small_{$name}");
 			$random->load("{$dir}{$name}")->crop($post["x1"], $post["y1"], $post["x2"], $post["y2"])->save("{$dir}crop_{$name}");
+			$amazonModel->goToCloud("crop_small_{$name}");
 
 		}
 
