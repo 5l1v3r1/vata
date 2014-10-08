@@ -103,7 +103,7 @@
 				<div class="carousel-inner">
 					<div class="item active">
 						<a class="fancybox" href="http://vataclub.s3.amazonaws.com/<?php echo $this->params["images"][0]["img_name"]?>" data-fancybox-group="gallery" title="<?php echo $this->params["terrorist"]["name"]?>">
-							<img class="grouped_elements" rel="group1" src="http://lostivan200.s3.amazonaws.com/<?php echo $this->params["images"][0]["img_name"]?>" alt="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
+							<img class="grouped_elements" rel="group1" src="http://vataclub.s3.amazonaws.com/<?php echo $this->params["images"][0]["img_name"]?>" alt="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
 						</a>
 						<div class="carousel-caption">
 							<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>
@@ -113,8 +113,8 @@
 					<?php foreach($this->params["images"] as $key => $value):?>
 						<?php if($key != 0):?>
 						<div class="item">
-							<a class="fancybox" href="http://lostivan200.s3.amazonaws.com/<?php echo $value["img_name"]?>" data-fancybox-group="gallery" title="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
-								<img class="grouped_elements" rel="group1" src="http://lostivan200.s3.amazonaws.com/<?php echo $value["img_name"]?>" alt="...">
+							<a class="fancybox" href="http://vataclub.s3.amazonaws.com/<?php echo $value["img_name"]?>" data-fancybox-group="gallery" title="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
+								<img class="grouped_elements" rel="group1" src="http://vataclub.s3.amazonaws.com/<?php echo $value["img_name"]?>" alt="...">
 							</a>
 							<div class="carousel-caption">
 								<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>
