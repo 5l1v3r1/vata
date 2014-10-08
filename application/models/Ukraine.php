@@ -28,7 +28,8 @@ class Application_Model_Ukraine{
 		$page = file_get_contents($link);
 
 		$page = substr($page, strpos($page , '<table width="100%">'));
-		$page = explode("</table>", $page)[0];
+		$page = explode("</table>", $page);
+		$page = $page[0];
 
 		preg_match_all("#<tr>(.*?)</tr>#", $this->clear($page), $rows);
 
