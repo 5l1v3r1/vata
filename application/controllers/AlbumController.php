@@ -143,6 +143,8 @@ class AlbumController extends Zend_Controller_Action
 		$watermark = new My_Watermark();
 		$usersDb = new Application_Model_DbTable_Users();
 		$resizerClass = new My_Resizer();
+		$oblastDb = new Application_Model_DbTable_Oblast();
+		$cityDb = new Application_Model_DbTable_City();
 
 		$id = $this->getRequest()->getParam("id");
 
@@ -192,7 +194,7 @@ class AlbumController extends Zend_Controller_Action
 
 		}
 
-		$terror = $terroristDb->getItem($id, array("*"), 0);
+		$terror = $terroristDb->getTerrorist($id);
 
 		$view["terrorist"] = $terror;
 		$view["publisher"] = $usersDb->getItem($terror["owner_id"]);
@@ -200,6 +202,8 @@ class AlbumController extends Zend_Controller_Action
 		$view["fancybox"] = 1;
 		$view["crop"] = 1;
 		$view["ckeditor"] = 1;
+		$view["oblast"] = $oblastDb->getItemsList();
+		$view["city"] = $cityDb->getItemsList();
 
 		$this->view->params = $view;
 

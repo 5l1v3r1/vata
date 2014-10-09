@@ -16,6 +16,12 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 
 	}
 
+	public function getTerrorist($id){
+
+		$data = "SELECT terrorist.*, oblast.id AS oblId, city.id AS cityId FROM terrorist JOIN oblast JOIN city WHERE terrorist.oblast = oblast.id AND terrorist.city = city.id AND terrorist.id = {$id}";
+		return $this->memcachePdo($data, 0, 1);
+	}
+
     public function getByIdAndStatus($id, $status = 1){
 
 	    $id = (int)$id;
