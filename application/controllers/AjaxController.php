@@ -45,6 +45,8 @@ class AjaxController extends Zend_Controller_Action
 		if (isset($post["banUser"])) $usersDb->updateItem(array("banned" => 1), $post["banUser"]);
 		if (isset($post["mainImg"])) {
 
+			$album = $imagesDb->getItem($post["mainImg"]);
+			$imagesDb->updateIsMain(0, $album["album_id"]);
 			$imagesDb->updateItem(array("is_main" => 1), $post["mainImg"]);
 
 			$img = $imagesDb->getItem($post["mainImg"]);

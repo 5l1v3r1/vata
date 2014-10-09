@@ -10,12 +10,20 @@ class Application_Model_DbTable_Images extends Application_Model_DbTable_Abstrac
 		$data = $this   ->select()
 						->from($this->_name, $params)
 						->where("album_id = ?", $id)
-						->order("is_main ASC");
+						->order("is_main DESC");
 
 		if(isset($status))$data->where("status = ?", $status);
 
 		return $this->memcachePdo($data, $all, $cache);
 
+
+	}
+
+	public function updateIsMain($status, $id){
+
+		$where[] = $this->getAdapter()->quoteInto('album_id = ?', $id);
+		$array = array("is_main" => $status);
+		$this->update($array, $where);
 
 	}
 
