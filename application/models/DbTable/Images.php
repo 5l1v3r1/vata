@@ -10,7 +10,7 @@ class Application_Model_DbTable_Images extends Application_Model_DbTable_Abstrac
 		$data = $this   ->select()
 						->from($this->_name, $params)
 						->where("album_id = ?", $id)
-						->order("is_main DESC");
+						->order("is_main ASC");
 
 		if(isset($status))$data->where("status = ?", $status);
 
