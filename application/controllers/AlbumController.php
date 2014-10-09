@@ -56,7 +56,7 @@ class AlbumController extends Zend_Controller_Action
 					rename($dir . $pic["img_name"], $dir . $new);
 					$pic["img_name"] = $new;
 					#$watermark->addWatermark($dir . $new, "LostIvan.com");
-					$resizerClass->load($dir . $new)->best_fit(400, 400)->save("{$dir}small_{$new}");
+					$resizerClass->load($dir . $new)->best_fit(400, 500)->save("{$dir}small_{$new}");
 					#$watermark->addWatermark("{$dir}small_{$new}", "Vata.Club");
 					$amazonModel->goToCloud($new);
 					$amazonModel->goToCloud("small_{$new}");
@@ -179,7 +179,7 @@ class AlbumController extends Zend_Controller_Action
 
 					$pic["img_name"] = $new;
 					#$watermark->addWatermark($dir . $new, "Vata.Club");
-					$resizerClass->load($dir . $new)->best_fit(400, 400)->save("{$dir}small_{$new}");
+					$resizerClass->load($dir . $new)->best_fit(400, 500)->save("{$dir}small_{$new}");
 					#$watermark->addWatermark("{$dir}small_{$new}", "Vata.Club");
 					$amazonModel->goToCloud($new);
 					$amazonModel->goToCloud("small_{$new}");

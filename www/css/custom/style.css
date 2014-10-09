@@ -26,5 +26,8 @@ body{background-color: #F1F1F1}
 .propose-delete{color:#d43f3a}
 .cities-list{font-size: 14px;  list-style: none outside none;  margin: 0;  padding: 0;}
 .panel-body{padding-bottom: 8px;  padding-top: 8px;}
-.picture-holder{display: inline-block;  max-height: 200px; overflow: hidden;}
+.picture-holder{display: inline-block;   overflow: hidden;text-align: center}
 .cropIt{margin:20px 0 0 0;}
+.terror-crop-img{width:100%;height:100%}
+.terror-name-list{font-size: 20px;margin:0;padding:0;}
+.thumbnail .caption {padding:5px 10px 10px 10px;height:85px;}

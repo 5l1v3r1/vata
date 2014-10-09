@@ -35,36 +35,19 @@
 			<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
 
 				<?php if(!($r % 3)):?><div class="row"><?php endif;?>
-
-				<?php if($c == 4 || $c == 10 || $c == 16):?>
-					<div class="col-md-4 portfolio-item">
-						<?php #echo $this->ads();?>
-					</div>
-				<?php else:?>
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
 							<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
-								<img class = "img-responsive" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="/data/img/vata/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
+								<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="/data/img/vata/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
 							</a>
 							<div class="caption">
-								<h4>
+								<h3 class = "terror-name-list">
 									<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
-								</h4>
-								<p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-							</div>
-							<div class="ratings">
-								<p class="pull-right">15 reviews</p>
-								<p>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-								</p>
+								</h3>
+							<p>Some text here
 							</div>
 						</div>
 					</div>
-				<?php endif;?>
 				<?php $c++;$r++?>
 
 				<?php if(!($r % 3)):?></div><?php endif;?>
