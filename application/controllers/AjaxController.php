@@ -81,6 +81,7 @@ class AjaxController extends Zend_Controller_Action
 		$newsDb = new Application_Model_DbTable_News();
 		$imagesDb = new Application_Model_DbTable_Images();
 		$notify = new Application_Model_DbTable_Notify();
+		$config = Zend_Registry::get('config');
 
 		$post = $this->getRequest()->getParams();
 
@@ -89,13 +90,22 @@ class AjaxController extends Zend_Controller_Action
 		if (isset($post["approveArticle"])) $newsDb->updateItem(array("status" => 1), $post["approveArticle"]);
 		if (isset($post["dropImg"])) $imagesDb->deleteItem($post["dropImg"]);
 		if (isset($post["dropFacebook"])) $albumDb->updateItem(array("fb_posted" => 1), $post["dropFacebook"]);
-		if (isset($post["saveAlbum"])){$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);}
+		if (isset($post["saveAlbum"])){
+
+			if($imagesDb->checkToMain($post["saveAlbum"])){
+				$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);
+				$this->view->noimg = 0;
+			}else{
+				$this->view->noimg = 1;
+			}
+
+		}
 
 		if (isset($post["propose"])){
 
 			$arr = array(
 
-				"email" => "lostivan200@gmail.com",
+				"email" => $config->admin->email,
 				"vars" => json_encode($post),
 				"action" => "propose"
 

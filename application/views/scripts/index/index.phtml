@@ -29,50 +29,41 @@
 
 	<div class="col-md-9">
 
-		<div class="row">
+		<div class="row header-keeper">
+			<div class="col-sm-7 col-lg-7 col-md-7">
+				<h1 class = "main-header"><?php echo $this->translate("Клуб сепаратистів та ватніків України")?></h1>
+			</div>
+				<div class="col-sm-5 col-lg-5 col-md-5">
+				<!-- Go to www.addthis.com/dashboard to customize your tools -->
+				<div class="addthis_sharing_toolbox"></div>
+			</div>
+		</div>
 
-			<?php $c = 0;$r = 0;?>
-			<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
+		<?php $c = 0;$r = 0;?>
+		<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
 
-				<?php if(!($r % 3)):?><div class="row"><?php endif;?>
-
-				<?php if($c == 4 || $c == 10 || $c == 16):?>
-					<div class="col-md-4 portfolio-item">
-						<?php #echo $this->ads();?>
-					</div>
-				<?php else:?>
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<div class="thumbnail">
-							<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
-								<img class = "img-responsive" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="/data/img/vata/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
-							</a>
-							<div class="caption">
-								<h4>
-									<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
-								</h4>
-								<p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-							</div>
-							<div class="ratings">
-								<p class="pull-right">15 reviews</p>
-								<p>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-								</p>
-							</div>
+			<?php if(!($r % 3)):?><div class="row"><?php endif;?>
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
+							<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="/data/img/vata/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
+						</a>
+						<div class="caption">
+							<h3 class = "terror-name-list">
+								<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
+							</h3>
+						<p>Some text here
 						</div>
 					</div>
-				<?php endif;?>
-				<?php $c++;$r++?>
+				</div>
+			<?php $c++;$r++?>
 
-				<?php if(!($r % 3)):?></div><?php endif;?>
+			<?php if(!($r % 3)):?></div><?php endif;?>
 
-			<?php endforeach;?>
-
-		</div>
+		<?php endforeach;?>
 
 	</div>
 
 </div>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ff4f4d4343c2b3" async></script>

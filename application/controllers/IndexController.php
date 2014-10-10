@@ -56,6 +56,7 @@ class IndexController extends Zend_Controller_Action
 
 		$view["numOfPages"] = ceil($total["num"] / $step);
 		$view["total"] = $total["num"];
+		$view["ckeditor"] = 1;
 		$view["terrorists"] = $list;
 		$view["curentPage"] = (isset($page)) ?  $page : 1 ;
 		$view["cities"] = $ukraineModel->generateDropDown();

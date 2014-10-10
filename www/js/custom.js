@@ -82,9 +82,14 @@ $(document).ready(function () {
 
 				"saveAlbum" : $(this).attr('data-id')
 
-			},complete: function(){
+			},success: function(response){
 
-				window.location.reload();
+				if(response.noimg == 1){
+					alert("Crop the image");
+				}else{
+					window.location.href = "/admin"
+				}
+
 
 			}
 

@@ -1,3 +1,4 @@
+<?php $config = Zend_Registry::get('config');?>
 <!-- Page Header -->
 <div class="row">
 	<div class="col-lg-12">
@@ -11,7 +12,7 @@
 	<?php foreach($this->params["terrorists"] as $terrorist):?>
 	<div class="col-md-4 portfolio-item">
 		<a class = "ivan-holder" href="/ivan/<?php echo $terrorist["id"]?>">
-			<img class="img-responsive" src="http://lostivan200.s3.amazonaws.com/<?php echo $terrorist["img_name"]?>" alt="">
+			<img class="img-responsive" src="http://<?php echo $config->amazon->bucket?>.s3.amazonaws.com/<?php echo $terrorist["img_name"]?>" alt="">
 		</a>
 		<h3>
 			<a href="/ivan/<?php echo $terrorist["id"]?>"><?php echo $terrorist["name"]?></a>

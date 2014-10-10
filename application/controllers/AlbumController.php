@@ -19,7 +19,7 @@ class AlbumController extends Zend_Controller_Action
 		$identity       = Zend_Auth::getInstance()->getStorage()->read();
 		$watermark      = new My_Watermark();
 		$resizerClass   = new My_Resizer();
-
+		$config = Zend_Registry::get('config');
 
 
 		if($this->getRequest()->isPost()){
@@ -56,7 +56,7 @@ class AlbumController extends Zend_Controller_Action
 					rename($dir . $pic["img_name"], $dir . $new);
 					$pic["img_name"] = $new;
 					#$watermark->addWatermark($dir . $new, "LostIvan.com");
-					$resizerClass->load($dir . $new)->best_fit(400, 400)->save("{$dir}small_{$new}");
+					$resizerClass->load($dir . $new)->best_fit(400, 500)->save("{$dir}small_{$new}");
 					#$watermark->addWatermark("{$dir}small_{$new}", "Vata.Club");
 					$amazonModel->goToCloud($new);
 					$amazonModel->goToCloud("small_{$new}");
@@ -80,7 +80,7 @@ class AlbumController extends Zend_Controller_Action
 
 				$arr = array(
 
-					"email" => "lostivan200@gmail.com",
+					"email" => $config->admin->email,
 					"vars" => json_encode($vars),
 					"action" => "create"
 
@@ -106,6 +106,7 @@ class AlbumController extends Zend_Controller_Action
 		$doctypeHelper->doctype('XHTML1_RDFA');
 
 		$terroristDb = new Application_Model_DbTable_Terrorist();
+		$achievemtnsUserDb = new Application_Model_DbTable_AchievementsUser();
 		$imagesDb = new Application_Model_DbTable_Images();
 		$identity       = Zend_Auth::getInstance()->getStorage()->read();
 
@@ -127,6 +128,7 @@ class AlbumController extends Zend_Controller_Action
 		$view["terrorist"] = $ivan;
 		$view["images"] = $images;
 		$view["identity"] = (isset($identity->id)) ? $identity : null;
+		$view["achievemnts"] = $achievemtnsUserDb->getUserAchievemnts($id);
 		$view["fancybox"] = 1;
 		$metaModel->IvanMeta($ivan);
 
@@ -145,12 +147,18 @@ class AlbumController extends Zend_Controller_Action
 		$resizerClass = new My_Resizer();
 		$oblastDb = new Application_Model_DbTable_Oblast();
 		$cityDb = new Application_Model_DbTable_City();
+		$achievementsDb = new Application_Model_DbTable_Achievements();
+		$achievementsUserDb = new Application_Model_DbTable_AchievementsUser();
 
 		$id = $this->getRequest()->getParam("id");
 
 		if($this->getRequest()->isPost()){
 
 			$params = $this->getRequest()->getPost();
+
+			$achievementsUserDb->dropUsetAchievemnts($id);
+			foreach($params["medals"] as $value)$achievementsUserDb->createItem(array("user_id" => $id, "ach_id" => $value));
+			unset($params["medals"]);
 			$terroristDb->updateItem($params, $id);
 
 			$pic["owner_id"] = $params["owner_id"];
@@ -179,7 +187,7 @@ class AlbumController extends Zend_Controller_Action
 
 					$pic["img_name"] = $new;
 					#$watermark->addWatermark($dir . $new, "Vata.Club");
-					$resizerClass->load($dir . $new)->best_fit(400, 400)->save("{$dir}small_{$new}");
+					$resizerClass->load($dir . $new)->best_fit(400, 500)->save("{$dir}small_{$new}");
 					#$watermark->addWatermark("{$dir}small_{$new}", "Vata.Club");
 					$amazonModel->goToCloud($new);
 					$amazonModel->goToCloud("small_{$new}");
@@ -197,6 +205,7 @@ class AlbumController extends Zend_Controller_Action
 		$terror = $terroristDb->getTerrorist($id);
 
 		$view["terrorist"] = $terror;
+		$view["achievements"] = $achievementsDb->getItemsList();
 		$view["publisher"] = $usersDb->getItem($terror["owner_id"]);
 		$view["images"] = $imagesDb->getAlbumImages($id, 1, array("img_name", "id", "is_main"), 0);
 		$view["fancybox"] = 1;
@@ -215,13 +224,14 @@ class AlbumController extends Zend_Controller_Action
 
 			$identity = Zend_Auth::getInstance()->getStorage()->read();
 			$notify = new Application_Model_DbTable_Notify();
+			$config = Zend_Registry::get('config');
 
 			$params = $this->getRequest()->getPost();
 			$params["proposer"] = $identity->id;
 
 			$arr = array(
 
-				"email" => "lostivan200@gmail.com",
+				"email" =>  $config->admin->email,
 				"vars" => json_encode($params),
 				"action" => "edit"
 

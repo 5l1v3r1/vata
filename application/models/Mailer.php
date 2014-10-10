@@ -35,15 +35,15 @@ class Application_Model_Mailer{
 
 		$home = My_View_Helper_Url::url(1);
 
-		$email["body"] = "<p>За сегодня на LostIvan.com добавлено ({$data["num"]})";
+		$email["body"] = "<p>За сегодня на Vata.Club добавлено ({$data["num"]})";
 		foreach($data["terror"] as $value){
 			$value = (array)$value;
 			$email["body"].= "<p><a href = '{$home}/ivan/{$value["id"]}'>Имя: {$value["name"]} Тип: {$value["type"]}</a></p>";
 		}
-		$email["body"].= "<p>С уважением, команда LostIvan.com</p>";
+		$email["body"].= "<p>С уважением, команда Vata.Club</p>";
 		$email["body"].= "<p><a href = '{$home}/?unsubscribe={$data["unsubscribe"]}'>Отписаться от новостей</a></p>";
 
-		$email["header"] = "LostIvan.com новости за сутки";
+		$email["header"] = "Vata.Club новости за сутки";
 
 		return $email;
 
