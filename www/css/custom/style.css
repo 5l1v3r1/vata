@@ -33,3 +33,5 @@ body{background-color: #F1F1F1}
 .thumbnail .caption {padding:5px 10px 10px 10px;height:85px;}
 .main-header{ font-size: 25px;  margin: 6px 0 0;  padding: 0;}
 .header-keeper{margin-bottom: 8px;}
+.addthis_sharing_toolbox{float:right}
+.save-terrorist{color:green;cursor: pointer}

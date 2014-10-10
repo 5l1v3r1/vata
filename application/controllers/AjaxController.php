@@ -90,7 +90,16 @@ class AjaxController extends Zend_Controller_Action
 		if (isset($post["approveArticle"])) $newsDb->updateItem(array("status" => 1), $post["approveArticle"]);
 		if (isset($post["dropImg"])) $imagesDb->deleteItem($post["dropImg"]);
 		if (isset($post["dropFacebook"])) $albumDb->updateItem(array("fb_posted" => 1), $post["dropFacebook"]);
-		if (isset($post["saveAlbum"])){$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);}
+		if (isset($post["saveAlbum"])){
+
+			if($imagesDb->checkToMain($post["saveAlbum"])){
+				$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);
+				$this->view->noimg = 0;
+			}else{
+				$this->view->noimg = 1;
+			}
+
+		}
 
 		if (isset($post["propose"])){
 

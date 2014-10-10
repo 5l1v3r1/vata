@@ -186,7 +186,10 @@
 					<div class="col-lg-12">
 						<form role="form" method = "POST" action = "/album/propose" enctype="multipart/form-data">
 							<div class="form-group">
-								<input value = "<?php echo $this->params["terrorist"]["name"]?>" type="text" class="form-control" id="TerrorFirstName" placeholder="<?php echo $this->translate("Ім'я")?>" name = "name">
+								<input value = "<?php echo $this->params["terrorist"]["first_name"]?> "type="text" class="form-control" id="TerrorFirstName" placeholder="<?php echo $this->translate("Ім'я")?>" name = "first_name">
+							</div>
+							<div class="form-group">
+								<input value = "<?php echo $this->params["terrorist"]["last_name"]?> "type="text" class="form-control" id="TerrorLastName" placeholder="<?php echo $this->translate("Прізвище")?>" name = "last_name">
 							</div>
 							<div class="form-group">
 								<input value = "<?php echo $this->params["terrorist"]["birthdate"]?>" type="text" class="form-control" id="TerrorFirstName" placeholder="<?php echo $this->translate("Дата народження")?>" name = "birthdate">
@@ -207,19 +210,36 @@
 								<input value = "<?php echo $this->params["terrorist"]["video"]?>"  type="text" class="form-control" id="TerrorVideo" placeholder="<?php echo $this->translate("Відео")?>" name = "video">
 							</div>
 							<div class="form-group">
+								<select class="form-control" id="TerrorObl" name = "oblast">
+									<?php foreach($this->params["oblast"] as $value):?>
+										<option value = "<?php echo $value["id"]?>" <?php if($this->params["terrorist"]["oblId"] == $value["id"]) echo "selected"?>><?php echo $this->translate($value["oblast"])?></option>
+									<?php endforeach;?>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="TerrorCity" name = "city">
+									<?php foreach($this->params["city"] as $value):?>
+										<?php if($this->params["terrorist"]["cityId"] == $value["id"]):?>
+											<option value = "<?php echo $value["id"]?>" selected><?php echo $this->translate($value["city"])?></option>
+										<?php endif;?>
+									<?php endforeach;?>
+								</select>
+							</div>
+							<div class="form-group">
 								<select class="form-control" id="TerrorStatus" name = "type">
 									<option value = ""><?php echo $this->translate("Тип")?></option>
-									<option value = "Найманці з Росії" <?php if($this->params["terrorist"]["type"] == "Найманці з Росії") echo "selected"?>><?php echo $this->translate("Найманці з Росії")?></option>
-									<option value = "Російські військові" <?php if($this->params["terrorist"]["type"] == "Російські військові") echo "selected"?>><?php echo $this->translate("Російські військові")?></option>
+									<option value = "Диванний ватник" <?php if($this->params["terrorist"]["type"] == "Диванний ватник")echo "selected"?>><?php echo $this->translate("Диванний ватник")?></option>
+									<option value = "Пропагандист сепаратизму" <?php if($this->params["terrorist"]["type"] == "Пропагандист сепаратизму")echo "selected"?>><?php echo $this->translate("Пропагандист сепаратизму")?></option>
+									<option value = "Коопротивляющийся пополченец"  <?php if($this->params["terrorist"]["type"] == "Коопротивляющийся пополченец")echo "selected"?>><?php echo $this->translate("Коопротивляющийся пополченец")?></option>
 								</select>
 							</div>
 							<div class="form-group">
 								<select class="form-control" id="TerrorStatus" name = "status">
-									<option value=""><?php echo $this->translate("Статус")?></option>
-									<option value="Вбитий" <?php if($this->params["terrorist"]["status"] == "Вбитий") echo "selected"?>><?php echo $this->translate("Вбитий")?></option>
-									<option value="Полонений" <?php if($this->params["terrorist"]["status"] == "Полонений") echo "selected"?>><?php echo $this->translate("Полонений")?></option>
-									<option value="Помічений в Україні" <?php if($this->params["terrorist"]["status"] == "Помічений в Україні") echo "selected"?>><?php echo $this->translate("Помічений в Україні")?></option>
-									<option value="Можливо був в Україні" <?php if($this->params["terrorist"]["status"] == "Можливо був в Україні") echo "selected"?>><?php echo $this->translate("Можливо був в Україні")?></option>
+									<option value = ""><?php echo $this->translate("Статус")?></option>
+									<option value = "Воює в мережі з фошиздамі" <?php if($this->params["terrorist"]["type"] == "Воює в мережі з фошиздамі")echo "selected"?>><?php echo $this->translate("Воює в мережі з фошиздамі")?></option>
+									<option value = "Активно пропагує сепаратизм" <?php if($this->params["terrorist"]["type"] == "Активно пропагує сепаратизм")echo "selected"?>><?php echo $this->translate("Активно пропагує сепаратизм")?></option>
+									<option value = "Приймає участь в вбивствах і мародерстві" <?php if($this->params["terrorist"]["type"] == "Приймає участь в вбивствах і мародерстві")echo "selected"?>><?php echo $this->translate("Приймає участь в вбивствах і мародерстві")?></option>
+									<option value = "Удобрює землю неньки України" <?php if($this->params["terrorist"]["type"] == "Удобрює землю неньки України")echo "selected"?>><?php echo $this->translate("Удобрює землю неньки України")?></option>
 								</select>
 							</div>
 							<div class="form-group">

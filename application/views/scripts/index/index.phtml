@@ -38,32 +38,29 @@
 				<div class="addthis_sharing_toolbox"></div>
 			</div>
 		</div>
-		<div class="row">
 
-			<?php $c = 0;$r = 0;?>
-			<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
+		<?php $c = 0;$r = 0;?>
+		<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
 
-				<?php if(!($r % 3)):?><div class="row"><?php endif;?>
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<div class="thumbnail">
-							<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
-								<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="/data/img/vata/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
-							</a>
-							<div class="caption">
-								<h3 class = "terror-name-list">
-									<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
-								</h3>
-							<p>Some text here
-							</div>
+			<?php if(!($r % 3)):?><div class="row"><?php endif;?>
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
+							<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="/data/img/vata/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
+						</a>
+						<div class="caption">
+							<h3 class = "terror-name-list">
+								<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
+							</h3>
+						<p>Some text here
 						</div>
 					</div>
-				<?php $c++;$r++?>
+				</div>
+			<?php $c++;$r++?>
 
-				<?php if(!($r % 3)):?></div><?php endif;?>
+			<?php if(!($r % 3)):?></div><?php endif;?>
 
-			<?php endforeach;?>
-
-		</div>
+		<?php endforeach;?>
 
 	</div>
 

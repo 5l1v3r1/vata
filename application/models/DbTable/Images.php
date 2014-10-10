@@ -19,6 +19,16 @@ class Application_Model_DbTable_Images extends Application_Model_DbTable_Abstrac
 
 	}
 
+	public function checkToMain($albumId){
+
+			$data = $this   ->select()
+							->from($this->_name)
+							->where("album_id = ?", $albumId)
+							->where("is_main = ?", 1);
+
+		return $this->memcachePdo($data, 0, 1);
+	}
+
 	public function updateIsMain($status, $id){
 
 		$where[] = $this->getAdapter()->quoteInto('album_id = ?', $id);
