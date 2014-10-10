@@ -17,72 +17,82 @@
 </div>
 <div class="row">
 	<div class="col-lg-7">
-		<div class="table-responsive">
-			<table class="table table-bordered">
-				<tr>
-					<td><?php echo $this->translate("Ім'я")?></td>
-					<td><?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?></td>
-				</tr>
-				<tr>
-					<td><?php echo $this->translate("Дата народження")?></td>
-					<td><?php echo $this->params["terrorist"]["birthdate"]?></td>
-				</tr>
-				<tr>
-					<td><?php echo $this->translate("Область");?></td>
-					<td><?php echo $this->params["terrorist"]["oblname"]?></td>
-				</tr>
-				<tr>
-					<td><?php echo $this->translate("Місто");?></td>
-					<td><?php echo $this->params["terrorist"]["cityname"]?></td>
-				</tr>
-				<tr>
-					<td>Vkontakte</td>
-					<td><a class = "adlink" target = "_blank" href = "<?php echo trim($this->params["terrorist"]["vk"])?>"><?php echo $this->params["terrorist"]["vk"]?></a></td>
-				</tr>
-				<tr>
-					<td>Facebook</td>
-					<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["fb"])?>"><?php echo $this->params["terrorist"]["fb"]?></a></td>
-				</tr>
-				<tr>
-					<td>Twitter</td>
-					<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["tw"])?>"><?php echo $this->params["terrorist"]["tw"]?></a></td>
-				</tr>
-				<tr>
-					<td>OK</td>
-					<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["ok"])?>"><?php echo $this->params["terrorist"]["ok"]?></a></td>
-				</tr>
-				<tr>
-					<td><?php echo $this->translate("Тип")?></td>
-					<td><?php echo $this->translate($this->params["terrorist"]["type"])?></td>
-				</tr>
-				<tr>
-					<td><strong><?php echo $this->translate("Статус")?></strong></td>
-					<td><strong><?php echo $this->translate($this->params["terrorist"]["status"])?></strong></td>
-				</tr>
-				<tr>
-					<td><?php echo $this->translate("Додаткова інформація")?></td>
-					<td>
-						<?php
-						if ($this->translate($this->params["terrorist"]["id"] < 730)){
-							echo nl2br($this->translate($this->params["terrorist"]["description"]));
-						}else{
-							echo $this->translate($this->params["terrorist"]["description"]);
-						}
-						?>
-					</td>
-				</tr>
-				<tr>
-					<td><?php echo $this->translate("Підтримати проект")?></td>
-					<td>
-						<form class = "webmoney-form" action="https://advisor.wmtransfer.com/Spasibo.aspx" method="post" target="_blank" title="Передать $пасибо! нашему сайту">
-							<input type="hidden" name="url" value="http://vata.club"/>
-							<input type="image" src="//advisor.wmtransfer.com/img/Spasibo!.png" border="0" name="submit"/>
-						</form>
-						<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/embed/small.xml?account=410011036444901&quickpay=small&yamoney-payment-type=on&button-text=06&button-size=s&button-color=orange&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B0%D1%80%D0%B6%D0%BA%D0%B0+%D0%B4%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B2%D1%88%D0%B8%D1%85%D0%B2+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B5+%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D1%85+%D1%81%D0%BE%D0%BB%D0%B4%D0%B0%D1%82&default-sum=100&mail=on&successURL=" width="146" height="31"></iframe>
-					</td>
-				</tr>
-			</table>
-			<?php $this->ads();?>
+		<div class="row">
+			<div class = "col-lg-12">
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<tr>
+							<td><?php echo $this->translate("Ім'я")?></td>
+							<td><?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?></td>
+						</tr>
+						<tr>
+							<td><?php echo $this->translate("Дата народження")?></td>
+							<td><?php echo $this->params["terrorist"]["birthdate"]?></td>
+						</tr>
+						<tr>
+							<td><?php echo $this->translate("Область");?></td>
+							<td><?php echo $this->params["terrorist"]["oblname"]?></td>
+						</tr>
+						<tr>
+							<td><?php echo $this->translate("Місто");?></td>
+							<td><?php echo $this->params["terrorist"]["cityname"]?></td>
+						</tr>
+						<tr>
+							<td>Vkontakte</td>
+							<td><a class = "adlink" target = "_blank" href = "<?php echo trim($this->params["terrorist"]["vk"])?>"><?php echo $this->params["terrorist"]["vk"]?></a></td>
+						</tr>
+						<tr>
+							<td>Facebook</td>
+							<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["fb"])?>"><?php echo $this->params["terrorist"]["fb"]?></a></td>
+						</tr>
+						<tr>
+							<td>Twitter</td>
+							<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["tw"])?>"><?php echo $this->params["terrorist"]["tw"]?></a></td>
+						</tr>
+						<tr>
+							<td>OK</td>
+							<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["ok"])?>"><?php echo $this->params["terrorist"]["ok"]?></a></td>
+						</tr>
+						<tr>
+							<td><?php echo $this->translate("Тип")?></td>
+							<td><?php echo $this->translate($this->params["terrorist"]["type"])?></td>
+						</tr>
+						<tr>
+							<td><strong><?php echo $this->translate("Статус")?></strong></td>
+							<td><strong><?php echo $this->translate($this->params["terrorist"]["status"])?></strong></td>
+						</tr>
+						<tr>
+							<td><?php echo $this->translate("Додаткова інформація")?></td>
+							<td>
+								<?php
+								if ($this->translate($this->params["terrorist"]["id"] < 730)){
+									echo nl2br($this->translate($this->params["terrorist"]["description"]));
+								}else{
+									echo $this->translate($this->params["terrorist"]["description"]);
+								}
+								?>
+							</td>
+						</tr>
+						<tr>
+							<td><?php echo $this->translate("Підтримати проект")?></td>
+							<td>
+								<form class = "webmoney-form" action="https://advisor.wmtransfer.com/Spasibo.aspx" method="post" target="_blank" title="Передать $пасибо! нашему сайту">
+									<input type="hidden" name="url" value="http://vata.club"/>
+									<input type="image" src="//advisor.wmtransfer.com/img/Spasibo!.png" border="0" name="submit"/>
+								</form>
+								<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/embed/small.xml?account=410011036444901&quickpay=small&yamoney-payment-type=on&button-text=06&button-size=s&button-color=orange&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B0%D1%80%D0%B6%D0%BA%D0%B0+%D0%B4%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B2%D1%88%D0%B8%D1%85%D0%B2+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B5+%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D1%85+%D1%81%D0%BE%D0%BB%D0%B4%D0%B0%D1%82&default-sum=100&mail=on&successURL=" width="146" height="31"></iframe>
+							</td>
+						</tr>
+					</table>
+					<?php #$this->ads();?>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class = "col-lg-12">
+				<h4>Мидали</h4>
+				<?php $this->midali($this->params["achievemnts"])?>
+			</div>
 		</div>
 	</div>
 	<div class="col-lg-5">
@@ -103,8 +113,8 @@
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<div class="item active">
-						<a class="fancybox" href="http://vataclub.s3.amazonaws.com/<?php echo $this->params["images"][0]["img_name"]?>" data-fancybox-group="gallery" title="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
-							<img class="grouped_elements" rel="group1" src="http://vataclub.s3.amazonaws.com/<?php echo $this->params["images"][0]["img_name"]?>" alt="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
+						<a class="fancybox" href="http://vataclub.s3.amazonaws.com/small_<?php echo $this->params["images"][0]["img_name"]?>" data-fancybox-group="gallery" title="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
+							<img class="grouped_elements" rel="group1" src="http://vataclub.s3.amazonaws.com/small_<?php echo $this->params["images"][0]["img_name"]?>" alt="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
 						</a>
 						<div class="carousel-caption">
 							<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>
@@ -114,8 +124,8 @@
 					<?php foreach($this->params["images"] as $key => $value):?>
 						<?php if($key != 0):?>
 						<div class="item">
-							<a class="fancybox" href="http://vataclub.s3.amazonaws.com/<?php echo $value["img_name"]?>" data-fancybox-group="gallery" title="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
-								<img class="grouped_elements" rel="group1" src="http://vataclub.s3.amazonaws.com/<?php echo $value["img_name"]?>" alt="...">
+							<a class="fancybox" href="http://vataclub.s3.amazonaws.com/small_<?php echo $value["img_name"]?>" data-fancybox-group="gallery" title="<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>">
+								<img class="grouped_elements" rel="group1" src="http://vataclub.s3.amazonaws.com/small_<?php echo $value["img_name"]?>" alt="...">
 							</a>
 							<div class="carousel-caption">
 								<?php echo "{$this->params["terrorist"]["last_name"]} {$this->params["terrorist"]["first_name"]}"?>

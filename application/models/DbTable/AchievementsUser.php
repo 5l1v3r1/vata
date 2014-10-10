@@ -14,17 +14,13 @@ class Application_Model_DbTable_AchievementsUser extends Application_Model_DbTab
 					, achievements_user.stat
 					, achievements_user.ach_id
 					, achievements.image
-					, users.id
-					, achievements.total
-					, achievements_user.progress
 				FROM
 					achievements_user
 					INNER JOIN achievements
 						ON (achievements_user.ach_id = achievements.id)
-					INNER JOIN users
-						ON (achievements_user.user_id = users.id)
-				WHERE (users.id ={$id})
-				ORDER BY achievements_user.stat DESC";
+					INNER JOIN terrorist
+						ON (achievements_user.user_id = terrorist.id)
+				WHERE (terrorist.id ={$id})";
 		return $this->memcachePdo($sql, 1, 1);
 
 	}
@@ -39,6 +35,14 @@ class Application_Model_DbTable_AchievementsUser extends Application_Model_DbTab
 			->where('ach_id = ? ', $id);
 
 		return $this->memcachePdo($data, 1);
+
+	}
+
+	public function dropUsetAchievemnts($id){
+
+		$where = $this->getAdapter()->quoteInto('user_id = ?', $id);
+
+		$this->delete($where);
 
 	}
 

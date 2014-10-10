@@ -67,6 +67,13 @@
 				</select>
 			</div>
 			<div class="form-group">
+				<select class="form-control" id="TerrorStatus" name = "medals[]" multiple>
+					<?php foreach($this->params["achievements"] as $value):?>
+						<option value = "<?php echo $value["id"]?>"><?php echo $this->translate($value["ach_name"])?></option>
+					<?php endforeach;?>
+				</select>
+			</div>
+			<div class="form-group">
 				<textarea name = "description" cols = "120" rows = "10" id ="TerrorDescription" name = "TerrorDescription" placeholder = "Додаткова інформація"><?php echo $this->params["terrorist"]["description"]?></textarea>
 			</div>
 			<div class="form-group">
