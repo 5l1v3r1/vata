@@ -42,7 +42,7 @@ class Application_Model_User
             if ($identity->banned == 1) {
 
 	            Zend_Auth::getInstance()->clearIdentity();
-				die("You are banned lostivan200@gmail.com");
+				die("You are banned vataclubs@gmail.com");
 
             }
 

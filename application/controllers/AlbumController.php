@@ -19,7 +19,7 @@ class AlbumController extends Zend_Controller_Action
 		$identity       = Zend_Auth::getInstance()->getStorage()->read();
 		$watermark      = new My_Watermark();
 		$resizerClass   = new My_Resizer();
-
+		$config = Zend_Registry::get('config');
 
 
 		if($this->getRequest()->isPost()){
@@ -80,7 +80,7 @@ class AlbumController extends Zend_Controller_Action
 
 				$arr = array(
 
-					"email" => "lostivan200@gmail.com",
+					"email" => $config->admin->email,
 					"vars" => json_encode($vars),
 					"action" => "create"
 
@@ -215,13 +215,14 @@ class AlbumController extends Zend_Controller_Action
 
 			$identity = Zend_Auth::getInstance()->getStorage()->read();
 			$notify = new Application_Model_DbTable_Notify();
+			$config = Zend_Registry::get('config');
 
 			$params = $this->getRequest()->getPost();
 			$params["proposer"] = $identity->id;
 
 			$arr = array(
 
-				"email" => "lostivan200@gmail.com",
+				"email" =>  $config->admin->email,
 				"vars" => json_encode($params),
 				"action" => "edit"
 

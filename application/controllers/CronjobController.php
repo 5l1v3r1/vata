@@ -96,6 +96,7 @@ class CronjobController extends Zend_Controller_Action
 		$shareModel = new Application_Model_Share();
 		$imagesDb = new Application_Model_DbTable_Images();
 		$lang = Zend_Registry::get('Zend_Translate');
+		$config = Zend_Registry::get('config');
 
 		#businesses
 		$list = $terrorists->getForSocialPosting("tw_posted");
@@ -104,12 +105,12 @@ class CronjobController extends Zend_Controller_Action
 
 			$link = "{$home}/ivan/{$value['id']}";
 			$img = $imagesDb->getAlbumImages($value["id"], 1, array("img_name"), 0);
-			$picture = (isset($img[0]["img_name"])) ? "http://lostivan200.s3.amazonaws.com/".$img[0]["img_name"] : "http://lostivan200.s3.amazonaws.com/noimage.jpg" ;
+			$picture = (isset($img[0]["img_name"])) ? "http://{$config->amazon->bucket}.s3.amazonaws.com/".$img[0]["img_name"] : "http://{$config->amazon->bucket}.s3.amazonaws.com/noimage.jpg" ;
 
 			$post = array(
 
 				"name" => $value['name'],
-				"text" => "{$lang->translate("Тип")}: {$lang->translate($value['type'])} {$lang->translate("Статус")}: {$lang->translate($value['status'])} {$link} #gruz200 #lostivan",
+				"text" => "{$lang->translate("Тип")}: {$lang->translate($value['type'])} {$lang->translate("Статус")}: {$lang->translate($value['status'])} {$link} #vatnik #vataclub",
 				"img"  => $picture
 
 			);
@@ -126,12 +127,12 @@ class CronjobController extends Zend_Controller_Action
 		foreach ($list as $value) {
 
 			$link = "{$home}/news/{$value['article_url']}.html";
-			$picture = (!empty($value['article_img'])) ? "http://lostivan.com/data/img/news/".$value['article_img'] : "http://lostivan200.s3.amazonaws.com/noimage.jpg" ;
+			$picture = (!empty($value['article_img'])) ? "http://{$config->amazon->bucket}.s3.amazonaws.com/".$value['article_img'] : "http://{$config->amazon->bucket}.s3.amazonaws.com/noimage.jpg" ;
 
 			$post = array(
 
 				"name" => $value['article_name'],
-				"text" =>  "{$link} #gruz200 #lostivan",
+				"text" =>  "{$link} #vatnik #vataclub",
 				"img"  => $picture
 
 			);

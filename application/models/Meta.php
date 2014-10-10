@@ -23,7 +23,7 @@ class Application_Model_Meta
 		$this->view->headTitle($this->lang->translate("Російські солдати та найманці помічені в Україні"));
 		$this->view->headMeta()->setName('description', $this->lang->translate("В нас ви зможете знайти громадян Росії та російських військових які воюють на сході України"));
 		$this->view->headMeta()->setName('keywords', $this->lang->translate("Полонені десантники, список пропавших солдат росії, російська армія в Україні, російські солдати в Україні"));
-		$this->view->headMeta()->setProperty('og:title', $this->lang->translate("LostIvan: російські солдати і найманці загублені в Україні: "));
+		$this->view->headMeta()->setProperty('og:title', $this->lang->translate("VataClub: російські солдати і найманці загублені в Україні: "));
 		$this->view->headMeta()->setProperty('og:description', $this->lang->translate("База солдат та найманців які були вбиті/полонені/помічені в Україні"));
 		#$this->view->headMeta()->setProperty('og:image', My_View_Helper_Url::url(1) . "/data/img/terrorussians/{$data["photo"]}");
 
@@ -33,13 +33,14 @@ class Application_Model_Meta
 	{
 
 		$data["name"] = "{$data["last_name"]} {$data["first_name"]}";
+		$config = Zend_Registry::get('config');
 
 		$this->view->headTitle($data['name'] . " " . $this->lang->translate($data['type']) . " " . $this->lang->translate($data['status']));
 		$this->view->headMeta()->setName('description', $data['name'] . $this->lang->translate(" в Україні."));
 		$this->view->headMeta()->setName('keywords', $data['name'] . $this->lang->translate(" в Україні."));
 		$this->view->headMeta()->setProperty('og:title', $data['name'] . " " . $this->lang->translate($data['type']) . " " . $this->lang->translate($data['status']));
-		$this->view->headMeta()->setProperty('og:description', $this->lang->translate("LostIvan: ") . " " . $data['name'] . " " . preg_replace("#<(.*?)>#", "", $data['description']));
-		$this->view->headMeta()->setProperty('og:image', "http://lostivan200.s3.amazonaws.com/{$data["photo"][0]["img_name"]}");
+		$this->view->headMeta()->setProperty('og:description', $this->lang->translate("VataClub: ") . " " . $data['name'] . " " . preg_replace("#<(.*?)>#", "", $data['description']));
+		$this->view->headMeta()->setProperty('og:image', "http://{$config->amazon->bucket}.s3.amazonaws.com/{$data["photo"][0]["img_name"]}");
 
 	}
 

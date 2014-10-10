@@ -81,6 +81,7 @@ class AjaxController extends Zend_Controller_Action
 		$newsDb = new Application_Model_DbTable_News();
 		$imagesDb = new Application_Model_DbTable_Images();
 		$notify = new Application_Model_DbTable_Notify();
+		$config = Zend_Registry::get('config');
 
 		$post = $this->getRequest()->getParams();
 
@@ -95,7 +96,7 @@ class AjaxController extends Zend_Controller_Action
 
 			$arr = array(
 
-				"email" => "lostivan200@gmail.com",
+				"email" => $config->admin->email,
 				"vars" => json_encode($post),
 				"action" => "propose"
 
