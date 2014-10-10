@@ -1,6 +1,6 @@
 
-@media (max-width:480px){.search-form{display:none}.lang-btn{background-color: transparent;border: medium none;color: white;}.midalka{float:left;margin:5px;}}
-@media (max-width:767px){.search-form{display:none}.lang-btn{background-color: transparent;border: medium none;color: white;}.midalka{float:left;margin:5px;}}
+@media (max-width:480px){.search-form{display:none}.lang-btn{background-color: transparent;border: medium none;color: white;}.midalka{float:left;margin:5px 5px 5px 0;}}
+@media (max-width:767px){.search-form{display:none}.lang-btn{background-color: transparent;border: medium none;color: white;}.midalka{float:left;margin:5px 5px 5px 0;}}
 @media (min-width:768px) and (max-width:979px){}
 @media (min-width:980px) and (max-width:1299px){}
 @media (min-width:1300px){}
