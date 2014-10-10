@@ -324,6 +324,8 @@ $(document).ready(function () {
 
 	})
 
+	$('.midalka').popover();
+
 });
 
 
