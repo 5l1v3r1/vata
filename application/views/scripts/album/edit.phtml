@@ -34,14 +34,15 @@
 				<input type="text" class="form-control" id="TerrorVidoe" placeholder="Відео" name = "video" value = "<?php echo $this->params["terrorist"]["video"]?>">
 			</div>
 			<div class="form-group">
-				<select class="form-control" id="TerrorObl" name = "oblast">
+				<select class="form-control TerrorObl" name = "oblast">
 					<?php foreach($this->params["oblast"] as $value):?>
+						dasdasd
 						<option value = "<?php echo $value["id"]?>" <?php if($this->params["terrorist"]["oblId"] == $value["id"]) echo "selected"?>><?php echo $this->translate($value["oblast"])?></option>
 					<?php endforeach;?>
 				</select>
 			</div>
 			<div class="form-group">
-				<select class="form-control" id="TerrorCity" name = "city">
+				<select class="form-control TerrorCity" name = "city">
 					<?php foreach($this->params["city"] as $value):?>
 						<?php if($this->params["terrorist"]["cityId"] == $value["id"]):?>
 							<option value = "<?php echo $value["id"]?>" selected><?php echo $this->translate($value["city"])?></option>
@@ -67,9 +68,9 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<select class="form-control" id="TerrorStatus" name = "medals[]" multiple>
+				<select class="form-control" id="TerrorStatus" name = "medals[]" multiple size = 5>
 					<?php foreach($this->params["achievements"] as $value):?>
-						<option value = "<?php echo $value["id"]?>"><?php echo $this->translate($value["ach_name"])?></option>
+						<option <?php if(in_array($value["id"], $this->params["midalki"])) echo "selected"?> value = "<?php echo $value["id"]?>"><?php echo $this->translate($value["ach_name"])?></option>
 					<?php endforeach;?>
 				</select>
 			</div>

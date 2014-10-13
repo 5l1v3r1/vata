@@ -38,19 +38,19 @@
 							<td><?php echo $this->params["terrorist"]["cityname"]?></td>
 						</tr>
 						<tr>
-							<td>Vkontakte</td>
+							<td><?php echo $this->translate("Сторінка в VK")?></td>
 							<td><a class = "adlink" target = "_blank" href = "<?php echo trim($this->params["terrorist"]["vk"])?>"><?php echo $this->params["terrorist"]["vk"]?></a></td>
 						</tr>
 						<tr>
-							<td>Facebook</td>
+							<td><?php echo $this->translate("Сторінка Facebook")?></td>
 							<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["fb"])?>"><?php echo $this->params["terrorist"]["fb"]?></a></td>
 						</tr>
 						<tr>
-							<td>Twitter</td>
+							<td><?php echo $this->translate("Сторінка Twitter")?></td>
 							<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["tw"])?>"><?php echo $this->params["terrorist"]["tw"]?></a></td>
 						</tr>
 						<tr>
-							<td>OK</td>
+							<td><?php echo $this->translate("Сторінка OK")?></td>
 							<td><a class = "adlink" href = "<?php echo trim($this->params["terrorist"]["ok"])?>"><?php echo $this->params["terrorist"]["ok"]?></a></td>
 						</tr>
 						<tr>
@@ -97,10 +97,6 @@
 	</div>
 	<div class="col-lg-5">
 		<?php if(isset($this->params["images"][0]["img_name"])):?>
-
-			<?php if(isset($this->params["closed"])):?>
-				<p style = "color:red"><?php echo $this->translate("Для перегляду фото 18+ необхідна авторизація")?></p>
-			<?php endif;?>
 
 			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
@@ -220,14 +216,14 @@
 								<input value = "<?php echo $this->params["terrorist"]["video"]?>"  type="text" class="form-control" id="TerrorVideo" placeholder="<?php echo $this->translate("Відео")?>" name = "video">
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="TerrorObl" name = "oblast">
+								<select class="form-control TerrorObl" name = "oblast">
 									<?php foreach($this->params["oblast"] as $value):?>
 										<option value = "<?php echo $value["id"]?>" <?php if($this->params["terrorist"]["oblId"] == $value["id"]) echo "selected"?>><?php echo $this->translate($value["oblast"])?></option>
 									<?php endforeach;?>
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="TerrorCity" name = "city">
+								<select class="form-control TerrorCity" name = "city">
 									<?php foreach($this->params["city"] as $value):?>
 										<?php if($this->params["terrorist"]["cityId"] == $value["id"]):?>
 											<option value = "<?php echo $value["id"]?>" selected><?php echo $this->translate($value["city"])?></option>
@@ -236,7 +232,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="TerrorStatus" name = "type">
+								<select class="form-control" class="TerrorStatus" name = "type">
 									<option value = ""><?php echo $this->translate("Тип")?></option>
 									<option value = "Диванний ватник" <?php if($this->params["terrorist"]["type"] == "Диванний ватник")echo "selected"?>><?php echo $this->translate("Диванний ватник")?></option>
 									<option value = "Пропагандист сепаратизму" <?php if($this->params["terrorist"]["type"] == "Пропагандист сепаратизму")echo "selected"?>><?php echo $this->translate("Пропагандист сепаратизму")?></option>

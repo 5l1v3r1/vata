@@ -16,8 +16,6 @@ header('Expires: '.gmdate(DATE_RFC1123,time()+60*60*24));
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Vata.Club - Клую ватників та сепаратистів України</title>
-
 	<!-- Bootstrap Core CSS -->
 	<link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
@@ -137,7 +135,7 @@ header('Expires: '.gmdate(DATE_RFC1123,time()+60*60*24));
 	<footer>
 		<div class="row">
 			<div class="col-lg-12">
-				<p>Copyright &copy; Your Website 2014</p>
+				<p>Copyright &copy; Vata.Club 2014</p>
 			</div>
 		</div>
 	</footer>
@@ -189,12 +187,11 @@ header('Expires: '.gmdate(DATE_RFC1123,time()+60*60*24));
 	</script>
 <?php endif;?>
 
-<?php if(isset($this->params["ckeditor"])):?>
-	<script type="text/javascript" src="/js/libs/ckeditor/ckeditor.js"></script>
-	<script type = "text/javascript">
-		CKEDITOR.replace( 'TerrorDescription' );
-	</script>
-<?php endif;?>
+<script type="text/javascript" src="/js/libs/ckeditor/ckeditor.js"></script>
+<script type = "text/javascript">
+	CKEDITOR.replace( 'TerrorDescription' );
+</script>
+
 
 
 <?php if(isset($this->params["crop"])):?>

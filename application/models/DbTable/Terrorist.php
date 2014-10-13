@@ -25,7 +25,7 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
     public function getByIdAndStatus($id, $status = 1){
 
 	    $id = (int)$id;
-	    $data = "SELECT terrorist.*, oblast.oblast AS oblname, city.city AS cityname FROM terrorist JOIN oblast JOIN city WHERE terrorist.oblast = oblast.id AND terrorist.city = city.id AND terrorist.id = {$id} AND terrorist.checked = {$status}";
+	    $data = "SELECT terrorist.*, oblast.oblast AS oblname, city.city AS cityname,  oblast.id AS oblId, city.id AS cityId  FROM terrorist JOIN oblast JOIN city WHERE terrorist.oblast = oblast.id AND terrorist.city = city.id AND terrorist.id = {$id} AND terrorist.checked = {$status}";
 
 	    return $this->memcachePdo($data, 0, 1);
 
@@ -110,8 +110,15 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 
 	}
 
+	public function countAllTerrors(){
+
+		$data = "SELECT COUNT(*) as num FROM terrorist WHERE checked = 1";
+		return $this->memcachePdo($data, 0, 1);
+	}
+
 	public function countTerrors($city = null){
 
+		$city = addslashes($city);
 		$data = "SELECT COUNT(*) as num FROM terrorist JOIN city WHERE city.city = '{$city}' AND checked = 1 AND terrorist.city = city.id";
 		return $this->memcachePdo($data, 0, 1);
 	}

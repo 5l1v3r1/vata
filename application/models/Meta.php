@@ -20,11 +20,11 @@ class Application_Model_Meta
 	public function indexMeta()
 	{
 
-		$this->view->headTitle($this->lang->translate("Російські солдати та найманці помічені в Україні"));
-		$this->view->headMeta()->setName('description', $this->lang->translate("В нас ви зможете знайти громадян Росії та російських військових які воюють на сході України"));
-		$this->view->headMeta()->setName('keywords', $this->lang->translate("Полонені десантники, список пропавших солдат росії, російська армія в Україні, російські солдати в Україні"));
-		$this->view->headMeta()->setProperty('og:title', $this->lang->translate("VataClub: російські солдати і найманці загублені в Україні: "));
-		$this->view->headMeta()->setProperty('og:description', $this->lang->translate("База солдат та найманців які були вбиті/полонені/помічені в Україні"));
+		$this->view->headTitle($this->lang->translate("Клуб сепаратистів та ватніків України"));
+		$this->view->headMeta()->setName('description', $this->lang->translate("База сепаратистів, террористів на ватніків України"));
+		$this->view->headMeta()->setName('keywords', $this->lang->translate("База сепаратистів України, база террористів України,клуб ватніків України"));
+		$this->view->headMeta()->setProperty('og:title', $this->lang->translate("Клуб сепаратистів та ватніків України"));
+		$this->view->headMeta()->setProperty('og:description', $this->lang->translate("База сепаратистів, террористів на ватніків України"));
 		#$this->view->headMeta()->setProperty('og:image', My_View_Helper_Url::url(1) . "/data/img/terrorussians/{$data["photo"]}");
 
 	}
