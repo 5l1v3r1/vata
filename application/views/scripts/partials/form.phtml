@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="myModalLabel"><?php echo $this->translate("Додавання нового запису")?></h4>
+				<h4 class="modal-title" id="myModalLabel"><?php echo $this->translate("Додавання нового профілю")?></h4>
 			</div>
 			<div class="modal-body">
 				<form role="form" method = "POST" action = "/album/create" enctype="multipart/form-data">
@@ -34,7 +34,7 @@
 						<input type="text" class="form-control" id="TerrorVideo" placeholder="<?php echo $this->translate("Відео")?>" name = "video">
 					</div>
 					<div class="form-group">
-						<select class="form-control" id="TerrorObl" name = "oblast">
+						<select class="form-control TerrorObl" name = "oblast">
 							<option value = ""><?php echo $this->translate("Область")?></option>
 							<?php foreach($obl->getItemsList() as $value):?>
 								<option value = "<?php echo $value["id"]?>"><?php echo $this->translate($value["oblast"])?></option>
@@ -42,7 +42,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<select class="form-control" id="TerrorCity" name = "city" disabled = "disabled" >
+						<select class="form-control TerrorCity" name = "city" disabled = "disabled" >
 							<option value = ""><?php echo $this->translate("Місто")?></option>
 						</select>
 					</div>
@@ -67,7 +67,7 @@
 						<textarea name = "description" cols = "30" rows = "5" id ="TerrorDescription" placeholder = "<?php echo $this->translate("Додаткова інформація")?>"></textarea>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputFile"><?php echo $this->translate("Завантаження фото")?></label>
+						<label for="exampleInputFile"><?php echo $this->translate("Завантаження фото (затиснути ctrl для кількох фото)")?></label>
 						<input type="file" id="exampleInputFile" name = "photos[]" multiple>
 						</div>
 					<button type="submit" class="btn btn-success"><?php echo $this->translate("Додати")?></button>

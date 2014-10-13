@@ -6,14 +6,16 @@ class Application_Model_Ukraine{
 
 		$oblastDb = new Application_Model_DbTable_Oblast();
 		$cityDB = new Application_Model_DbTable_City();
+		$terrorDb = new Application_Model_DbTable_Terrorist();
 
 		$obl = $oblastDb->getItemsList();
 		foreach($obl as $key => $value){
 
-			$obl[$key]["city"] = $cityDB->getByOblId($value["id"]);
+			$cities = $cityDB->getByOblId($value["id"]);
+			foreach($cities as $cKey => $cValue)$cities[$cKey]["num"] = $terrorDb->countTerrors($cValue["city"]);
+			$obl[$key]["city"] = $cities;
 
 		}
-
 		return $obl;
 
 	}

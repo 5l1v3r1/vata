@@ -244,10 +244,9 @@ $(document).ready(function () {
 
 	});
 
-	$("#TerrorObl").change(function(){
+	$(".TerrorObl").change(function(){
 
 		var obl = $(this).val();
-		$("#TerrorCity").attr("disabled", "disabled");
 		$.ajax({
 
 			url: "/ajax/user/",
@@ -258,8 +257,8 @@ $(document).ready(function () {
 
 			},success: function(response){
 
-				$("#TerrorCity").html(response.city);
-				$("#TerrorCity").removeAttr("disabled");
+				$(".TerrorCity").html(response.city);
+				$(".TerrorCity").removeAttr("disabled");
 
 			}
 
@@ -325,6 +324,22 @@ $(document).ready(function () {
 	})
 
 	$('.midalka').popover();
+
+	$(".aboutvataclubclose").click(function(){
+
+		$.ajax({
+
+			url: "/ajax/user/",
+			type:"post",
+			data:{
+
+				"abouthide" : 1
+
+			}
+
+		});
+
+	})
 
 });
 

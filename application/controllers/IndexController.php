@@ -32,7 +32,7 @@ class IndexController extends Zend_Controller_Action
 		if($this->getRequest()->isPost())$mailerModel->subscribeForNews($this->getRequest()->getPost());
 
 		$city = $this->getRequest()->getParam("city");
-		$step = 9;
+		$step = 12;
 		$page = $this->getRequest()->getParam("page");
 		$start = (isset($page) && $page != 1) ? ($page - 1) * $step : 0;
 
@@ -43,12 +43,8 @@ class IndexController extends Zend_Controller_Action
 
 		}else{
 
-			$type = (isset($_GET["type"])) ? $_GET["type"] : null;
-			$status = (isset($_GET["status"])) ? $_GET["status"] : null;
-			$more = (isset($_GET["more"])) ? $_GET["more"] : null;
-
-			$total = $terrorDb->countTerrors($type,$status,$more);
-			$list = $terrorDb->getTerrorists(1, $start, $step, 1, $type, $status, $more);
+			$total = $terrorDb->countAllTerrors();
+			$list = $terrorDb->getTerrorists(1, $start, $step, 1);
 
 		}
 

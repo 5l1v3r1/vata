@@ -109,6 +109,9 @@ class AlbumController extends Zend_Controller_Action
 		$achievemtnsUserDb = new Application_Model_DbTable_AchievementsUser();
 		$imagesDb = new Application_Model_DbTable_Images();
 		$identity       = Zend_Auth::getInstance()->getStorage()->read();
+		$oblastDb = new Application_Model_DbTable_Oblast();
+		$cityDb = new Application_Model_DbTable_City();
+
 
 		$metaModel = new Application_Model_Meta();
 
@@ -124,12 +127,13 @@ class AlbumController extends Zend_Controller_Action
 
 		$ivan["photo"] = $images;
 		$view["closed"] = $closed;
-
 		$view["terrorist"] = $ivan;
 		$view["images"] = $images;
 		$view["identity"] = (isset($identity->id)) ? $identity : null;
 		$view["achievemnts"] = $achievemtnsUserDb->getUserAchievemnts($id);
 		$view["fancybox"] = 1;
+		$view["oblast"] = $oblastDb->getItemsList();
+		$view["city"] = $cityDb->getItemsList();
 		$metaModel->IvanMeta($ivan);
 
 		$this->view->params = $view;
@@ -203,11 +207,14 @@ class AlbumController extends Zend_Controller_Action
 		}
 
 		$terror = $terroristDb->getTerrorist($id);
+		$midalke = array();
+		foreach($achievementsUserDb->getUserAchievemnts($id) as $value)$midalke[] = $value["ach_id"];
 
 		$view["terrorist"] = $terror;
 		$view["achievements"] = $achievementsDb->getItemsList();
 		$view["publisher"] = $usersDb->getItem($terror["owner_id"]);
 		$view["images"] = $imagesDb->getAlbumImages($id, 1, array("img_name", "id", "is_main"), 0);
+		$view["midalki"] = $midalke;
 		$view["fancybox"] = 1;
 		$view["crop"] = 1;
 		$view["ckeditor"] = 1;
