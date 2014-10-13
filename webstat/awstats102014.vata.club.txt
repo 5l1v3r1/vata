@@ -8,33 +8,33 @@ AWSTATS DATA FILE 7.0 (build 1.971)
 # update).
 BEGIN_MAP 27
 POS_GENERAL 1989                
-POS_TIME 2676                
-POS_VISITOR 6891                
-POS_DAY 7049                
-POS_DOMAIN 3341                
-POS_LOGIN 3572                
-POS_ROBOT 3727                
-POS_WORMS 3991                
-POS_EMAILSENDER 4122                
-POS_EMAILRECEIVER 4265                
-POS_SESSION 7161                
-POS_SIDER 7313                
-POS_FILETYPES 4400                
-POS_DOWNLOADS 4638                
-POS_OS 4707                
-POS_BROWSER 4783                
-POS_SCREENSIZE 4912                
-POS_UNKNOWNREFERER 4986                
-POS_UNKNOWNREFERERBROWSER 5073                
-POS_ORIGIN 5155                
-POS_SEREFERRALS 5292                
-POS_PAGEREFS 5436                
-POS_SEARCHWORDS 5618                
-POS_KEYWORDS 5770                
-POS_MISC 2339                
-POS_ERRORS 5829                
-POS_CLUSTER 3428                
-POS_SIDER_404 5963                
+POS_TIME 2669                
+POS_VISITOR 7484                
+POS_DAY 7807                
+POS_DOMAIN 3389                
+POS_LOGIN 3621                
+POS_ROBOT 3776                
+POS_WORMS 4113                
+POS_EMAILSENDER 4244                
+POS_EMAILRECEIVER 4387                
+POS_SESSION 7968                
+POS_SIDER 8141                
+POS_FILETYPES 4522                
+POS_DOWNLOADS 4780                
+POS_OS 4850                
+POS_BROWSER 4935                
+POS_SCREENSIZE 5098                
+POS_UNKNOWNREFERER 5172                
+POS_UNKNOWNREFERERBROWSER 5259                
+POS_ORIGIN 5341                
+POS_SEREFERRALS 5478                
+POS_PAGEREFS 5622                
+POS_SEARCHWORDS 5804                
+POS_KEYWORDS 5956                
+POS_MISC 2332                
+POS_ERRORS 6015                
+POS_CLUSTER 3477                
+POS_SIDER_404 6151                
 END_MAP
 
 # LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
@@ -46,14 +46,14 @@ END_MAP
 # MonthHostsKnown   = Number of hosts known
 # MonthHostsUnKnown = Number of hosts unknown
 BEGIN_GENERAL 8
-LastLine 20141009235858 1762 405822 11824585032980
+LastLine 20141012235206 46 13626 17534201498883
 FirstTime 20141008110733
-LastTime 20141009121121
-LastUpdate 20141010000102 1762 0 1762 0 0
-TotalVisits 5                   
-TotalUnique 2                   
+LastTime 20141012183802
+LastUpdate 20141013000101 46 0 46 0 0
+TotalVisits 13                  
+TotalUnique 6                   
 MonthHostsKnown 0                   
-MonthHostsUnknown 2                   
+MonthHostsUnknown 6                   
 END_GENERAL
 
 # Misc ID - Pages - Hits - Bandwidth
@@ -72,36 +72,36 @@ END_MISC
 
 # Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
 BEGIN_TIME 24
-0 0 0 0 74 107 899241
-1 0 0 0 0 0 0
-2 0 0 0 0 0 0
-3 0 0 0 0 0 0
-4 0 0 0 0 0 0
-5 0 0 0 2 3 11664
-6 0 0 0 0 0 0
-7 0 0 0 0 0 0
-8 0 0 0 0 0 0
-9 62 497 845392 7 23 89903
-10 77 826 2565257 9 14 30656
-11 20 108 205651 26 56 33367
-12 43 387 1398362 3 7 15973
+0 0 0 0 100 134 1163611
+1 0 0 0 16 16 162852
+2 0 0 0 20 20 210072
+3 0 0 0 8 8 84709
+4 0 0 0 9 9 94546
+5 0 0 0 6 7 53698
+6 0 0 0 12 13 118151
+7 0 0 0 13 13 137504
+8 0 0 0 8 8 84790
+9 62 497 845392 20 55 297050
+10 77 826 2565257 14 19 74141
+11 31 170 822955 37 69 114814
+12 44 388 1409406 8 13 55481
 13 44 514 1702724 4 4 11488
-14 24 166 122317 10 10 88823
+14 47 523 617109 13 15 104854
 15 2 14 123685 11 12 115491
-16 62 522 1553522 17 23 126956
-17 15 140 162009 13 13 136478
-18 13 94 61023 4 4 42014
-19 2 16 144208 7 9 73550
+16 77 723 1627381 17 23 126956
+17 32 324 721041 13 16 136478
+18 15 106 166262 9 17 244117
+19 2 16 144208 11 14 112323
 20 0 0 0 160 160 1670168
-21 0 0 0 20 20 194420
-22 0 0 0 25 25 263974
-23 0 0 0 18 18 183832
+21 0 0 0 23 24 226794
+22 0 0 0 31 31 328418
+23 0 0 0 25 25 254437
 END_TIME
 
 # Domain - Pages - Hits - Bandwidth
 # The 10 first Pages must be first (order not required for others)
 BEGIN_DOMAIN 1
-ip 364 3284 8884150
+ip 433 4101 10745420
 END_DOMAIN
 
 # Cluster ID - Pages - Hits - Bandwidth
@@ -115,10 +115,12 @@ END_LOGIN
 
 # Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
 # The 10 first Hits must be first (order not required for others)
-BEGIN_ROBOT 3
-googlebot 380 3726684 20141009235858 3
-mediapartners\-google 8 75098 20141009101714 0
-bot[\s_+:,\.\;\/\\-] 4 22628 20141009162251 2
+BEGIN_ROBOT 5
+googlebot 561 5581850 20141012235206 6
+mediapartners\-google 15 119285 20141010113542 0
+bot[\s_+:,\.\;\/\\-] 12 68270 20141011120553 6
+no_user_agent 2 838 20141010185435 0
+favicon 1 11149 20141012185614 0
 END_ROBOT
 
 # Worm ID - Hits - Bandwidth - Last visit
@@ -137,36 +139,40 @@ BEGIN_EMAILRECEIVER 0
 END_EMAILRECEIVER
 
 # Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
-BEGIN_FILETYPES 9
-css 1413 1037531 0 0
-png 322 394767 0 0
-woff 83 659313 0 0
+BEGIN_FILETYPES 10
+css 1698 1165766 0 0
+png 370 427974 0 0
+ttf 2 122471 0 0
+woff 102 840594 0 0
 map 3 2271 0 0
-html 133 580135 0 0
-jpg 233 1350673 0 0
-js 919 3800977 0 0
-Unknown 145 1045932 0 0
-gif 33 12551 0 0
+html 147 713303 0 0
+jpg 393 1767184 0 0
+js 1171 4366690 0 0
+Unknown 179 1325265 0 0
+gif 36 13902 0 0
 END_FILETYPES
 
 # Downloads - Hits - Bandwidth
 BEGIN_DOWNLOADS 1
-/robots.txt 5 0 1788
+/robots.txt 12 0 4224
 END_DOWNLOADS
 
 # OS ID - Hits
-BEGIN_OS 3
-linuxandroid 29
+BEGIN_OS 4
+linuxandroid 76
+winxp 33
 winvista 1
-win7 3254
+win7 3991
 END_OS
 
 # Browser ID - Hits
-BEGIN_BROWSER 4
-firefox32.0 1489
+BEGIN_BROWSER 6
+firefox32.0 1554
 chrome37.0.2062.117 29
-chrome37.0.2062.122 1765
+chrome38.0.2125.101 33
+chrome37.0.2062.122 2437
 firefox30.0 1
+android 47
 END_BROWSER
 
 # Screen size - Hits
@@ -183,11 +189,11 @@ END_UNKNOWNREFERERBROWSER
 
 # Origin - Pages - Hits 
 BEGIN_ORIGIN 6
-From0 27 27
+From0 37 37
 From1 0 0
 From2 0 0
-From3 8 8
-From4 329 3249
+From3 9 9
+From4 387 4055
 From5 0 0
 END_ORIGIN
 
@@ -198,7 +204,7 @@ END_SEREFERRALS
 # External page referers - Pages - Hits
 # The 10 first Pages must be first (order not required for others)
 BEGIN_PAGEREFS 1
-http://oauth.vk.com/authorize 8 8
+http://oauth.vk.com/authorize 9 9
 END_PAGEREFS
 
 # Search keyphrases - Number of search
@@ -214,73 +220,95 @@ END_KEYWORDS
 # Errors - Hits - Bandwidth
 BEGIN_ERRORS 5
 403 5 2470
-302 19 37825
+302 20 42010
 500 22 8459
-301 2 954
-404 20 97736
+301 6 2862
+404 26 129606
 END_ERRORS
 
 # URL with 404 errors - Hits - Last URL referer
-BEGIN_SIDER_404 11
+BEGIN_SIDER_404 15
 /ru/error/ 1 http://vata.club/ru
-/city/%D0%97%D0%BD%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 1 -
 /news 1 -
+/city/%D0%97%D0%BD%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 1 -
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0-%D0%91%D1%83%D0%B7%D1%8C%D0%BA%D0%B0 2 -
 /city/%D0%9C%D0%B0%D1%80'%D1%97%D0%BD%D0%BA%D0%B0 1 -
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0-%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE%D0%B2%D1%81%D1%8C%D0%BA%D0%B0 1 -
+/city/%D0%9F'%D1%8F%D1%82%D0%B8%D1%85%D0%B0%D1%82%D0%BA%D0%B8 2 -
 /city/%D0%9A%D1%83%D0%BF'%D1%8F%D0%BD%D1%81%D1%8C%D0%BA 1 -
 /data/img/vata/crop_small_Kopachev_Aleksandr_1_.jpg 10 http://vata.club/ru
 /city/%D0%A1%D0%BB%D0%BE%D0%B2'%D1%8F%D0%BD%D1%81%D1%8C%D0%BA 1 -
-/data/img/vata/crop_small_Anatolij__Kandrashov_1_.jpg 1 http://vata.club/ru
 /data/img/vata/crop_small_Ezhik_Pozyvnoj_2_.jpg 1 http://vata.club/ru
-/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 1 -
+/data/img/vata/crop_small_Anatolij__Kandrashov_1_.jpg 1 http://vata.club/ru
 /city/%D0%97%D0%B8%D0%BC%D0%BE%D0%B3%D1%96%D1%80'%D1%8F 1 -
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 1 -
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%B5%D1%86%D1%8C-%D0%9F%D0%BE%D0%B4%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B8%D0%B9 1 -
 END_SIDER_404
 
 # Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
 # [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
 # The 10 first Hits must be first (order not required for others)
-BEGIN_VISITOR 2
-185.17.127.103 363 3283 8873018 20141009110921
+BEGIN_VISITOR 6
+185.17.127.103 408 3955 9476822 20141010172534
+46.118.159.20 9 65 512835 20141010172435
+77.222.141.195 7 33 292869 20141010113548
+178.136.234.3 6 35 346523 20141010142536
+37.73.205.213 2 12 105239 20141012183802
 188.40.79.208 1 1 11132 20141009121121
 END_VISITOR
 
 # Date - Pages - Hits - Bandwidth - Visits
-BEGIN_DAY 2
+BEGIN_DAY 4
 20141008 222 1941 5451166 3
 20141009 142 1343 3432984 2
+20141010 67 805 1756031 7
+20141012 2 12 105239 1
 END_DAY
 
 # Session range - Number of visits
-BEGIN_SESSION 2
-1h+ 3
-0s-30s 2
+BEGIN_SESSION 4
+1h+ 4
+5mn-15mn 1
+30s-2mn 3
+0s-30s 5
 END_SESSION
 
 # URL - Pages - Bandwidth - Entry - Exit
 # The 10 first Pages must be first (order not required for others)
-BEGIN_SIDER 25
-/css/fonts/glyphicons-halflings-regular.woff 65 212301 0 4
-/ru 53 574202 0 0
+BEGIN_SIDER 35
+/css/fonts/glyphicons-halflings-regular.woff 76 259479 0 4
+/ru 64 696974 0 3
+/ 48 439114 13 3
 /ajax/user/ 48 64273 0 0
-/ 37 316487 5 1
-/admin 32 140305 0 0
-/admin/cache/ 24 105962 0 0
-/admin/cache 18 73675 0 0
-/css/fonts/fontawesome-webfont.woff 18 447012 0 0
-/ajax/index/ 9 3339 0 0
-/ru/ 8 87477 0 0
-/city/%D0%9C%D1%96%D1%81%D1%82%D0%BE%20%D0%BD%D0%B5%20%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BE 1 10878 0 0
-/album/edit/825 7 39095 0 0
-/album/edit/820 3 16346 0 0
-/city/%D0%9C%D0%B0%D0%BA%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10474 0 0
-/member/819 6 38477 0 0
+/admin 33 144839 0 0
+/css/fonts/fontawesome-webfont.woff 26 581115 0 1
+/admin/cache/ 26 116131 0 0
+/admin/cache 19 77799 0 0
+/ajax/index/ 10 3711 0 0
+/album/edit/825 9 50378 0 0
+/city/%D0%90%D0%B2%D0%B4%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10600 0 0
+/city/%D0%90%D0%BC%D0%B2%D1%80%D0%BE%D1%81%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10610 0 0
+/member/824 3 18498 0 0
+/css/fonts/fontawesome-webfont.ttf 1 80922 0 1
 /member/820 6 37957 0 0
-/member/818 6 38794 0 0
-/ajax/album/ 7 2597 0 0
+/city/%D0%91%D0%BE%D0%BB%D0%B5%D1%85%D1%96%D0%B2 1 10604 0 0
+/member/822 2 12501 0 1
 /album/edit/818 3 15870 0 0
-/album/edit/822 4 22422 0 0
-/album/edit/824 1 5585 0 0
 /album/edit/819 2 10662 0 0
 /js/libs/jquery/jquery.min.map 3 2271 0 0
-/album/edit/821 1 5583 0 0
+/member/823 1 6268 0 0
 /album/edit/823 1 5607 0 0
+/css/fonts/glyphicons-halflings-regular.ttf 1 41549 0 0
+/city/%D0%9C%D1%96%D1%81%D1%82%D0%BE%20%D0%BD%D0%B5%20%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BE 1 10878 0 0
+/album/edit/820 3 16346 0 0
+/member/819 7 44701 0 0
+/city/%D0%9C%D0%B0%D0%BA%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10474 0 0
+/member/825 8 50703 0 0
+/member/818 6 38794 0 0
+/ru/ 8 87477 0 0
+/ajax/album/ 7 2597 0 0
+/album/edit/822 4 22422 0 0
+/album/edit/824 1 5585 0 0
+/city/%D0%92%D1%96%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D1%96%D1%80%D1%81%D1%8C%D0%BA 1 10612 0 0
+/album/edit/821 1 5583 0 0
 END_SIDER
