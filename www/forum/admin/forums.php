@@ -12,8 +12,8 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('afo_start')) ? eval($hook) : null;
 
@@ -65,7 +65,7 @@ if (isset($_POST['add_forum']))
 
 	// Regenerate the quickjump cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_quickjump_cache();
 
@@ -128,7 +128,7 @@ else if (isset($_GET['del_forum']))
 
 		// Regenerate the quickjump cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_quickjump_cache();
 
@@ -168,7 +168,7 @@ else if (isset($_GET['del_forum']))
 
 		define('FORUM_PAGE_SECTION', 'start');
 		define('FORUM_PAGE', 'admin-forums');
-		require FORUM_ROOT . 'header.php';
+		require FORUM_ROOT.'header.php';
 
 		// START SUBST - <!-- forum_main -->
 		ob_start();
@@ -203,7 +203,7 @@ else if (isset($_GET['del_forum']))
 		ob_end_clean();
 		// END SUBST - <!-- forum_main -->
 
-		require FORUM_ROOT . 'footer.php';
+		require FORUM_ROOT.'footer.php';
 	}
 }
 
@@ -256,7 +256,7 @@ else if (isset($_POST['update_positions']))
 	}
 
 	// Regenerate the quickjump cache
-	require_once FORUM_ROOT . 'include/cache.php';
+	require_once FORUM_ROOT.'include/cache.php';
 	generate_quickjump_cache();
 
 	// Add flash message
@@ -413,7 +413,7 @@ else if (isset($_GET['edit_forum']))
 
 		// Regenerate the quickjump cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_quickjump_cache();
 
@@ -438,7 +438,7 @@ else if (isset($_GET['edit_forum']))
 
 		// Regenerate the quickjump cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_quickjump_cache();
 
@@ -474,7 +474,7 @@ else if (isset($_GET['edit_forum']))
 
 	define('FORUM_PAGE_SECTION', 'start');
 	define('FORUM_PAGE', 'admin-forums');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -658,7 +658,7 @@ $forum_page['group_count'] = $forum_page['item_count'] = 0;
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 
 // Setup the form
@@ -676,7 +676,7 @@ $forum_page['crumbs'] = array(
 
 define('FORUM_PAGE_SECTION', 'start');
 define('FORUM_PAGE', 'admin-forums');
-require FORUM_ROOT . 'header.php';
+require FORUM_ROOT.'header.php';
 
 // START SUBST - <!-- forum_main -->
 ob_start();
@@ -848,4 +848,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';

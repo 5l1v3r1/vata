@@ -859,7 +859,7 @@ function sef_friendly($str)
 		if (file_exists(FORUM_ROOT.'include/url/'.$forum_config['o_sef'].'/reserved_strings.php'))
 			require FORUM_ROOT.'include/url/'.$forum_config['o_sef'].'/reserved_strings.php';
 		else
-			require FORUM_ROOT . 'include/url/Default/reserved_strings.php';
+			require FORUM_ROOT.'include/url/Default/reserved_strings.php';
 	}
 
 	$return = ($hook = get_hook('fn_sef_friendly_start')) ? eval($hook) : null;
@@ -893,15 +893,15 @@ function censor_words($text)
 	if (!defined('FORUM_CENSORS_LOADED'))
 	{
 		if (file_exists(FORUM_CACHE_DIR.'cache_censors.php'))
-			include FORUM_CACHE_DIR . 'cache_censors.php';
+			include FORUM_CACHE_DIR.'cache_censors.php';
 
 		if (!defined('FORUM_CENSORS_LOADED'))
 		{
 			if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-				require FORUM_ROOT . 'include/cache.php';
+				require FORUM_ROOT.'include/cache.php';
 
 			generate_censors_cache();
-			require FORUM_CACHE_DIR . 'cache_censors.php';
+			require FORUM_CACHE_DIR.'cache_censors.php';
 		}
 	}
 
@@ -1031,15 +1031,15 @@ function get_title($user)
 	if ($forum_config['o_ranks'] == '1' && !defined('FORUM_RANKS_LOADED'))
 	{
 		if (file_exists(FORUM_CACHE_DIR.'cache_ranks.php'))
-			include FORUM_CACHE_DIR . 'cache_ranks.php';
+			include FORUM_CACHE_DIR.'cache_ranks.php';
 
 		if (!defined('FORUM_RANKS_LOADED'))
 		{
 			if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-				require FORUM_ROOT . 'include/cache.php';
+				require FORUM_ROOT.'include/cache.php';
 
 			generate_ranks_cache();
-			require FORUM_CACHE_DIR . 'cache_ranks.php';
+			require FORUM_CACHE_DIR.'cache_ranks.php';
 		}
 	}
 
@@ -1647,7 +1647,7 @@ function check_bans()
 	if ($bans_altered)
 	{
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_bans_cache();
 	}
@@ -2001,7 +2001,7 @@ function delete_user($user_id, $delete_posts = false)
 
 		// Regenerate the bans cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_bans_cache();
 	}
@@ -2131,7 +2131,7 @@ function add_topic($post_info, &$new_tid, &$new_pid)
 	$forum_db->query_build($query) or error(__FILE__, __LINE__);
 
 	if (!defined('FORUM_SEARCH_IDX_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/search_idx.php';
+		require FORUM_ROOT.'include/search_idx.php';
 
 	update_search_index('post', $new_pid, $post_info['message'], $post_info['subject']);
 
@@ -2233,7 +2233,7 @@ function delete_topic($topic_id, $forum_id)
 		$forum_db->query_build($query) or error(__FILE__, __LINE__);
 
 		if (!defined('FORUM_SEARCH_IDX_FUNCTIONS_LOADED'))
-			require_once FORUM_ROOT . 'include/search_idx.php';
+			require_once FORUM_ROOT.'include/search_idx.php';
 
 		strip_search_index($post_ids);
 	}
@@ -2378,7 +2378,7 @@ function add_post($post_info, &$new_pid)
 	sync_forum($post_info['forum_id']);
 
 	if (!defined('FORUM_SEARCH_IDX_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/search_idx.php';
+		require FORUM_ROOT.'include/search_idx.php';
 
 	update_search_index('post', $new_pid, $post_info['message']);
 
@@ -2452,7 +2452,7 @@ function delete_post($post_id, $topic_id, $forum_id)
 	$forum_db->query_build($query) or error(__FILE__, __LINE__);
 
 	if (!defined('FORUM_SEARCH_IDX_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/search_idx.php';
+		require FORUM_ROOT.'include/search_idx.php';
 
 	strip_search_index($post_id);
 
@@ -2729,7 +2729,7 @@ function send_subscriptions($post_info, $new_pid)
 	if (!empty($subscribers))
 	{
 		if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/email.php';
+			require FORUM_ROOT.'include/email.php';
 
 		$notification_emails = array();
 
@@ -2842,7 +2842,7 @@ function send_forum_subscriptions($topic_info, $new_tid)
 	if (!empty($subscribers))
 	{
 		if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/email.php';
+			require FORUM_ROOT.'include/email.php';
 
 		$notification_emails = array();
 
@@ -2970,7 +2970,7 @@ function csrf_confirm_form()
 		}
 
 	define('FORUM_PAGE', 'dialogue');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -3006,7 +3006,7 @@ function csrf_confirm_form()
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 
 
@@ -3031,7 +3031,7 @@ function message($message, $link = '', $heading = '')
 		($hook = get_hook('fn_message_pre_header_load')) ? eval($hook) : null;
 
 		define('FORUM_PAGE', 'message');
-		require FORUM_ROOT . 'header.php';
+		require FORUM_ROOT.'header.php';
 
 		// START SUBST - <!-- forum_main -->
 		ob_start();
@@ -3062,7 +3062,7 @@ function message($message, $link = '', $heading = '')
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 
 

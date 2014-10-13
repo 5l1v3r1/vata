@@ -12,8 +12,8 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('aba_start')) ? eval($hook) : null;
 
@@ -158,7 +158,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 
 	define('FORUM_PAGE_SECTION', 'users');
 	define('FORUM_PAGE', 'admin-bans');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -236,7 +236,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 
 
@@ -304,7 +304,7 @@ else if (isset($_POST['add_edit_ban']))
 	}
 
 	if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/email.php';
+		require FORUM_ROOT.'include/email.php';
 
 	if ($ban_email != '' && !is_valid_email($ban_email))
 	{
@@ -352,7 +352,7 @@ else if (isset($_POST['add_edit_ban']))
 
 	// Regenerate the bans cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_bans_cache();
 
@@ -387,7 +387,7 @@ else if (isset($_GET['del_ban']))
 
 	// Regenerate the bans cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_bans_cache();
 
@@ -449,7 +449,7 @@ if ($forum_page['page'] > 1)
 
 define('FORUM_PAGE_SECTION', 'users');
 define('FORUM_PAGE', 'admin-bans');
-require FORUM_ROOT . 'header.php';
+require FORUM_ROOT.'header.php';
 
 // START SUBST - <!-- forum_main -->
 ob_start();
@@ -585,4 +585,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';

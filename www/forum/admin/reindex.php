@@ -16,8 +16,8 @@ if (!defined('FORUM_ROOT'))
 // Tell common.php that we don't want output buffering
 define('FORUM_DISABLE_BUFFERING', 1);
 
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('ari_start')) ? eval($hook) : null;
 
@@ -105,7 +105,7 @@ body {
 <?php
 
 	if (!defined('FORUM_SEARCH_IDX_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/search_idx.php';
+		require FORUM_ROOT.'include/search_idx.php';
 
 	// Fetch posts to process
 	$query = array(
@@ -200,7 +200,7 @@ $forum_page['crumbs'] = array(
 
 define('FORUM_PAGE_SECTION', 'management');
 define('FORUM_PAGE', 'admin-reindex');
-require FORUM_ROOT . 'header.php';
+require FORUM_ROOT.'header.php';
 
 // START SUBST - <!-- forum_main -->
 ob_start();
@@ -264,4 +264,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';
