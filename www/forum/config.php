@@ -9,7 +9,6 @@ $db_prefix = 'vata';
 $p_connect = false;
 
 $base_url = 'http://vata.club/forum';
-
 $cookie_name = 'forum_cookie_2e7c0b';
 $cookie_domain = '';
 $cookie_path = '/';
