@@ -42,6 +42,7 @@ class AjaxController extends Zend_Controller_Action
 		$this->lang = Zend_Registry::get('Zend_Translate');
 
 		$post = $this->getRequest()->getParams();
+		if (isset($post["abouthide"]))setcookie("hideabout",1,time()+604800 ,'/');
 		if (isset($post["banUser"])) $usersDb->updateItem(array("banned" => 1), $post["banUser"]);
 		if (isset($post["mainImg"])) {
 

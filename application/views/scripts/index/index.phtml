@@ -1,4 +1,15 @@
+<?php if(!isset($_COOKIE["hideabout"])):?>
 <div class="row">
+	<div class="col-md-12">
+		<div class="alert alert-info aboutvataclub" role="alert">
+			<button type="button" class="close aboutvataclubclose" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<p><strong>Vata.Club</strong> - <?php echo $this->translate("проект створений для збору та фіксації проявів та підтримки сепаратизму та терроризму в мережі з подальшою їх структуризацією.")?>
+			<p><?php echo $this->translate("Помітивши в мережі сепаратиста або ватніка, анонімно додайте його в нашу базу, а ми організуємо йому побачення з СБУ.")?>
+		</div>
+	</div>
+</div>
+<div class="row">
+<?php endif;?>
 
 	<div class="col-md-3">
 		<div class="panel-group" id="accordion">

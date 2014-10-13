@@ -325,6 +325,22 @@ $(document).ready(function () {
 
 	$('.midalka').popover();
 
+	$(".aboutvataclubclose").click(function(){
+
+		$.ajax({
+
+			url: "/ajax/user/",
+			type:"post",
+			data:{
+
+				"abouthide" : 1
+
+			}
+
+		});
+
+	})
+
 });
 
 
