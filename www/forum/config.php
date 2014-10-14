@@ -2,7 +2,7 @@
 
 $db_type = 'mysql_innodb';
 $db_host = '185.25.117.227';
-$db_name = 'vataclubman';
+$db_name = 'vataclub';
 $db_username = 'vataclubman';
 $db_password = 'ivanvata1488zigaGJqmZCi2';
 $db_prefix = 'vata';
