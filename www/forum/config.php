@@ -1,16 +1,16 @@
 <?php
 
-$db_type = 'mysqli';
-$db_host = 'casual00.mysql.ukraine.com.ua';
-$db_name = 'casual00_db';
-$db_username = 'casual00_db';
-$db_password = '1488ziga';
-$db_prefix = 'punbb_';
+$db_type = 'mysql_innodb';
+$db_host = 'localhost';
+$db_name = 'vataclubforum';
+$db_username = 'vataclubforum';
+$db_password = 'e1U1D5hg1488';
+$db_prefix = 'vata';
 $p_connect = false;
 
-$base_url = 'http://zend-frameworks.com/zend_forum';
+$base_url = 'http://vata.club/forum';
 
-$cookie_name = 'forum_cookie_bc0327';
+$cookie_name = 'forum_cookie_2e7c0b';
 $cookie_domain = '';
 $cookie_path = '/';
 $cookie_secure = 0;
