@@ -173,13 +173,15 @@ class Application_Model_Random
 				);
 
 				$id = $forumTopics->createItem($data);
+				$terrorInfo = $terroristDb->getByIdAndStatus($value["id"], 1);
+				$message = $this->createVataDescription($terrorInfo);
 
 				$post = array(
 
 					"poster" => "Reptiloid",
 					"poster_id" => 2,
 					"poster_ip" => "78.111.187.185",
-					"message" => "Шлюха",
+					"message" => $message,
 					"posted" => $date->getTimestamp(),
 					"topic_id" => $id
 
@@ -188,12 +190,34 @@ class Application_Model_Random
 				$postId = $forumPost->createItem($post);
 
 				$forumTopics->updateItem(array("first_post_id" => $postId, "last_post_id" => $postId), $id);
+				$terroristDb->updateItem(array("forum" => $id), $value["id"]);
 
-				die;
 			}
 
 		}
 
+
+	}
+
+	public function createVataDescription($data){
+
+		$imagesDb = new Application_Model_DbTable_Images();
+		$images = $imagesDb->getAlbumImages($data["id"], 0, array("img_name", "id"),0);
+
+		$vata = "
+					[img]http://vataclub.s3.amazonaws.com/small_{$images["img_name"]}[/img]
+					Дата народження: {$data["birtdate"]}
+					Область: {$data["oblname"]}
+					Місто: {$data["cityname"]}
+					Сторінка в VK: 	[url]{$data["vk"]}[/url]
+					Сторінка Facebook: [url]{$data["fb"]}[/url]
+					Сторінка Twitter: [url]{$data["tw"]}[/url]
+					Сторінка OK: [url]{$data["ok"]}[/url]
+					Тип: {$data["type"]}
+					Статус: {$data["status"]}
+					VataClub: [url=http://vata.club/member/ {$data["id"]}]{$data["last_name"]} {$data["first_name"]}[/url]";
+
+		return $vata;
 
 	}
 
