@@ -57,6 +57,11 @@ header('Expires: '.gmdate(DATE_RFC1123,time()+60*60*24));
 						<?php echo $this->translate("Додати інформацію") ?>
 					</a>
 				</li>
+				<li>
+					<a href="/forum">
+						<?php echo $this->translate("Форум") ?>
+					</a>
+				</li>
 				<?php if (!isset($identity->id)): ?>
 					<li>
 						<a data-toggle="modal" data-target="#myModal">

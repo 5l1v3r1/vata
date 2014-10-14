@@ -1,10 +1,10 @@
 <?php
 
 $db_type = 'mysql_innodb';
-$db_host = 'localhost';
-$db_name = 'vataclubforum';
-$db_username = 'vataclubforum';
-$db_password = 'e1U1D5hg1488';
+$db_host = '185.25.117.227';
+$db_name = 'vataclubman';
+$db_username = 'vataclubman';
+$db_password = 'ivanvata1488zigaGJqmZCi2';
 $db_prefix = 'vata';
 $p_connect = false;
 

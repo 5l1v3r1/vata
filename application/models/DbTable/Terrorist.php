@@ -61,7 +61,7 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 			if($more == 2)$more = "AND (description like '%нацис%' OR description like '%фашис%')";
 		}else $more = "";
 
-		$data = "SELECT id, first_name, last_name, description FROM terrorist  WHERE checked = {$checked} {$type} {$status} {$more} ORDER BY terrorist.id DESC LIMIT {$start}, {$step};";
+		$data = "SELECT id, first_name, last_name, oblast, description FROM terrorist  WHERE checked = {$checked} {$type} {$status} {$more} ORDER BY terrorist.id DESC LIMIT {$start}, {$step};";
 		return $this->memcachePdo($data, 1, $cache);
 
 	}
