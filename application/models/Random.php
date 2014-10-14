@@ -123,35 +123,50 @@ class Application_Model_Random
 
 	}
 
+	public function createThemeOnForum($data){
+
+		$regions = $this->getTopicsArray();
+
+		$terroristDb = new Application_Model_DbTable_Terrorist();
+		$forumTopics = new Application_Model_DbTable_ForumTopics();
+		$forumPost = new Application_Model_DbTable_ForumPost();
+		$date = new DateTime();
+
+		$data = array(
+
+			"poster" => "Reptiloid",
+			"last_poster" => "Reptiloid",
+			"subject" => "{$data["last_name"]} {$data["first_name"]}",
+			"forum_id" => $regions[$data["oblast"]],
+			"posted" => $date->getTimestamp(),
+			"last_post" => $date->getTimestamp()
+		);
+
+		$id = $forumTopics->createItem($data);
+		$terrorInfo = $terroristDb->getByIdAndStatus($data["id"], 1);
+		$message = $this->createVataDescription($terrorInfo);
+
+		$post = array(
+
+			"poster" => "Reptiloid",
+			"poster_id" => 2,
+			"poster_ip" => "78.111.187.185",
+			"message" => $message,
+			"posted" => $date->getTimestamp(),
+			"topic_id" => $id
+
+		);
+
+		$postId = $forumPost->createItem($post);
+
+		$forumTopics->updateItem(array("first_post_id" => $postId, "last_post_id" => $postId), $id);
+		$terroristDb->updateItem(array("forum" => $id), $data["id"]);
+
+	}
+
 	public function moveAllToForum(){
 
-		$regions = array(
-			"58" => "4",
-			"59" => "6",
-			"60" => "7",
-			"61" => "8",
-			"62" => "9",
-			"63" => "10",
-			"64" => "11",
-			"65" => "12",
-			"66" => "13",
-			"68" => "14",
-			"69" => "15",
-			"70" => "16",
-			"71" => "17",
-			"72" => "18",
-			"73" => "19",
-			"74" => "20",
-			"75" => "21",
-			"77" => "22",
-			"78" => "23",
-			"79" => "24",
-			"80" => "25",
-			"81" => "26",
-			"82" => "27",
-			"83" => "28",
-			"84" => "29",
-		);
+		$regions = $this->getTopicsArray();
 
 		$terroristDb = new Application_Model_DbTable_Terrorist();
 		$forumTopics = new Application_Model_DbTable_ForumTopics();
@@ -171,7 +186,7 @@ class Application_Model_Random
 				"posted" => $date->getTimestamp(),
 				"last_post" => $date->getTimestamp()
 			);
-			echo $data["forum_id"]."<br>";
+
 			$id = $forumTopics->createItem($data);
 			$terrorInfo = $terroristDb->getByIdAndStatus($value["id"], 1);
 			$message = $this->createVataDescription($terrorInfo);
@@ -202,20 +217,58 @@ class Application_Model_Random
 		$imagesDb = new Application_Model_DbTable_Images();
 		$images = $imagesDb->getAlbumImages($data["id"], 0, array("img_name", "id"),0);
 
+		$data["birtdate"] = (!empty($data["birtdate"])) ? "Дата народження: {$data["birtdate"]}" : "";
+		$vk = (!empty($data["vk"])) ? "Сторінка в VK: 	[url]{$data["vk"]}[/url]" : "";
+		$fb = (!empty($data["fb"])) ? "Сторінка Facebook: [url]{$data["fb"]}[/url]" : "";
+		$tw = (!empty($data["tw"])) ? "Сторінка Twitter: [url]{$data["tw"]}[/url]" : "";
+		$ok = (!empty($data["ok"])) ? "Сторінка OK: [url]{$data["ok"]}[/url]" : "";
+
 		$vata = "
 					[img]http://vataclub.s3.amazonaws.com/small_{$images["img_name"]}[/img]
-					Дата народження: {$data["birtdate"]}
+					{$data["birtdate"] }
 					Область: {$data["oblname"]}
 					Місто: {$data["cityname"]}
-					Сторінка в VK: 	[url]{$data["vk"]}[/url]
-					Сторінка Facebook: [url]{$data["fb"]}[/url]
-					Сторінка Twitter: [url]{$data["tw"]}[/url]
-					Сторінка OK: [url]{$data["ok"]}[/url]
+					{$vk}
+					{$fb}
+					{$tw}
+					{$ok}
 					Тип: {$data["type"]}
 					Статус: {$data["status"]}
 					VataClub: [url=http://vata.club/member/{$data["id"]}]{$data["last_name"]} {$data["first_name"]}[/url]";
 
 		return $vata;
+
+	}
+
+	public function getTopicsArray(){
+
+		return array(
+			"58" => "4",
+			"59" => "6",
+			"60" => "7",
+			"61" => "8",
+			"62" => "9",
+			"63" => "10",
+			"64" => "11",
+			"65" => "12",
+			"66" => "13",
+			"68" => "14",
+			"69" => "15",
+			"70" => "16",
+			"71" => "17",
+			"72" => "18",
+			"73" => "19",
+			"74" => "20",
+			"75" => "21",
+			"77" => "22",
+			"78" => "23",
+			"79" => "24",
+			"80" => "25",
+			"81" => "26",
+			"82" => "27",
+			"83" => "28",
+			"84" => "29",
+		);
 
 	}
 
