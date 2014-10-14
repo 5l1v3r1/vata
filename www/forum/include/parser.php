@@ -15,7 +15,7 @@ if (!defined('FORUM'))
 // Load the IDNA class for international url handling
 if (defined('FORUM_SUPPORT_PCRE_UNICODE') && defined('FORUM_ENABLE_IDNA'))
 {
-	require FORUM_ROOT . 'include/idna/idna_convert.class.php';
+	require FORUM_ROOT.'include/idna/idna_convert.class.php';
 }
 
 

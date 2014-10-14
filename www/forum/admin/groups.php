@@ -12,8 +12,8 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('agr_start')) ? eval($hook) : null;
 
@@ -86,7 +86,7 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
 
 	define('FORUM_PAGE_SECTION', 'users');
 	define('FORUM_PAGE', 'admin-groups');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -317,7 +317,7 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 
 
@@ -448,7 +448,7 @@ else if (isset($_POST['add_edit_group']))
 
 	// Regenerate the quickjump cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_quickjump_cache();
 
@@ -497,7 +497,7 @@ else if (isset($_POST['set_default_group']))
 
 	// Regenerate the config cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_config_cache();
 
@@ -584,7 +584,7 @@ else if (isset($_GET['del_group']))
 
 		// Regenerate the quickjump cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_quickjump_cache();
 
@@ -612,7 +612,7 @@ else if (isset($_GET['del_group']))
 
 	define('FORUM_PAGE_SECTION', 'users');
 	define('FORUM_PAGE', 'admin-groups');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -678,7 +678,7 @@ else if (isset($_GET['del_group']))
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 
 
@@ -697,7 +697,7 @@ $forum_page['crumbs'] = array(
 
 define('FORUM_PAGE_SECTION', 'users');
 define('FORUM_PAGE', 'admin-groups');
-require FORUM_ROOT . 'header.php';
+require FORUM_ROOT.'header.php';
 
 // START SUBST - <!-- forum_main -->
 ob_start();
@@ -867,4 +867,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';

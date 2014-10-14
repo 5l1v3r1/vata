@@ -12,8 +12,8 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('ain_start')) ? eval($hook) : null;
 
@@ -151,7 +151,7 @@ $forum_page['crumbs'][] = array($lang_admin_common['Information'], forum_link($f
 
 define('FORUM_PAGE_SECTION', 'start');
 define('FORUM_PAGE', 'admin-information');
-require FORUM_ROOT . 'header.php';
+require FORUM_ROOT.'header.php';
 
 $forum_page['item_count'] = 0;
 
@@ -241,4 +241,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';

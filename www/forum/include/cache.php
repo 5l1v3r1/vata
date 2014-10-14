@@ -521,7 +521,7 @@ function generate_updates_cache()
 	if ($result != null && strpos($result['content'], '</updates>') !== false)
 	{
 		if (!defined('FORUM_XML_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/xml.php';
+			require FORUM_ROOT.'include/xml.php';
 
 		$output = xml_to_array(forum_trim($result['content']));
 		$output = current($output);

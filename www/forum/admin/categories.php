@@ -12,8 +12,8 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('acg_start')) ? eval($hook) : null;
 
@@ -125,7 +125,7 @@ else if (isset($_POST['del_cat']) || isset($_POST['del_cat_comply']))
 
 		// Regenerate the quickjump cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_quickjump_cache();
 
@@ -173,7 +173,7 @@ else if (isset($_POST['del_cat']) || isset($_POST['del_cat_comply']))
 
 		define('FORUM_PAGE_SECTION', 'start');
 		define('FORUM_PAGE', 'admin-categories');
-		require FORUM_ROOT . 'header.php';
+		require FORUM_ROOT.'header.php';
 
 		// START SUBST - <!-- forum_main -->
 		ob_start();
@@ -207,7 +207,7 @@ else if (isset($_POST['del_cat']) || isset($_POST['del_cat_comply']))
 		ob_end_clean();
 		// END SUBST - <!-- forum_main -->
 
-		require FORUM_ROOT . 'footer.php';
+		require FORUM_ROOT.'footer.php';
 	}
 }
 
@@ -256,7 +256,7 @@ else if (isset($_POST['update']))	// Change position and name of the categories
 
 	// Regenerate the quickjump cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_quickjump_cache();
 
@@ -305,7 +305,7 @@ $forum_page['crumbs'] = array(
 
 define('FORUM_PAGE_SECTION', 'start');
 define('FORUM_PAGE', 'admin-categories');
-require FORUM_ROOT . 'header.php';
+require FORUM_ROOT.'header.php';
 
 // START SUBST - <!-- forum_main -->
 ob_start();
@@ -461,4 +461,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';

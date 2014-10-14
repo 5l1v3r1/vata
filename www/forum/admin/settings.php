@@ -12,8 +12,8 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('aop_start')) ? eval($hook) : null;
 
@@ -137,7 +137,7 @@ if (isset($_POST['form_sent']))
 			($hook = get_hook('aop_email_validation')) ? eval($hook) : null;
 
 			if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
-				require FORUM_ROOT . 'include/email.php';
+				require FORUM_ROOT.'include/email.php';
 
 			$form['admin_email'] = strtolower($form['admin_email']);
 			if (!is_valid_email($form['admin_email']))
@@ -245,7 +245,7 @@ if (isset($_POST['form_sent']))
 
 	// Regenerate the config cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_config_cache();
 
@@ -285,7 +285,7 @@ if (!$section || $section == 'setup')
 
 	define('FORUM_PAGE_SECTION', 'settings');
 	define('FORUM_PAGE', 'admin-settings-setup');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -655,7 +655,7 @@ else if ($section == 'features')
 
 	define('FORUM_PAGE_SECTION', 'settings');
 	define('FORUM_PAGE', 'admin-settings-features');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -1089,7 +1089,7 @@ else if ($section == 'announcements')
 
 	define('FORUM_PAGE_SECTION', 'settings');
 	define('FORUM_PAGE', 'admin-settings-announcements');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -1157,7 +1157,7 @@ else if ($section == 'registration')
 
 	define('FORUM_PAGE_SECTION', 'settings');
 	define('FORUM_PAGE', 'admin-settings-registration');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -1299,7 +1299,7 @@ else if ($section == 'maintenance')
 
 	define('FORUM_PAGE_SECTION', 'management');
 	define('FORUM_PAGE', 'admin-settings-maintenance');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -1366,7 +1366,7 @@ else if ($section == 'email')
 
 	define('FORUM_PAGE_SECTION', 'settings');
 	define('FORUM_PAGE', 'admin-settings-email');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -1477,4 +1477,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';

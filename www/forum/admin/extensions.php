@@ -12,11 +12,11 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 if (!defined('FORUM_XML_FUNCTIONS_LOADED'))
-	require FORUM_ROOT . 'include/xml.php';
+	require FORUM_ROOT.'include/xml.php';
 
 ($hook = get_hook('aex_start')) ? eval($hook) : null;
 
@@ -223,7 +223,7 @@ if (isset($_GET['install']) || isset($_GET['install_hotfix']))
 
 		// Regenerate the hooks cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_hooks_cache();
 
@@ -237,7 +237,7 @@ if (isset($_GET['install']) || isset($_GET['install_hotfix']))
 				define('FORUM_PAGE', 'admin-extensions-hotfixes');
 			else
 				define('FORUM_PAGE', 'admin-extensions-manage');
-			require FORUM_ROOT . 'header.php';
+			require FORUM_ROOT.'header.php';
 
 			// START SUBST - <!-- forum_main -->
 			ob_start();
@@ -271,7 +271,7 @@ if (isset($_GET['install']) || isset($_GET['install_hotfix']))
 			ob_end_clean();
 			// END SUBST - <!-- forum_main -->
 
-			require FORUM_ROOT . 'footer.php';
+			require FORUM_ROOT.'footer.php';
 		}
 		else
 		{
@@ -299,7 +299,7 @@ if (isset($_GET['install']) || isset($_GET['install_hotfix']))
 	else
 		define('FORUM_PAGE', 'admin-extensions-manage');
 
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -371,7 +371,7 @@ if (isset($_GET['install']) || isset($_GET['install_hotfix']))
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 
 
@@ -465,7 +465,7 @@ else if (isset($_GET['uninstall']))
 
 		// Regenerate the hooks cache
 		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-			require FORUM_ROOT . 'include/cache.php';
+			require FORUM_ROOT.'include/cache.php';
 
 		generate_hooks_cache();
 
@@ -476,7 +476,7 @@ else if (isset($_GET['uninstall']))
 
 			define('FORUM_PAGE_SECTION', 'extensions');
 			define('FORUM_PAGE', 'admin-extensions-manage');
-			require FORUM_ROOT . 'header.php';
+			require FORUM_ROOT.'header.php';
 
 			// START SUBST - <!-- forum_main -->
 			ob_start();
@@ -510,7 +510,7 @@ else if (isset($_GET['uninstall']))
 			ob_end_clean();
 			// END SUBST - <!-- forum_main -->
 
-			require FORUM_ROOT . 'footer.php';
+			require FORUM_ROOT.'footer.php';
 		}
 		else
 		{
@@ -537,7 +537,7 @@ else if (isset($_GET['uninstall']))
 			define('FORUM_PAGE', 'admin-extensions-hotfixes');
 		else
 			define('FORUM_PAGE', 'admin-extensions-manage');
-		require FORUM_ROOT . 'header.php';
+		require FORUM_ROOT.'header.php';
 
 		// START SUBST - <!-- forum_main -->
 		ob_start();
@@ -586,7 +586,7 @@ else if (isset($_GET['uninstall']))
 		ob_end_clean();
 		// END SUBST - <!-- forum_main -->
 
-		require FORUM_ROOT . 'footer.php';
+		require FORUM_ROOT.'footer.php';
 	}
 }
 
@@ -686,7 +686,7 @@ else if (isset($_GET['flip']))
 
 	// Regenerate the hooks cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_hooks_cache();
 
@@ -736,7 +736,7 @@ if ($section == 'hotfixes')
 
 	define('FORUM_PAGE_SECTION', 'extensions');
 	define('FORUM_PAGE', 'admin-extensions-hotfixes');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -852,7 +852,7 @@ if ($section == 'hotfixes')
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }
 // Extensions list
 else
@@ -868,7 +868,7 @@ else
 			($hook = get_hook('aex_add_repository_for_'.$id)) ? eval($hook) : null;
 
 		if (is_readable(FORUM_CACHE_DIR.'cache_ext_version_notifications.php'))
-			include FORUM_CACHE_DIR . 'cache_ext_version_notifications.php';
+			include FORUM_CACHE_DIR.'cache_ext_version_notifications.php';
 
 		// Get latest timestamp in cache
 		if (isset($forum_ext_repos))
@@ -888,10 +888,10 @@ else
 		if ($update_new_versions_cache)
 		{
 			if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-				require_once FORUM_ROOT . 'include/cache.php';
+				require_once FORUM_ROOT.'include/cache.php';
 
 			generate_ext_versions_cache($inst_exts, $repository_urls, $repository_url_by_extension);
-			include FORUM_CACHE_DIR . 'cache_ext_version_notifications.php';
+			include FORUM_CACHE_DIR.'cache_ext_version_notifications.php';
 		}
 	}
 
@@ -907,7 +907,7 @@ else
 
 	define('FORUM_PAGE_SECTION', 'extensions');
 	define('FORUM_PAGE', 'admin-extensions-manage');
-	require FORUM_ROOT . 'header.php';
+	require FORUM_ROOT.'header.php';
 
 	// START SUBST - <!-- forum_main -->
 	ob_start();
@@ -1065,5 +1065,5 @@ else
 	ob_end_clean();
 	// END SUBST - <!-- forum_main -->
 
-	require FORUM_ROOT . 'footer.php';
+	require FORUM_ROOT.'footer.php';
 }

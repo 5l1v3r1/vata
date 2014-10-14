@@ -37,12 +37,12 @@ error_reporting(E_ALL);
 @set_time_limit(0);
 
 // We need some stuff from functions.php
-require FORUM_ROOT . 'include/functions.php';
+require FORUM_ROOT.'include/functions.php';
 
 // Load UTF-8 functions
-require FORUM_ROOT . 'include/utf8/utf8.php';
-require FORUM_ROOT . 'include/utf8/ucwords.php';
-require FORUM_ROOT . 'include/utf8/trim.php';
+require FORUM_ROOT.'include/utf8/utf8.php';
+require FORUM_ROOT.'include/utf8/ucwords.php';
+require FORUM_ROOT.'include/utf8/trim.php';
 
 // Strip out "bad" UTF-8 characters
 forum_remove_bad_characters();
@@ -420,7 +420,7 @@ else
 
 	// Validate email
 	if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/email.php';
+		require FORUM_ROOT.'include/email.php';
 
 	if (!is_valid_email($email))
 		error($lang_install['Invalid email']);
@@ -439,31 +439,31 @@ else
 	switch ($db_type)
 	{
 		case 'mysql':
-			require FORUM_ROOT . 'include/dblayer/mysql.php';
+			require FORUM_ROOT.'include/dblayer/mysql.php';
 			break;
 
 		case 'mysql_innodb':
-			require FORUM_ROOT . 'include/dblayer/mysql_innodb.php';
+			require FORUM_ROOT.'include/dblayer/mysql_innodb.php';
 			break;
 
 		case 'mysqli':
-			require FORUM_ROOT . 'include/dblayer/mysqli.php';
+			require FORUM_ROOT.'include/dblayer/mysqli.php';
 			break;
 
 		case 'mysqli_innodb':
-			require FORUM_ROOT . 'include/dblayer/mysqli_innodb.php';
+			require FORUM_ROOT.'include/dblayer/mysqli_innodb.php';
 			break;
 
 		case 'pgsql':
-			require FORUM_ROOT . 'include/dblayer/pgsql.php';
+			require FORUM_ROOT.'include/dblayer/pgsql.php';
 			break;
 
 		case 'sqlite':
-			require FORUM_ROOT . 'include/dblayer/sqlite.php';
+			require FORUM_ROOT.'include/dblayer/sqlite.php';
 			break;
 
 		case 'sqlite3':
-			require FORUM_ROOT . 'include/dblayer/sqlite3.php';
+			require FORUM_ROOT.'include/dblayer/sqlite3.php';
 			break;
 
 		default:
@@ -1795,7 +1795,7 @@ else
 	$forum_db->query_build($query) or error(__FILE__, __LINE__);
 
 	// Add new post to search table
-	require FORUM_ROOT . 'include/search_idx.php';
+	require FORUM_ROOT.'include/search_idx.php';
 	update_search_index('post', $forum_db->insert_id(), $lang_install['Default post contents'], $lang_install['Default topic subject']);
 
 	// Insert the default ranks
@@ -1870,7 +1870,7 @@ else
 
 	if ($install_pun_repository && is_readable(FORUM_ROOT.'extensions/pun_repository/manifest.xml'))
 	{
-		require FORUM_ROOT . 'include/xml.php';
+		require FORUM_ROOT.'include/xml.php';
 
 		$ext_data = xml_to_array(file_get_contents(FORUM_ROOT.'extensions/pun_repository/manifest.xml'));
 

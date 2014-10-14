@@ -19,14 +19,14 @@ list($usec, $sec) = explode(' ', microtime());
 $forum_start = ((float)$usec + (float)$sec);
 
 // Load the functions script
-require FORUM_ROOT . 'include/functions.php';
+require FORUM_ROOT.'include/functions.php';
 // Load the Loader class
-require FORUM_ROOT . 'include/loader.php';
+require FORUM_ROOT.'include/loader.php';
 
 // Load UTF-8 functions
-require FORUM_ROOT . 'include/utf8/utf8.php';
-require FORUM_ROOT . 'include/utf8/ucwords.php';
-require FORUM_ROOT . 'include/utf8/trim.php';
+require FORUM_ROOT.'include/utf8/utf8.php';
+require FORUM_ROOT.'include/utf8/ucwords.php';
+require FORUM_ROOT.'include/utf8/trim.php';
 
 // Reverse the effect of register_globals
 forum_unregister_globals();
@@ -36,7 +36,7 @@ ignore_user_abort(true);
 
 // Attempt to load the configuration file config.php
 if (file_exists(FORUM_ROOT.'config.php'))
-	include FORUM_ROOT . 'config.php';
+	include FORUM_ROOT.'config.php';
 
 // If we have the 1.2 constant defined, define the proper 1.3 constant so we don't get
 // an incorrect "need to install" message
@@ -80,26 +80,26 @@ if (!defined('FORUM_CACHE_DIR'))
 	define('FORUM_CACHE_DIR', FORUM_ROOT.'cache/');
 
 // Load DB abstraction layer and connect
-require FORUM_ROOT . 'include/dblayer/common_db.php';
+require FORUM_ROOT.'include/dblayer/common_db.php';
 
 // Start a transaction
 $forum_db->start_transaction();
 
 // Load cached config
 if (file_exists(FORUM_CACHE_DIR.'cache_config.php'))
-	include FORUM_CACHE_DIR . 'cache_config.php';
+	include FORUM_CACHE_DIR.'cache_config.php';
 
 if (!defined('FORUM_CONFIG_LOADED'))
 {
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_config_cache();
-	require FORUM_CACHE_DIR . 'cache_config.php';
+	require FORUM_CACHE_DIR.'cache_config.php';
 }
 
 // Load the Flash messenger class
-require FORUM_ROOT . 'include/flash_messenger.php';
+require FORUM_ROOT.'include/flash_messenger.php';
 
 // If the request_uri is invalid try fix it
 forum_fix_request_uri();
@@ -121,15 +121,15 @@ if (defined('PUN') || !isset($forum_config['o_database_revision']) || $forum_con
 
 // Load hooks
 if (file_exists(FORUM_CACHE_DIR.'cache_hooks.php'))
-	include FORUM_CACHE_DIR . 'cache_hooks.php';
+	include FORUM_CACHE_DIR.'cache_hooks.php';
 
 if (!defined('FORUM_HOOKS_LOADED'))
 {
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_hooks_cache();
-	require FORUM_CACHE_DIR . 'cache_hooks.php';
+	require FORUM_CACHE_DIR.'cache_hooks.php';
 }
 
 // Define a few commonly used constants

@@ -12,8 +12,8 @@
 
 if (!defined('FORUM_ROOT'))
 	define('FORUM_ROOT', '../');
-require FORUM_ROOT . 'include/common.php';
-require FORUM_ROOT . 'include/common_admin.php';
+require FORUM_ROOT.'include/common.php';
+require FORUM_ROOT.'include/common_admin.php';
 
 ($hook = get_hook('acs_start')) ? eval($hook) : null;
 
@@ -47,7 +47,7 @@ if (isset($_POST['add_word']))
 
 	// Regenerate the censor cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_censors_cache();
 
@@ -84,7 +84,7 @@ else if (isset($_POST['update']))
 
 	// Regenerate the censor cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_censors_cache();
 
@@ -114,7 +114,7 @@ else if (isset($_POST['remove']))
 
 	// Regenerate the censor cache
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_censors_cache();
 
@@ -129,15 +129,15 @@ else if (isset($_POST['remove']))
 
 // Load the cached censors
 if (file_exists(FORUM_CACHE_DIR.'cache_censors.php'))
-	include FORUM_CACHE_DIR . 'cache_censors.php';
+	include FORUM_CACHE_DIR.'cache_censors.php';
 
 if (!defined('FORUM_CENSORS_LOADED'))
 {
 	if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
-		require FORUM_ROOT . 'include/cache.php';
+		require FORUM_ROOT.'include/cache.php';
 
 	generate_censors_cache();
-	require FORUM_CACHE_DIR . 'cache_censors.php';
+	require FORUM_CACHE_DIR.'cache_censors.php';
 }
 
 
@@ -158,7 +158,7 @@ $forum_page['crumbs'][] = array($lang_admin_common['Censoring'], forum_link($for
 
 define('FORUM_PAGE_SECTION', 'settings');
 define('FORUM_PAGE', 'admin-censoring');
-require FORUM_ROOT . 'header.php';
+require FORUM_ROOT.'header.php';
 
 // START SUBST - <!-- forum_main -->
 ob_start();
@@ -277,4 +277,4 @@ $tpl_main = str_replace('<!-- forum_main -->', $tpl_temp, $tpl_main);
 ob_end_clean();
 // END SUBST - <!-- forum_main -->
 
-require FORUM_ROOT . 'footer.php';
+require FORUM_ROOT.'footer.php';

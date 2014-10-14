@@ -28,7 +28,7 @@ define('FORUM_ROOT', '../');
 
 // Attempt to load the configuration file config.php
 if (file_exists(FORUM_ROOT.'config.php'))
-	include FORUM_ROOT . 'config.php';
+	include FORUM_ROOT.'config.php';
 
 
 if (defined('PUN'))
@@ -67,12 +67,12 @@ if (!defined('FORUM_CACHE_DIR'))
 	define('FORUM_CACHE_DIR', FORUM_ROOT.'cache/');
 
 // Load the functions script
-require FORUM_ROOT . 'include/functions.php';
+require FORUM_ROOT.'include/functions.php';
 
 // Load UTF-8 functions
-require FORUM_ROOT . 'include/utf8/utf8.php';
-require FORUM_ROOT . 'include/utf8/ucwords.php';
-require FORUM_ROOT . 'include/utf8/trim.php';
+require FORUM_ROOT.'include/utf8/utf8.php';
+require FORUM_ROOT.'include/utf8/ucwords.php';
+require FORUM_ROOT.'include/utf8/trim.php';
 
 // Strip out "bad" UTF-8 characters
 forum_remove_bad_characters();
@@ -85,7 +85,7 @@ if (!defined('FORUM_IGNORE_REQUEST_URI'))
 define('FORUM_NO_SET_NAMES', 1);
 
 // Load DB abstraction layer and try to connect
-require FORUM_ROOT . 'include/dblayer/common_db.php';
+require FORUM_ROOT.'include/dblayer/common_db.php';
 
 // Start a transaction
 $forum_db->start_transaction();
@@ -1970,7 +1970,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
 
 	case 'preparse_posts':
 		if (!defined('FORUM_PARSER_LOADED'))
-			require FORUM_ROOT . 'include/parser.php';
+			require FORUM_ROOT.'include/parser.php';
 
 		// Now we're definitely using UTF-8, so we convert the output properly
 		$forum_db->set_names('utf8');
@@ -2039,7 +2039,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
 
 	case 'preparse_sigs':
 		if (!defined('FORUM_PARSER_LOADED'))
-			require FORUM_ROOT . 'include/parser.php';
+			require FORUM_ROOT.'include/parser.php';
 
 		// Now we're definitely using UTF-8, so we convert the output properly
 		$forum_db->set_names('utf8');
