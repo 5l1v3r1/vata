@@ -249,23 +249,18 @@ class CronjobController extends Zend_Controller_Action
 		fputs($fp, '<?xml version="1.0" encoding="UTF-8"?>' . chr(13) . chr(10));
 		fputs($fp, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">' . chr(13) . chr(10));
 
-		$lang = array("ua","ru","en","lv","ge","it","pl","lt");
+		$lang = array("ua","ru");
 
 		foreach($lang as $l){
 			fputs($fp, "<url><loc>{$home}/{$l}</loc><changefreq>daily</changefreq><priority>1.00</priority></url>" . chr(13) . chr(10));
 
 			foreach ($terroristDb->getItemsList() as  $value) {
 
-				fputs($fp, "<url><loc>{$home}/{$l}/ivan/{$value["id"]}</loc><changefreq>daily</changefreq><priority>0.75</priority> </url>" . chr(13) . chr(10));
+				fputs($fp, "<url><loc>{$home}/{$l}/member/{$value["id"]}</loc><changefreq>daily</changefreq><priority>0.75</priority> </url>" . chr(13) . chr(10));
 
 			}
 		}
 
-		foreach ($news->getArticlesByStatus(1) as  $value) {
-
-			fputs($fp, "<url><loc>{$home}/news/{$value["article_url"]}.html</loc><changefreq>weekly</changefreq><priority>0.5</priority> </url>" . chr(13) . chr(10));
-
-		}
 
 
 		fputs($fp, '</urlset>' . chr(13) . chr(10));
