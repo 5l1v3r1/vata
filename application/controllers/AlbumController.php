@@ -161,7 +161,7 @@ class AlbumController extends Zend_Controller_Action
 			$params = $this->getRequest()->getPost();
 
 			$achievementsUserDb->dropUsetAchievemnts($id);
-			foreach($params["medals"] as $value)$achievementsUserDb->createItem(array("user_id" => $id, "ach_id" => $value));
+			if(!empty($params["medals"]))foreach($params["medals"] as $value)$achievementsUserDb->createItem(array("user_id" => $id, "ach_id" => $value));
 			unset($params["medals"]);
 			$terroristDb->updateItem($params, $id);
 
