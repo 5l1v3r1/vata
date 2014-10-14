@@ -61,10 +61,10 @@
 			<div class="form-group">
 				<select class="form-control" id="TerrorStatus" name = "status">
 					<option value = ""><?php echo $this->translate("Статус")?></option>
-					<option value = "Воює в мережі з фошиздамі" <?php if($this->params["terrorist"]["type"] == "Воює в мережі з фошиздамі")echo "selected"?>><?php echo $this->translate("Воює в мережі з фошиздамі")?></option>
-					<option value = "Активно пропагує сепаратизм" <?php if($this->params["terrorist"]["type"] == "Активно пропагує сепаратизм")echo "selected"?>><?php echo $this->translate("Активно пропагує сепаратизм")?></option>
-					<option value = "Приймає участь в вбивствах і мародерстві" <?php if($this->params["terrorist"]["type"] == "Приймає участь в вбивствах і мародерстві")echo "selected"?>><?php echo $this->translate("Приймає участь в вбивствах і мародерстві")?></option>
-					<option value = "Удобрює землю неньки України" <?php if($this->params["terrorist"]["type"] == "Удобрює землю неньки України")echo "selected"?>><?php echo $this->translate("Удобрює землю неньки України")?></option>
+					<option value = "Воює в мережі з фошиздамі" <?php if($this->params["terrorist"]["status"] == "Воює в мережі з фошиздамі")echo "selected"?>><?php echo $this->translate("Воює в мережі з фошиздамі")?></option>
+					<option value = "Активно пропагує сепаратизм" <?php if($this->params["terrorist"]["status"] == "Активно пропагує сепаратизм")echo "selected"?>><?php echo $this->translate("Активно пропагує сепаратизм")?></option>
+					<option value = "Приймає участь в вбивствах і мародерстві" <?php if($this->params["terrorist"]["status"] == "Приймає участь в вбивствах і мародерстві")echo "selected"?>><?php echo $this->translate("Приймає участь в вбивствах і мародерстві")?></option>
+					<option value = "Удобрює землю неньки України" <?php if($this->params["terrorist"]["status"] == "Удобрює землю неньки України")echo "selected"?>><?php echo $this->translate("Удобрює землю неньки України")?></option>
 				</select>
 			</div>
 			<div class="form-group">
