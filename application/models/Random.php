@@ -123,7 +123,7 @@ class Application_Model_Random
 
 	}
 
-	public function createThemeOnForum($data){
+	public function createThemeOnForum($terrorist){
 
 		$regions = $this->getTopicsArray();
 
@@ -136,14 +136,14 @@ class Application_Model_Random
 
 			"poster" => "Reptiloid",
 			"last_poster" => "Reptiloid",
-			"subject" => "{$data["last_name"]} {$data["first_name"]}",
-			"forum_id" => $regions[$data["oblast"]],
+			"subject" => "{$terrorist["last_name"]} {$terrorist["first_name"]}",
+			"forum_id" => $regions[$terrorist["oblast"]],
 			"posted" => $date->getTimestamp(),
 			"last_post" => $date->getTimestamp()
 		);
 
 		$id = $forumTopics->createItem($data);
-		$terrorInfo = $terroristDb->getByIdAndStatus($data["id"], 1);
+		$terrorInfo = $terroristDb->getByIdAndStatus($terrorist["id"], 1);
 		$message = $this->createVataDescription($terrorInfo);
 
 		$post = array(
@@ -160,7 +160,7 @@ class Application_Model_Random
 		$postId = $forumPost->createItem($post);
 
 		$forumTopics->updateItem(array("first_post_id" => $postId, "last_post_id" => $postId), $id);
-		$terroristDb->updateItem(array("forum" => $id), $data["id"]);
+		$terroristDb->updateItem(array("forum" => $id), $terrorist["id"]);
 
 	}
 
