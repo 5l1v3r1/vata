@@ -155,6 +155,8 @@ class Application_Model_Random
 
 		$terroristDb = new Application_Model_DbTable_Terrorist();
 		$forumTopics = new Application_Model_DbTable_ForumTopics();
+		$forumPost = new Application_Model_DbTable_ForumPost();
+		$date = new DateTime();
 
 		$activeList = $terroristDb->getTerrorists(1);
 
@@ -163,11 +165,30 @@ class Application_Model_Random
 				$data = array(
 
 					"poster" => "Reptiloid",
+					"last_poster" => "Reptiloid",
 					"subject" => "{$value["last_name"]} {$value["first_name"]}",
-					"forum_id" => $regions[$value["oblast"]]
+					"forum_id" => $regions[$value["oblast"]],
+					"posted" => $date->getTimestamp(),
+					"last_post" => $date->getTimestamp()
 				);
 
-				$forumTopics->createItem($data);
+				$id = $forumTopics->createItem($data);
+
+				$post = array(
+
+					"poster" => "Reptiloid",
+					"poster_id" => 2,
+					"poster_ip" => "78.111.187.185",
+					"message" => "Шлюха",
+					"posted" => $date->getTimestamp(),
+					"topic_id" => $id
+
+				);
+
+				$postId = $forumPost->createItem($post);
+
+				$forumTopics->updateItem(array("first_post_id" => $postId, "last_post_id" => $postId), $id);
+
 				die;
 			}
 
