@@ -83,6 +83,7 @@ class AjaxController extends Zend_Controller_Action
 		$imagesDb = new Application_Model_DbTable_Images();
 		$notify = new Application_Model_DbTable_Notify();
 		$config = Zend_Registry::get('config');
+		$randomModel = new Application_Model_Random();
 
 		$post = $this->getRequest()->getParams();
 
@@ -94,8 +95,11 @@ class AjaxController extends Zend_Controller_Action
 		if (isset($post["saveAlbum"])){
 
 			if($imagesDb->checkToMain($post["saveAlbum"])){
+
+				$randomModel->
 				$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);
 				$this->view->noimg = 0;
+
 			}else{
 				$this->view->noimg = 1;
 			}
