@@ -123,6 +123,59 @@ class Application_Model_Random
 
 	}
 
+	public function moveAllToForum(){
+
+		$regions = array(
+			"58" => "4",
+			"59" => "6",
+			"60" => "7",
+			"61" => "8",
+			"62" => "9",
+			"63" => "10",
+			"64" => "11",
+			"65" => "12",
+			"66" => "13",
+			"68" => "14",
+			"69" => "15",
+			"70" => "16",
+			"71" => "17",
+			"72" => "18",
+			"73" => "19",
+			"74" => "20",
+			"75" => "21",
+			"77" => "22",
+			"78" => "23",
+			"79" => "24",
+			"80" => "25",
+			"81" => "26",
+			"82" => "27",
+			"83" => "28",
+			"84" => "29",
+		);
+
+		$terroristDb = new Application_Model_DbTable_Terrorist();
+		$forumTopics = new Application_Model_DbTable_ForumTopics();
+
+		$activeList = $terroristDb->getTerrorists(1);
+
+		foreach($activeList as $key => $value){
+			if($key > 1) {
+				$data = array(
+
+					"poster" => "Reptiloid",
+					"subject" => "{$value["last_name"]} {$value["first_name"]}",
+					"forum_id" => $regions[$value["oblast"]]
+				);
+
+				$forumTopics->createItem($data);
+				die;
+			}
+
+		}
+
+
+	}
+
 
 }
 
