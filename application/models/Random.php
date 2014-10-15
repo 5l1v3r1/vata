@@ -158,41 +158,39 @@ class Application_Model_Random
 		$forumPost = new Application_Model_DbTable_ForumPost();
 		$date = new DateTime();
 
-		$activeList = $terroristDb->getTerrorists(1);
+		$activeList = $terroristDb->getTerrorists(1, 0, 1000000);
 
 		foreach($activeList as $key => $value){
-			if($key > 1) {
-				$data = array(
 
-					"poster" => "Reptiloid",
-					"last_poster" => "Reptiloid",
-					"subject" => "{$value["last_name"]} {$value["first_name"]}",
-					"forum_id" => $regions[$value["oblast"]],
-					"posted" => $date->getTimestamp(),
-					"last_post" => $date->getTimestamp()
-				);
+			$data = array(
 
-				$id = $forumTopics->createItem($data);
-				$terrorInfo = $terroristDb->getByIdAndStatus($value["id"], 1);
-				$message = $this->createVataDescription($terrorInfo);
+				"poster" => "Reptiloid",
+				"last_poster" => "Reptiloid",
+				"subject" => "{$value["last_name"]} {$value["first_name"]}",
+				"forum_id" => $regions[$value["oblast"]],
+				"posted" => $date->getTimestamp(),
+				"last_post" => $date->getTimestamp()
+			);
+			echo $data["forum_id"]."<br>";
+			$id = $forumTopics->createItem($data);
+			$terrorInfo = $terroristDb->getByIdAndStatus($value["id"], 1);
+			$message = $this->createVataDescription($terrorInfo);
 
-				$post = array(
+			$post = array(
 
-					"poster" => "Reptiloid",
-					"poster_id" => 2,
-					"poster_ip" => "78.111.187.185",
-					"message" => $message,
-					"posted" => $date->getTimestamp(),
-					"topic_id" => $id
+				"poster" => "Reptiloid",
+				"poster_id" => 2,
+				"poster_ip" => "78.111.187.185",
+				"message" => $message,
+				"posted" => $date->getTimestamp(),
+				"topic_id" => $id
 
-				);
+			);
 
-				$postId = $forumPost->createItem($post);
+			$postId = $forumPost->createItem($post);
 
-				$forumTopics->updateItem(array("first_post_id" => $postId, "last_post_id" => $postId), $id);
-				$terroristDb->updateItem(array("forum" => $id), $value["id"]);
-
-			}
+			$forumTopics->updateItem(array("first_post_id" => $postId, "last_post_id" => $postId), $id);
+			$terroristDb->updateItem(array("forum" => $id), $value["id"]);
 
 		}
 
@@ -215,7 +213,7 @@ class Application_Model_Random
 					Сторінка OK: [url]{$data["ok"]}[/url]
 					Тип: {$data["type"]}
 					Статус: {$data["status"]}
-					VataClub: [url=http://vata.club/member/ {$data["id"]}]{$data["last_name"]} {$data["first_name"]}[/url]";
+					VataClub: [url=http://vata.club/member/{$data["id"]}]{$data["last_name"]} {$data["first_name"]}[/url]";
 
 		return $vata;
 
