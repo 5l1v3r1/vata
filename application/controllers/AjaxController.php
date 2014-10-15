@@ -96,8 +96,8 @@ class AjaxController extends Zend_Controller_Action
 
 			if($imagesDb->checkToMain($post["saveAlbum"])){
 
-				$randomModel->createThemeOnForum($albumDb->getItem($post["saveAlbum"]));
 				$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);
+				$randomModel->createThemeOnForum($albumDb->getItem($post["saveAlbum"]));
 				$this->view->noimg = 0;
 
 			}else{
