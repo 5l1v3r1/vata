@@ -16,10 +16,7 @@ class IndexController extends Zend_Controller_Action
 			$actual_link = preg_replace("/www\./", "", $actual_link);
 			$this->redirect($actual_link, array('code'=>301));
 		}
-
-		$random = new Application_Model_Random();
-		$random->moveAllToForum();
-		die;
+		
 
 		$doctypeHelper = new Zend_View_Helper_Doctype();
 		$doctypeHelper->doctype('XHTML1_RDFA');
