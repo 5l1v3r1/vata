@@ -71,7 +71,8 @@ class UserController extends Zend_Controller_Action
 	public function twitterAction()
 	{
 
-		$twitterModel = new Application_Model_Twitter();
+
+		#$twitterModel = new Application_Model_Twitter();
 
 		if ($this->getRequest()->getParam('oauth_verifier')) {
 
