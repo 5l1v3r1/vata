@@ -49,20 +49,9 @@ class UserController extends Zend_Controller_Action
 
 		if ($facebook->getUser()) {
 
-			$friends = $facebook->api('/me/friends');
 
-			if ($friends) {
-
-				foreach ($friends["data"] as $value) {
-
-					$array[] = $value["id"];
-
-				}
-
-			}
 			$model->auth($facebook->api('/me', 'GET'));
 			$identity = Zend_Auth::getInstance()->getStorage()->read();
-			if (isset($identity->id)) $users->updateUserFriendsList($identity->id, $array);
 		}
 
 		$redirect = (preg_match("#login#", $_SESSION["urlsaver"])) ? $url->url(1) : $_SESSION["urlsaver"];
