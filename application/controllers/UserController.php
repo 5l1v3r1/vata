@@ -76,11 +76,11 @@ class UserController extends Zend_Controller_Action
 
 		if ($this->getRequest()->getParam('oauth_verifier')) {
 
-			$twitterModel->twSign($this->getRequest()->getParam('oauth_verifier'));
+			#$twitterModel->twSign($this->getRequest()->getParam('oauth_verifier'));
 
 		} else {
 
-			$twitterModel->twSign();
+			#$twitterModel->twSign();
 
 		}
 
