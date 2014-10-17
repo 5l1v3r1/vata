@@ -103,7 +103,7 @@ class CronjobController extends Zend_Controller_Action
 
 		foreach ($list as $value) {
 
-			$link = "{$home}/ivan/{$value['id']}";
+			$link = "{$home}/member/{$value['id']}";
 			$img = $imagesDb->getAlbumImages($value["id"], 1, array("img_name"), 0);
 			$picture = (isset($img[0]["img_name"])) ? "http://{$config->amazon->bucket}.s3.amazonaws.com/".$img[0]["img_name"] : "http://{$config->amazon->bucket}.s3.amazonaws.com/noimage.jpg" ;
 
