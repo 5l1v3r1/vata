@@ -25,7 +25,7 @@ class Application_Model_Meta
 		$this->view->headMeta()->setName('keywords', $this->lang->translate("База сепаратистів України, база террористів України,клуб ватніків України"));
 		$this->view->headMeta()->setProperty('og:title', $this->lang->translate("Клуб сепаратистів та ватніків України"));
 		$this->view->headMeta()->setProperty('og:description', $this->lang->translate("База сепаратистів, террористів на ватніків України"));
-		$this->view->headMeta()->setProperty('og:image', My_View_Helper_Url::url(1) . "/data/img/design/vata.jpg}");
+		$this->view->headMeta()->setProperty('og:image', My_View_Helper_Url::url(1) . "/data/img/design/vata.jpg");
 
 	}
 
