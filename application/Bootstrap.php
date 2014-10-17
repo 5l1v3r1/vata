@@ -71,7 +71,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 	protected function _initTranslate()
 	{
-		
+
 		#$bro = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 		#$langs = array("ua","ru","en","lv","ge","it","pl", "lt");
 
