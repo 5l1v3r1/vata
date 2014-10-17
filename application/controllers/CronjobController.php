@@ -120,28 +120,7 @@ class CronjobController extends Zend_Controller_Action
 			$terrorists->updateItem(array('tw_posted' => '1'), $value['id']);
 
 		}
-
-		#businesses
-		$list = $newsDb->getForSocialPosting("posted_tw");
-
-		foreach ($list as $value) {
-
-			$link = "{$home}/news/{$value['article_url']}.html";
-			$picture = (!empty($value['article_img'])) ? "http://{$config->amazon->bucket}.s3.amazonaws.com/".$value['article_img'] : "http://{$config->amazon->bucket}.s3.amazonaws.com/noimage.jpg" ;
-
-			$post = array(
-
-				"name" => $value['article_name'],
-				"text" =>  "{$link} #vatnik #vataclub",
-				"img"  => $picture
-
-			);
-
-			$shareModel->twitterPost($post);
-			$newsDb->updateItem(array('posted_tw' => '1'), $value['id']);
-
-		}
-
+		
 	}
 
 	public function facebookAction()
