@@ -89,8 +89,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			#"en_JP"
 		}
 
-		if(!isset($lang))$lang = "ru";
-		if(!isset($locale))$locale = "ru_RU";
+		if(!isset($lang))$lang = "ua";
+		if(!isset($locale))$locale = "uk_UA";
 
 		$zl = new Zend_Locale();
 		$zl->setLocale($locale);
