@@ -9,9 +9,9 @@ $forum_stats = array (
     'id' => '2',
     'username' => 'Reptiloid',
   ),
-  'total_topics' => '0',
-  'total_posts' => '0',
-  'cached' => 1413295979,
+  'total_topics' => '4',
+  'total_posts' => '5',
+  'cached' => 1413420272,
 );
 
 ?>

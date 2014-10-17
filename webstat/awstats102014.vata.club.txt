@@ -8,33 +8,33 @@ AWSTATS DATA FILE 7.0 (build 1.971)
 # update).
 BEGIN_MAP 27
 POS_GENERAL 1989                
-POS_TIME 2672                
-POS_VISITOR 7590                
-POS_DAY 8195                
-POS_DOMAIN 3409                
-POS_LOGIN 3641                
-POS_ROBOT 3796                
-POS_WORMS 4164                
-POS_EMAILSENDER 4295                
-POS_EMAILRECEIVER 4438                
-POS_SESSION 8383                
-POS_SIDER 8569                
-POS_FILETYPES 4573                
-POS_DOWNLOADS 4832                
-POS_OS 4902                
-POS_BROWSER 5006                
-POS_SCREENSIZE 5200                
-POS_UNKNOWNREFERER 5274                
-POS_UNKNOWNREFERERBROWSER 5361                
-POS_ORIGIN 5443                
-POS_SEREFERRALS 5582                
-POS_PAGEREFS 5726                
-POS_SEARCHWORDS 5910                
-POS_KEYWORDS 6062                
-POS_MISC 2335                
-POS_ERRORS 6121                
-POS_CLUSTER 3497                
-POS_SIDER_404 6257                
+POS_TIME 2673                
+POS_VISITOR 8646                
+POS_DAY 9907                
+POS_DOMAIN 3456                
+POS_LOGIN 3689                
+POS_ROBOT 3844                
+POS_WORMS 4415                
+POS_EMAILSENDER 4546                
+POS_EMAILRECEIVER 4689                
+POS_SESSION 10178               
+POS_SIDER 10364               
+POS_FILETYPES 4824                
+POS_DOWNLOADS 5104                
+POS_OS 5174                
+POS_BROWSER 5307                
+POS_SCREENSIZE 5583                
+POS_UNKNOWNREFERER 5657                
+POS_UNKNOWNREFERERBROWSER 5858                
+POS_ORIGIN 6080                
+POS_SEREFERRALS 6220                
+POS_PAGEREFS 6364                
+POS_SEARCHWORDS 6692                
+POS_KEYWORDS 6844                
+POS_MISC 2336                
+POS_ERRORS 6903                
+POS_CLUSTER 3545                
+POS_SIDER_404 7067                
 END_MAP
 
 # LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
@@ -46,14 +46,14 @@ END_MAP
 # MonthHostsKnown   = Number of hosts known
 # MonthHostsUnKnown = Number of hosts unknown
 BEGIN_GENERAL 8
-LastLine 20141013235937 328 81281 21501705014427
+LastLine 20141016231507 640 159945 19355913012180
 FirstTime 20141008110733
-LastTime 20141013222955
-LastUpdate 20141014000101 328 0 328 0 0
-TotalVisits 23                  
-TotalUnique 13                  
+LastTime 20141016144450
+LastUpdate 20141017000102 640 0 640 0 0
+TotalVisits 40                  
+TotalUnique 29                  
 MonthHostsKnown 0                   
-MonthHostsUnknown 13                  
+MonthHostsUnknown 29                  
 END_GENERAL
 
 # Misc ID - Pages - Hits - Bandwidth
@@ -72,36 +72,36 @@ END_MISC
 
 # Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
 BEGIN_TIME 24
-0 0 0 0 102 136 1185130
+0 0 0 0 103 137 1190571
 1 0 0 0 16 16 162852
-2 0 0 0 20 20 210072
-3 0 0 0 9 9 95859
-4 0 0 0 9 9 94546
-5 0 0 0 6 7 53698
-6 0 0 0 12 13 118151
-7 0 0 0 13 13 137504
-8 2 20 306519 8 9 84790
-9 63 522 856540 26 62 361491
-10 77 826 2565257 22 30 158950
-11 31 170 822955 43 80 202494
-12 44 388 1409406 11 16 83204
-13 44 514 1702724 6 7 23380
-14 49 525 628256 13 16 104854
-15 18 69 883891 12 17 116535
-16 79 754 1649542 17 23 126956
-17 34 336 763762 13 16 136478
-18 18 115 326105 10 21 264223
-19 2 16 144208 12 15 124259
-20 0 0 0 161 161 1682107
-21 0 0 0 28 29 286481
-22 29 80 268246 39 65 763121
-23 0 0 0 29 29 302221
+2 0 0 0 21 22 222764
+3 0 0 0 24 28 264541
+4 0 0 0 138 144 621232
+5 0 0 0 35 36 272167
+6 0 0 0 27 28 284765
+7 0 0 0 28 28 315683
+8 2 20 306519 22 23 251122
+9 130 716 1805996 52 93 594629
+10 146 1157 3132827 45 55 369304
+11 164 940 2014508 76 114 355264
+12 197 1231 3839384 37 44 212919
+13 114 847 2710118 10 44 430214
+14 60 604 1258950 15 20 117650
+15 38 175 1033464 29 40 341600
+16 119 846 1931598 58 68 439320
+17 160 523 1529186 178 184 748205
+18 31 169 1167131 76 93 1032657
+19 2 16 144208 57 76 933601
+20 7 92 1035209 192 195 2039579
+21 0 0 0 67 69 737249
+22 29 80 268246 73 99 1156260
+23 0 0 0 48 48 521154
 END_TIME
 
 # Domain - Pages - Hits - Bandwidth
 # The 10 first Pages must be first (order not required for others)
 BEGIN_DOMAIN 1
-ip 490 4335 12327411
+ip 1199 7416 22177344
 END_DOMAIN
 
 # Cluster ID - Pages - Hits - Bandwidth
@@ -115,13 +115,19 @@ END_LOGIN
 
 # Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
 # The 10 first Hits must be first (order not required for others)
-BEGIN_ROBOT 6
-googlebot 639 6438059 20141013235937 7
+BEGIN_ROBOT 12
+googlebot 1297 12377507 20141016231507 10
+bot[\s_+:,\.\;\/\\-] 25 177820 20141016135921 10
 mediapartners\-google 17 141583 20141013102901 0
-bot[\s_+:,\.\;\/\\-] 14 79685 20141013133530 7
-no_user_agent 2 838 20141010185435 0
-unknown 2 612 20141013154016 2
+no_user_agent 6 14752 20141016195821 0
+slurp 4 122827 20141015180614 1
+unknown 3 918 20141015180406 3
+nutch 3 13278 20141016174930 2
+robot 2 12692 20141016024114 1
+python 1 68056 20141015190103 0
 favicon 1 11149 20141012185614 0
+java\/[0-9] 1 121707 20141015180406 0
+crawl 1 12629 20141015180408 0
 END_ROBOT
 
 # Worm ID - Hits - Bandwidth - Last visit
@@ -140,44 +146,53 @@ BEGIN_EMAILRECEIVER 0
 END_EMAILRECEIVER
 
 # Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
-BEGIN_FILETYPES 10
-css 1755 1210351 0 0
-png 381 454423 0 0
+BEGIN_FILETYPES 11
+css 2575 1536489 0 0
+png 436 551324 0 0
 ttf 2 122471 0 0
-woff 103 840594 0 0
+woff 133 1182045 0 0
 map 3 2271 0 0
-html 178 1102895 0 0
-jpg 442 2051176 0 0
-js 1229 4782779 0 0
-Unknown 204 1745531 0 0
-gif 38 14920 0 0
+php 314 1497345 0 0
+html 372 2751959 0 0
+js 2270 7069782 0 0
+jpg 870 4505175 0 0
+Unknown 375 2939202 0 0
+gif 66 19281 0 0
 END_FILETYPES
 
 # Downloads - Hits - Bandwidth
 BEGIN_DOWNLOADS 1
-/robots.txt 16 0 5540
+/robots.txt 27 0 9342
 END_DOWNLOADS
 
 # OS ID - Hits
-BEGIN_OS 6
+BEGIN_OS 9
 linuxandroid 104
-winxp 33
+winxp 35
 winlong 1
-winvista 1
+java 2
 linux 9
-win7 4187
+winvista 176
+win7 7030
+macosx 54
+Unknown 5
 END_OS
 
 # Browser ID - Hits
-BEGIN_BROWSER 8
-firefox32.0 1638
+BEGIN_BROWSER 13
+msie8.0 2
+chrome37.0.2062.124 42
+firefox32.0 4103
 chrome37.0.2062.117 29
-firefox14.0.1 9
+netscape5.0 3
+chrome38.0.2125.104 36
 android 75
+firefox14.0.1 9
 firefox3.6.3 1
-chrome38.0.2125.101 33
-chrome37.0.2062.122 2549
+chrome38.0.2125.101 117
+chrome37.0.2062.122 2994
 firefox30.0 1
+Unknown 4
 END_BROWSER
 
 # Screen size - Hits
@@ -185,20 +200,26 @@ BEGIN_SCREENSIZE 0
 END_SCREENSIZE
 
 # Unknown referer OS - Last visit date
-BEGIN_UNKNOWNREFERER 0
+BEGIN_UNKNOWNREFERER 3
+Mozilla/5.0_() 20141015180824
+InAGist_URL_Resolver_(http://inagist.com) 20141015180406
+LongURL_API 20141015180446
 END_UNKNOWNREFERER
 
 # Unknown referer Browser - Last visit date
-BEGIN_UNKNOWNREFERERBROWSER 0
+BEGIN_UNKNOWNREFERERBROWSER 3
+Google-HTTP-Java-Client/1.17.0-rc_(gzip) 20141015180407
+InAGist_URL_Resolver_(http://inagist.com) 20141015180406
+LongURL_API 20141015180446
 END_UNKNOWNREFERERBROWSER
 
 # Origin - Pages - Hits 
 BEGIN_ORIGIN 6
-From0 56 56
+From0 97 97
 From1 0 0
 From2 0 0
-From3 10 10
-From4 424 4269
+From3 19 19
+From4 1083 7300
 From5 0 0
 END_ORIGIN
 
@@ -208,8 +229,12 @@ END_SEREFERRALS
 
 # External page referers - Pages - Hits
 # The 10 first Pages must be first (order not required for others)
-BEGIN_PAGEREFS 1
-http://oauth.vk.com/authorize 10 10
+BEGIN_PAGEREFS 5
+http://oauth.vk.com/authorize 15 15
+http://api.twitter.com/1/statuses/show/522402520644472834.json 1 1
+http://longurl.org 1 1
+http://t.co/SvrOnJW4oy 1 1
+http://vk.com/away.php 1 1
 END_PAGEREFS
 
 # Search keyphrases - Number of search
@@ -223,109 +248,176 @@ BEGIN_KEYWORDS 0
 END_KEYWORDS
 
 # Errors - Hits - Bandwidth
-BEGIN_ERRORS 5
+BEGIN_ERRORS 7
 403 5 2470
-302 22 46980
+503 18 17640
+302 151 213545
+206 1 12622
 500 22 8459
-404 26 129606
-301 8 3771
+404 53 262495
+301 14 7009
 END_ERRORS
 
 # URL with 404 errors - Hits - Last URL referer
-BEGIN_SIDER_404 15
+BEGIN_SIDER_404 20
+/member/%20830 1 http://vata.club/forum/viewtopic.php
 /ru/error/ 1 http://vata.club/ru
-/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0-%D0%91%D1%83%D0%B7%D1%8C%D0%BA%D0%B0 2 -
-/city/%D0%97%D0%BD%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 1 -
-/news 1 -
-/city/%D0%9F'%D1%8F%D1%82%D0%B8%D1%85%D0%B0%D1%82%D0%BA%D0%B8 2 -
-/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0-%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE%D0%B2%D1%81%D1%8C%D0%BA%D0%B0 1 -
-/city/%D0%9C%D0%B0%D1%80'%D1%97%D0%BD%D0%BA%D0%B0 1 -
-/city/%D0%9A%D1%83%D0%BF'%D1%8F%D0%BD%D1%81%D1%8C%D0%BA 1 -
-/data/img/vata/crop_small_Kopachev_Aleksandr_1_.jpg 10 http://vata.club/ru
-/city/%D0%A1%D0%BB%D0%BE%D0%B2'%D1%8F%D0%BD%D1%81%D1%8C%D0%BA 1 -
-/data/img/vata/crop_small_Anatolij__Kandrashov_1_.jpg 1 http://vata.club/ru
+/forun' 1 -
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0-%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE%D0%B2%D1%81%D1%8C%D0%BA%D0%B0 2 -
+/city/%D0%9C%D0%B0%D1%80'%D1%97%D0%BD%D0%BA%D0%B0 3 -
+/city/%D0%9A%D1%83%D0%BF'%D1%8F%D0%BD%D1%81%D1%8C%D0%BA 3 -
+/city/%D0%A1%D0%BB%D0%BE%D0%B2'%D1%8F%D0%BD%D1%81%D1%8C%D0%BA 3 -
+/ajax/album/ 4 http://vata.club/album/edit/837
 /data/img/vata/crop_small_Ezhik_Pozyvnoj_2_.jpg 1 http://vata.club/ru
-/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%B5%D1%86%D1%8C-%D0%9F%D0%BE%D0%B4%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B8%D0%B9 1 -
-/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 1 -
-/city/%D0%97%D0%B8%D0%BC%D0%BE%D0%B3%D1%96%D1%80'%D1%8F 1 -
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 2 -
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%B5%D1%86%D1%8C-%D0%9F%D0%BE%D0%B4%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B8%D0%B9 2 -
+/data/img/design/medals/jaruzga.jpg 2 http://vata.club/member/834
+/city/%D0%9A%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0-%D0%91%D1%83%D0%B7%D1%8C%D0%BA%D0%B0 3 -
+/city/%D0%97%D0%BD%D0%B0%D0%BC'%D1%8F%D0%BD%D0%BA%D0%B0 2 -
+/news 2 -
+/city/%D0%9F'%D1%8F%D1%82%D0%B8%D1%85%D0%B0%D1%82%D0%BA%D0%B8 4 -
+/data/img/design/medals/zatnizza.jpg 4 http://vata.club/member/834
+/data/img/vata/crop_small_Kopachev_Aleksandr_1_.jpg 10 http://vata.club/ru
+/data/img/vata/crop_small_Anatolij__Kandrashov_1_.jpg 1 http://vata.club/ru
+/city/%D0%97%D0%B8%D0%BC%D0%BE%D0%B3%D1%96%D1%80'%D1%8F 2 -
 END_SIDER_404
 
 # Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
 # [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
 # The 10 first Hits must be first (order not required for others)
-BEGIN_VISITOR 13
+BEGIN_VISITOR 29
 185.17.127.103 409 3980 9487970 20141013094703
+78.111.187.70 371 1559 3959477 20141014175001
+78.111.187.185 302 1218 2460669 20141015133533
 78.111.187.54 29 80 268246 20141013222955
 78.111.187.225 13 91 471156 20141013172425
 69.58.178.57 9 9 365079 20141013154047
 46.118.159.20 9 65 512835 20141010172435
+62.216.46.98 8 54 593644 20141016144450
 77.222.141.195 7 33 292869 20141010113548
-178.136.234.3 6 35 346523 20141010142536
-37.73.234.63 2 20 306519 20141013085419
+79.79.99.248 7 92 1035209 20141015205851
+173.255.202.150 1 1 121651 20141015180406
+150.70.75.212 1 1 121651 20141015181255
+74.112.131.243 1 1 12631 20141015180824
+54.242.169.88 1 1 124667 20141013185314
+79.79.107.15 4 45 436900 20141015181640
+178.136.237.204 1 30 145613 20141016135233
+74.112.131.244 1 1 12630 20141015180505
+178.57.233.118 5 36 390097 20141014130009
 37.73.205.213 2 12 105239 20141012183802
 188.40.79.208 1 1 11132 20141009121121
-54.242.169.88 1 1 124667 20141013185314
 37.73.233.204 1 5 22744 20141013180304
+74.112.131.241 1 1 12627 20141015180721
+208.94.145.109 1 1 391 20141015180446
+178.136.234.3 6 35 346523 20141010142536
+37.73.234.63 2 20 306519 20141013085419
+79.79.111.173 2 38 424198 20141016130245
+150.70.97.98 1 1 121651 20141015180815
+50.18.102.132 2 2 894 20141015180407
 37.73.245.94 1 3 12432 20141013181022
 END_VISITOR
 
 # Date - Pages - Hits - Bandwidth - Visits
-BEGIN_DAY 5
+BEGIN_DAY 8
 20141008 222 1941 5451166 3
 20141009 142 1343 3432984 2
 20141010 67 805 1756031 7
 20141012 2 12 105239 1
 20141013 57 234 1581991 10
+20141014 376 1595 4349574 3
+20141015 322 1364 4336904 11
+20141016 11 122 1163455 3
 END_DAY
 
 # Session range - Number of visits
 BEGIN_SESSION 5
-1h+ 4
-5mn-15mn 2
-0s-30s 11
-30s-2mn 5
+1h+ 7
+5mn-15mn 3
 15mn-30mn 1
+30s-2mn 8
+0s-30s 21
 END_SESSION
 
 # URL - Pages - Bandwidth - Entry - Exit
 # The 10 first Pages must be first (order not required for others)
-BEGIN_SIDER 38
-/css/fonts/glyphicons-halflings-regular.woff 76 259479 0 4
-/ru 70 840115 0 5
-/ 63 797241 23 7
-/ajax/user/ 56 72196 0 0
-/admin 37 164255 0 0
-/admin/cache/ 28 125027 0 0
-/css/fonts/fontawesome-webfont.woff 27 581115 0 2
-/admin/cache 21 86690 0 0
-/ajax/index/ 14 5449 0 0
-/album/edit/825 10 56424 0 0
-/city/%D0%90%D0%B2%D0%B4%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10600 0 0
-/album/edit/828 2 12706 0 0
+BEGIN_SIDER 79
+/ 154 2133286 39 18
+/ajax/user/ 91 127345 0 0
+/css/fonts/glyphicons-halflings-regular.woff 87 377424 0 4
+/ru 74 889195 0 5
+/admin 72 337622 0 0
+/forum/viewtopic.php 63 398195 0 1
+/forum/viewforum.php 51 226847 0 1
+/admin/cache/ 48 212463 0 0
+/forum/admin/forums.php 47 192752 0 0
+/css/fonts/fontawesome-webfont.woff 46 804621 0 2
+/album/edit/828 4 25325 0 0
 /member/821 1 28105 0 0
-/city/%D0%90%D0%BC%D0%B2%D1%80%D0%BE%D1%81%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10610 0 0
-/ua 2 23430 0 2
-/member/824 4 46580 0 0
+/data/img/design/medals/ 1 861 0 0
+/admin/cache 41 174070 0 0
+/forum/ 17 49790 0 0
+/forum/admin/install.php 3 6260 0 0
+/forum/register.php 2 7341 0 0
 /css/fonts/fontawesome-webfont.ttf 1 80922 0 1
-/member/820 7 66230 0 0
-/city/%D0%91%D0%BE%D0%BB%D0%B5%D1%85%D1%96%D0%B2 1 10604 0 0
+/member/820 8 73307 0 0
+/forum/admin/index.php 8 31189 0 0
+/forum/admin/reports.php 1 2597 0 0
+/page/2 6 72339 0 0
 /member/822 3 41073 0 1
-/album/edit/818 3 15870 0 0
-/album/edit/819 2 10662 0 0
-/js/libs/jquery/jquery.min.map 3 2271 0 0
+/forum/post.php 6 35726 0 0
+/forum/admin/settings.php 19 107862 0 0
+/album/edit/834 7 42421 0 0
 /member/823 2 34889 0 0
+/forum/admin/censoring.php 2 7446 0 0
 /album/edit/823 1 5607 0 0
 /css/fonts/glyphicons-halflings-regular.ttf 1 41549 0 0
+/forum/admin/extensions.php 31 129690 0 0
+/member/832 4 28457 0 0
 /city/%D0%9C%D1%96%D1%81%D1%82%D0%BE%20%D0%BD%D0%B5%20%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BE 1 10878 0 0
-/album/edit/820 3 16346 0 0
-/city/%D0%9C%D0%B0%D0%BA%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10474 0 0
+/album/edit/820 6 34014 0 0
 /member/819 8 73249 0 1
+/city/%D0%9C%D0%B0%D0%BA%D1%96%D1%97%D0%B2%D0%BA%D0%B0 3 34348 0 2
 /member/818 6 38794 0 0
-/member/825 9 81168 0 0
-/ru/ 9 100004 0 0
-/ajax/album/ 8 2978 0 0
-/album/edit/822 4 22422 0 0
+/member/833 9 64201 0 0
+/ru/ 10 112258 0 0
+/member/836 8 57025 0 0
+/member/835 2 14608 0 0
+/ajax/index/ 23 9139 0 0
+/forum/search.php 2 8549 0 0
+/forum/edit.php 7 43880 0 0
+/city/%D0%A1%D0%B5%D0%B2%D0%B0%D1%81%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C 1 12037 0 0
 /album/edit/824 2 11555 0 0
+/member/834 9 64847 0 1
+/forum/extensions/fancy_stop_spam/admin.php 4 15435 0 0
+/city/%D0%90%D0%B2%D0%B4%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10600 0 0
+/album/edit/836 5 30056 0 0
+/album/edit/825 12 68232 0 0
+/member/824 5 53473 0 0
+/ua 20 244922 0 2
+/city/%D0%90%D0%BC%D0%B2%D1%80%D0%BE%D1%81%D1%96%D1%97%D0%B2%D0%BA%D0%B0 1 10610 0 0
+/album/edit/833 7 42136 0 0
+/forum/userlist.php 2 7513 0 0
+/city/%D0%91%D0%BE%D0%BB%D0%B5%D1%85%D1%96%D0%B2 1 10604 0 0
+/album/edit/818 3 15870 0 0
+/album/edit/831 3 17398 0 0
+/ua/ 8 99079 0 0
+/album/edit/829 1 6209 0 0
+/album/edit/819 2 10662 0 0
+/album/edit/830 3 17806 0 0
+/js/libs/jquery/jquery.min.map 3 2271 0 0
+/album/edit/837 6 35003 0 0
+/album/edit/835 4 23883 0 0
+/album/edit/832 3 17875 0 0
+/forum/delete.php 3 12948 0 0
+/forum/profile.php 2 8138 0 0
+/forum/admin/users.php 2 8723 0 0
+/member/825 13 109851 1 1
+/ajax/album/ 20 7738 0 0
+/album/edit/822 4 22422 0 0
+/forum/index.php 45 196900 0 0
 /city/%D0%92%D1%96%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D1%96%D1%80%D1%81%D1%8C%D0%BA 1 10612 0 0
+/forum/admin/categories.php 13 46874 0 0
 /album/edit/821 1 5583 0 0
+/member/828 1 7429 0 0
+/forum/login.php 1 2480 0 0
 END_SIDER

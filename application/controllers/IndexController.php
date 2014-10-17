@@ -17,7 +17,6 @@ class IndexController extends Zend_Controller_Action
 			$this->redirect($actual_link, array('code'=>301));
 		}
 
-
 		$doctypeHelper = new Zend_View_Helper_Doctype();
 		$doctypeHelper->doctype('XHTML1_RDFA');
 
