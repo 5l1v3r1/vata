@@ -218,10 +218,10 @@ class Application_Model_Random
 		$images = $imagesDb->getAlbumImages($data["id"], 0, array("img_name", "id"),0);
 
 		$data["birtdate"] = (!empty($data["birtdate"])) ? "Дата народження: {$data["birtdate"]}" : "";
-		$vk = (!empty($data["vk"])) ? "Сторінка в VK: 	[url]{$data["vk"]}[/url]" : "";
-		$fb = (!empty($data["fb"])) ? "Сторінка Facebook: [url]{$data["fb"]}[/url]" : "";
-		$tw = (!empty($data["tw"])) ? "Сторінка Twitter: [url]{$data["tw"]}[/url]" : "";
-		$ok = (!empty($data["ok"])) ? "Сторінка OK: [url]{$data["ok"]}[/url]" : "";
+		$vk = (!empty($data["vk"])) ? "Сторінка в VK: 	[url]{$data["vk"]}[/url]" : "Сторінка в VK:";
+		$fb = (!empty($data["fb"])) ? "Сторінка Facebook: [url]{$data["fb"]}[/url]" : "Сторінка Facebook:";
+		$tw = (!empty($data["tw"])) ? "Сторінка Twitter: [url]{$data["tw"]}[/url]" : "Сторінка Twitter:";
+		$ok = (!empty($data["ok"])) ? "Сторінка OK: [url]{$data["ok"]}[/url]" : "Сторінка OK:";
 
 		$vata = "
 					[img]http://vataclub.s3.amazonaws.com/small_{$images["img_name"]}[/img]

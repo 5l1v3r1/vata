@@ -28,7 +28,7 @@ class AlbumController extends Zend_Controller_Action
 			$params["owner_id"] = $identity->id;
 			$params["create_date"] = date('Y-m-d H:i:s');
 			$params["checked"] = 0;
-
+			if(!$params["city"])$params["city"] = 84;
 
 			$id = $terroristDb->createItem($params);
 
