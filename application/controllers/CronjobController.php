@@ -120,7 +120,7 @@ class CronjobController extends Zend_Controller_Action
 			$terrorists->updateItem(array('tw_posted' => '1'), $value['id']);
 
 		}
-		
+
 	}
 
 	public function facebookAction()
