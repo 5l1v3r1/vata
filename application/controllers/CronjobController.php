@@ -109,7 +109,7 @@ class CronjobController extends Zend_Controller_Action
 
 			$post = array(
 
-				"name" => $value['name'],
+				"name" => "{$value['last_name']} {$value['first_name']}",
 				"text" => "{$lang->translate("Тип")}: {$lang->translate($value['type'])} {$lang->translate("Статус")}: {$lang->translate($value['status'])} {$link} #vatnik #vataclub",
 				"img"  => $picture
 
