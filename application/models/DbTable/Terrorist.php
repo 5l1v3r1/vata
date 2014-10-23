@@ -116,10 +116,17 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 		return $this->memcachePdo($data, 0, 1);
 	}
 
-	public function countTerrors($city = null){
+	public function countTerrors($city){
 
 		$city = addslashes($city);
 		$data = "SELECT COUNT(*) as num FROM terrorist JOIN city WHERE city.city = '{$city}' AND checked = 1 AND terrorist.city = city.id";
+		return $this->memcachePdo($data, 0, 1);
+	}
+
+	public function countOblTerrors($obl){
+
+		$obl = addslashes($obl);
+		$data = "SELECT COUNT(*) as num FROM terrorist JOIN oblast WHERE oblast.id = '{$obl}' AND checked = 1 AND terrorist.oblast = oblast.id";
 		return $this->memcachePdo($data, 0, 1);
 	}
 

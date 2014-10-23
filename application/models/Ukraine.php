@@ -12,10 +12,14 @@ class Application_Model_Ukraine{
 		foreach($obl as $key => $value){
 
 			$cities = $cityDB->getByOblId($value["id"]);
-			foreach($cities as $cKey => $cValue)$cities[$cKey]["num"] = $terrorDb->countTerrors($cValue["city"]);
+			foreach($cities as $cKey => $cValue){
+				$cities[$cKey]["num"] = $terrorDb->countTerrors($cValue["city"]);
+			}
 			$obl[$key]["city"] = $cities;
+			$obl[$key]["total"] = $terrorDb->countOblTerrors($value["id"]);
 
 		}
+		#Zend_Debug::dump($obl);die;
 		return $obl;
 
 	}
