@@ -32,7 +32,7 @@ class IndexController extends Zend_Controller_Action
 		if($this->getRequest()->isPost())$mailerModel->subscribeForNews($this->getRequest()->getPost());
 
 		$city = $this->getRequest()->getParam("city");
-		$step = 12;
+		$step = 18;
 		$page = $this->getRequest()->getParam("page");
 		$start = (isset($page) && $page != 1) ? ($page - 1) * $step : 0;
 
