@@ -29,6 +29,7 @@ class Application_Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract
 		$acl->addResource('user');
 		$acl->addResource('cms');
 		$acl->addResource('cronjob');
+		$acl->addResource('parser');
 
 		$acl->addRole('guest');
 		$acl->addRole('user', 'guest');
@@ -48,6 +49,7 @@ class Application_Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract
 
 		#guest permissions
 		$acl->allow('guest', 'index', array('index'));
+		$acl->allow('guest', 'parser', array('index'));
 		$acl->allow('guest', 'cms', array('support', 'view', 'index'));
 		$acl->allow('guest', 'search', array('index','reindex'));
 		$acl->allow('guest', 'ajax', array('index', 'user', 'album'));
