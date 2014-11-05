@@ -4,7 +4,7 @@ class My_View_Helper_Ads extends Zend_View_Helper_Abstract{
 
 	function ads(){
 
-		if(APPLICATION_ENV == "testing") return false;
+		#if(APPLICATION_ENV == "testing") return false;
 
 		$content = '			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 									<!-- vataclub -->
