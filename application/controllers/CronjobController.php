@@ -39,8 +39,9 @@ class CronjobController extends Zend_Controller_Action
 				}
 
 				if (!$validator->isValid($value['email'])) $notify->deleteItem($value['id']);
-				$mailer->send();
 				$notify->deleteItem($value['id']);
+				$mailer->send();
+
 
 			}
 
