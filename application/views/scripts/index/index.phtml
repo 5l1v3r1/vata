@@ -54,22 +54,40 @@
 		</div>
 
 		<?php $c = 0;$r = 0;?>
+		<?php
+		if(isset($this->params["terrorists"][4]))$this->params["terrorists"][100] = $this->params["terrorists"][4];
+		if(isset($this->params["terrorists"][10]))$this->params["terrorists"][101] = $this->params["terrorists"][10];
+		if(isset($this->params["terrorists"][16]))$this->params["terrorists"][102] = $this->params["terrorists"][16];
+		?>
 		<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
 
 			<?php if(!($r % 3)):?><div class="row"><?php endif;?>
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
-							<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="/data/img/vata/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
-						</a>
-						<div class="caption">
-							<h3 class = "terror-name-list text-center">
-								<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
-							</h3>
+
+
+				<?php if($c == 4 || $c == 10 || $c == 16):?>
+
+					<div class="col-md-4 portfolio-item">
+						<?php echo $this->ads();?>
+					</div>
+
+				<?php else:?>
+
+					<div class="col-sm-4 col-lg-4 col-md-4">
+						<div class="thumbnail">
+							<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
+								<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="http://vataclub.s3.amazonaws.com/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
+							</a>
+							<div class="caption">
+								<h3 class = "terror-name-list text-center">
+									<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
+								</h3>
+							</div>
 						</div>
 					</div>
-				</div>
-			<?php $c++;$r++?>
+
+				<?php endif;?>
+
+				<?php $c++;$r++?>
 
 			<?php if(!($r % 3)):?></div><?php endif;?>
 
