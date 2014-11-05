@@ -272,6 +272,16 @@ class Application_Model_Random
 
 	}
 
+	function clear($text){
+
+		$this->text = $text;
+		$this->text  = preg_replace('/ /','&nbsp;',$this->text);
+		$this->text = preg_replace('/\s/','',$this->text);
+		$this->text = preg_replace('/&nbsp;/',' ',$this->text);
+		return $this->text;
+
+	}
+
 
 }
 
