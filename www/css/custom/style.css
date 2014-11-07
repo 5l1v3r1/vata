@@ -39,3 +39,4 @@ body{background-color: #F1F1F1}
 #accordion .cities-list .list-group-item{border:0; padding: 5px 0;}
 .aboutvataclub{ margin: 0 0 17px;}
 .viewads{max-height: 200px;  margin: 0;  padding: 0;  text-align: left;}
+.panel-heading .panel-title{font-size: 15px;}

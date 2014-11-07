@@ -97,7 +97,7 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 	                WHERE checked = 1
 	                AND terrorist.id IN ({$in})
 	                GROUP BY terrorist.id
-	                ORDER BY terrorist.name ASC;";
+	                ORDER BY terrorist.last_name ASC;";
 
 		return $this->memcachePdo($data, 1, 1);
 
