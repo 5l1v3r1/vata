@@ -118,7 +118,6 @@ class CronjobController extends Zend_Controller_Action
 
 
 			$shareModel->twitterPost($post);
-			die;
 			$terrorists->updateItem(array('tw_posted' => '1'), $value['id']);
 
 

@@ -84,6 +84,7 @@ class AjaxController extends Zend_Controller_Action
 		$notify = new Application_Model_DbTable_Notify();
 		$config = Zend_Registry::get('config');
 		$randomModel = new Application_Model_Random();
+		$usersDb = new Application_Model_DbTable_Users();
 
 		$post = $this->getRequest()->getParams();
 
@@ -97,7 +98,21 @@ class AjaxController extends Zend_Controller_Action
 			if($imagesDb->checkToMain($post["saveAlbum"])){
 
 				$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);
-				$randomModel->createThemeOnForum($albumDb->getItem($post["saveAlbum"]));
+				if(APPLICATION_ENV != "testing")$randomModel->createThemeOnForum($albumDb->getItem($post["saveAlbum"]));
+				$album = $albumDb->getItem($post["saveAlbum"]);
+				$owner = $usersDb->getItem($album["owner_id"]);
+
+				if($owner["email"]){
+					$arr = array(
+
+						"email" => $owner["email"],
+						"vars" => json_encode($album),
+						"action" => "appoved"
+
+					);
+					$notify->createItem($arr);
+				}
+
 				$this->view->noimg = 0;
 
 			}else{
@@ -110,7 +125,7 @@ class AjaxController extends Zend_Controller_Action
 
 			$arr = array(
 
-				"email" => $config->admin->email,
+				"email" => "vataclubs@gmail.com",
 				"vars" => json_encode($post),
 				"action" => "propose"
 

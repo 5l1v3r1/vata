@@ -116,4 +116,18 @@ class Application_Model_Mailer{
 
 	}
 
+	public function approved($data){
+
+
+		$email["body"] = "";
+		$email["body"].= "<p>{$data["first_name"]} {$data["last_name"]} тепер доступний за посиланням <a href = 'http://vata.club/member/{$data["id"]}'>http://vata.club/member/{$data["id"]}</a></p>";
+		$email["body"].= "<p>Дякуюємо за допомогу проекту.</p>";
+		$email["body"].= "<p>З повагою, команда vata.club</p>";
+
+		$email["header"] = "Доданий Вами {$data["first_name"]} {$data["last_name"]} пройшов модерацію";
+
+		return $email;
+
+	}
+
 }
