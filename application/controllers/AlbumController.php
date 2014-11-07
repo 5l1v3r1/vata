@@ -80,17 +80,13 @@ class AlbumController extends Zend_Controller_Action
 
 				$arr = array(
 
-					"email" => $config->admin->email,
+					"email" => "vataclubs@gmail.com",
 					"vars" => json_encode($vars),
 					"action" => "create"
 
 				);
 
 				$notify->createItem($arr);
-
-				$arr["email"] = "lost.ivan@bk.ru";
-				$notify->createItem($arr);
-
 
 			}
 
@@ -238,7 +234,7 @@ class AlbumController extends Zend_Controller_Action
 
 			$arr = array(
 
-				"email" =>  $config->admin->email,
+				"email" => "vataclubs@gmail.com",
 				"vars" => json_encode($params),
 				"action" => "edit"
 
