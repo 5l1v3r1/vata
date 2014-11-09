@@ -31,7 +31,7 @@ body{background-color: #F1F1F1}
 .terror-crop-img{width:100%;height:100%}
 .terror-name-list{font-size: 18px;margin:0;padding:0;}
 .thumbnail .caption {padding:5px 10px 10px 10px;height:40px;}
-.main-header{ font-size: 25px;  margin: 6px 0 0;  padding: 0;}
+.main-header{ font-size: 20px;  margin: 6px 0 0;  padding: 0;}
 .header-keeper{margin-bottom: 8px;}
 .addthis_sharing_toolbox{float:right}
 .save-terrorist{color:green;cursor: pointer}
@@ -39,3 +39,4 @@ body{background-color: #F1F1F1}
 #accordion .cities-list .list-group-item{border:0; padding: 5px 0;}
 .aboutvataclub{ margin: 0 0 17px;}
 .viewads{max-height: 200px;  margin: 0;  padding: 0;  text-align: left;}
+.panel-heading .panel-title{font-size: 15px;}

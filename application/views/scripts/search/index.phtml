@@ -1,61 +1,82 @@
-<?php $config = Zend_Registry::get('config');?>
-<!-- Page Header -->
 <div class="row">
-	<div class="col-lg-12">
-		<h1 class="page-header"><?php echo $this->translate("Груз 200: русские солдаты пропавшие в Украине") ?></h1>
+	<div class="col-md-3">
+		<div class="panel-group" id="accordion">
+			<?php foreach($this->params["cities"] as $key => $value):?>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $key;?>">
+								<?php echo $value["oblast"]?> <span class="badge pull-right"><?php echo $value["total"]["num"]?></span>
+							</a>
+						</h4>
+					</div>
+					<div id="collapse<?php echo $key;?>" class="panel-collapse collapse">
+						<div class="panel-body">
+							<ul class = "cities-list list-group">
+								<?php foreach($value["city"] as $cities):?>
+									<li class="list-group-item">
+										<span class="badge"><?php echo $cities["num"]["num"]?></span>
+										<a href = "/city/<?php echo $cities["city"]?>">
+											<?php echo $cities["city"]?>
+										</a>
+									</li>
+								<?php endforeach;?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			<?php endforeach;?>
+		</div>
 	</div>
-</div>
-<!-- /.row -->
 
-<!-- Projects Row -->
-<div class="row">
-	<?php foreach($this->params["terrorists"] as $terrorist):?>
-	<div class="col-md-4 portfolio-item">
-		<a class = "ivan-holder" href="/ivan/<?php echo $terrorist["id"]?>">
-			<img class="img-responsive" src="http://<?php echo $config->amazon->bucket?>.s3.amazonaws.com/<?php echo $terrorist["img_name"]?>" alt="">
-		</a>
-		<h3>
-			<a href="/ivan/<?php echo $terrorist["id"]?>"><?php echo $terrorist["name"]?></a>
-		</h3>
-		<p class = "terror_info"><?php echo $terrorist["description"]?>.</p>
+	<div class="col-md-9">
+
+		<div class="row header-keeper">
+			<div class="col-sm-7 col-lg-7 col-md-7">
+				<h4 class = "main-header"><?php echo $this->translate("Результати пошуку")?></h4>
+			</div>
+		</div>
+
+		<?php $c = 0;$r = 0;?>
+		<?php
+		if(isset($this->params["terrorists"][4]))$this->params["terrorists"][100] = $this->params["terrorists"][4];
+		if(isset($this->params["terrorists"][10]))$this->params["terrorists"][101] = $this->params["terrorists"][10];
+		if(isset($this->params["terrorists"][16]))$this->params["terrorists"][102] = $this->params["terrorists"][16];
+		?>
+		<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
+
+			<?php if(!($r % 3)):?><div class="row"><?php endif;?>
+
+
+			<?php if($c == 4 || $c == 10 || $c == 16):?>
+
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<?php echo $this->ads();?>
+				</div>
+
+			<?php else:?>
+
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
+							<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="http://vataclub.s3.amazonaws.com/crop_small_<?php echo $terrorist["img_name"]?>" alt="">
+						</a>
+						<div class="caption">
+							<h3 class = "terror-name-list text-center">
+								<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
+							</h3>
+						</div>
+					</div>
+				</div>
+
+			<?php endif;?>
+
+			<?php $c++;$r++?>
+
+			<?php if(!($r % 3)):?></div><?php endif;?>
+
+		<?php endforeach;?>
+
 	</div>
-	<?php endforeach;?>
+
 </div>
-<!-- /.row -->
-
-
-<hr>
-
-<!-- Pagination -->
-<!--
-<div class="row text-center">
-	<div class="col-lg-12">
-		<ul class="pagination">
-			<li>
-				<a href="#">&laquo;</a>
-			</li>
-			<li class="active">
-				<a href="#">1</a>
-			</li>
-			<li>
-				<a href="#">2</a>
-			</li>
-			<li>
-				<a href="#">3</a>
-			</li>
-			<li>
-				<a href="#">4</a>
-			</li>
-			<li>
-				<a href="#">5</a>
-			</li>
-			<li>
-				<a href="#">&raquo;</a>
-			</li>
-		</ul>
-	</div>
-</div>
--->
-<!-- /.row -->
-
-<hr>

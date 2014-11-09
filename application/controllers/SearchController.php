@@ -21,8 +21,9 @@ class SearchController extends Zend_Controller_Action
 
 		$path = realpath('./data/lucene');
 		$index = Zend_Search_Lucene::open($path);
-		$searchString = $this->getRequest()->getParam('query');
+		$searchString = trim($this->getRequest()->getParam('query'));
 		$hits = $index->find($searchString);
+		$ukraineModel = new Application_Model_Ukraine();
 
 		$in = array();
 
@@ -35,6 +36,7 @@ class SearchController extends Zend_Controller_Action
 		$list = array();
 		if($in)$list = $terroristDb->findTerrorists($in);
 		$view["terrorists"] = $list;
+		$view["cities"] = $ukraineModel->generateDropDown();
 
 
 		$this->view->params = $view;
@@ -58,7 +60,7 @@ class SearchController extends Zend_Controller_Action
 		@mkdir('./data/lucene');
 
 		$index = Zend_Search_Lucene::create('./data/lucene');
-		$data = $terrorsDb->getTerrorists(1, 0, 1000);
+		$data = $terrorsDb->getTerrorists(1, 0, 10000);
 
 		foreach($data as $value)
 		{
@@ -66,9 +68,7 @@ class SearchController extends Zend_Controller_Action
 			$doc = new Zend_Search_Lucene_Document();
 
 			$doc->addField(Zend_Search_Lucene_Field::Text('terror', $value['id'], 'UTF-8'));
-			if(isset($value['name']))$doc->addField(Zend_Search_Lucene_Field::Text('name', $value['name'], 'UTF-8'));
-			if(isset($value['city']))$doc->addField(Zend_Search_Lucene_Field::Text('city', $value['city'], 'UTF-8'));
-			if(isset($value['army']))$doc->addField(Zend_Search_Lucene_Field::Text('army', $value['army'], 'UTF-8'));
+			$doc->addField(Zend_Search_Lucene_Field::Text('name', "{$value['first_name']} {$value['last_name']}", 'UTF-8'));
 
 			$index->addDocument($doc);
 

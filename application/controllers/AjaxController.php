@@ -85,6 +85,7 @@ class AjaxController extends Zend_Controller_Action
 		$config = Zend_Registry::get('config');
 		$randomModel = new Application_Model_Random();
 		$usersDb = new Application_Model_DbTable_Users();
+		$cacheModel = new Application_Model_Cache();
 
 		$post = $this->getRequest()->getParams();
 
@@ -99,6 +100,7 @@ class AjaxController extends Zend_Controller_Action
 
 				$albumDb->updateItem(array("checked" => 1), $post["saveAlbum"]);
 				if(APPLICATION_ENV != "testing")$randomModel->createThemeOnForum($albumDb->getItem($post["saveAlbum"]));
+				if(APPLICATION_ENV != "testing")$cacheModel->clearCache();
 				$album = $albumDb->getItem($post["saveAlbum"]);
 				$owner = $usersDb->getItem($album["owner_id"]);
 

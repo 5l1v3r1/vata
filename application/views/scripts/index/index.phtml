@@ -10,132 +10,131 @@
 </div>
 <?php endif;?>
 <?php echo $this->partial('partials/alerts.phtml') ?>
-<div class="row">
 	<div class="row">
-	<div class="col-md-3">
-		<div class="panel-group" id="accordion">
-			<?php foreach($this->params["cities"] as $key => $value):?>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $key;?>">
-								<?php echo $value["oblast"]?> <span class="badge pull-right"><?php echo $value["total"]["num"]?></span>
-							</a>
-						</h4>
-					</div>
-					<div id="collapse<?php echo $key;?>" class="panel-collapse collapse">
-						<div class="panel-body">
-							<ul class = "cities-list list-group">
-								<?php foreach($value["city"] as $cities):?>
-									<li class="list-group-item">
-										<span class="badge"><?php echo $cities["num"]["num"]?></span>
-										<a href = "/city/<?php echo $cities["city"]?>">
-											<?php echo $cities["city"]?>
-										</a>
-									</li>
-								<?php endforeach;?>
-							</ul>
+		<div class="col-md-3">
+			<div class="panel-group" id="accordion">
+				<?php foreach($this->params["cities"] as $key => $value):?>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $key;?>">
+									<?php echo $value["oblast"]?> <span class="badge pull-right"><?php echo $value["total"]["num"]?></span>
+								</a>
+							</h4>
 						</div>
-					</div>
-				</div>
-			<?php endforeach;?>
-		</div>
-	</div>
-
-	<div class="col-md-9">
-
-		<div class="row header-keeper">
-			<div class="col-sm-7 col-lg-7 col-md-7">
-				<h1 class = "main-header"><?php echo $this->translate("Клуб сепаратистів та ватніків України")?></h1>
-			</div>
-				<div class="col-sm-5 col-lg-5 col-md-5">
-				<div class="addthis_sharing_toolbox"></div>
-			</div>
-		</div>
-
-		<?php $c = 0;$r = 0;?>
-		<?php
-		if(isset($this->params["terrorists"][4]))$this->params["terrorists"][100] = $this->params["terrorists"][4];
-		if(isset($this->params["terrorists"][10]))$this->params["terrorists"][101] = $this->params["terrorists"][10];
-		if(isset($this->params["terrorists"][16]))$this->params["terrorists"][102] = $this->params["terrorists"][16];
-		?>
-		<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
-
-			<?php if(!($r % 3)):?><div class="row"><?php endif;?>
-
-
-				<?php if($c == 4 || $c == 10 || $c == 16):?>
-
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<?php echo $this->ads();?>
-					</div>
-
-				<?php else:?>
-
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<div class="thumbnail">
-							<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
-								<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="http://vataclub.s3.amazonaws.com/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
-							</a>
-							<div class="caption">
-								<h3 class = "terror-name-list text-center">
-									<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
-								</h3>
+						<div id="collapse<?php echo $key;?>" class="panel-collapse collapse">
+							<div class="panel-body">
+								<ul class = "cities-list list-group">
+									<?php foreach($value["city"] as $cities):?>
+										<li class="list-group-item">
+											<span class="badge"><?php echo $cities["num"]["num"]?></span>
+											<a href = "/city/<?php echo $cities["city"]?>">
+												<?php echo $cities["city"]?>
+											</a>
+										</li>
+									<?php endforeach;?>
+								</ul>
 							</div>
 						</div>
 					</div>
-
-				<?php endif;?>
-
-				<?php $c++;$r++?>
-
-			<?php if(!($r % 3)):?></div><?php endif;?>
-
-		<?php endforeach;?>
-
-		<?php
-		$params = "";
-		$prev = $this->params["curentPage"] - 1;
-		$next = $this->params["curentPage"] + 1;
-		$radiusPlus = ($this->params["curentPage"] > 4) ? $this->params["curentPage"] - 2 : 1;
-		$radiusMinus = ($this->params["curentPage"] > 4) ? $this->params["curentPage"] + 2 : 5;
-
-		if(isset($_GET["type"]) || isset($_GET["status"])) {
-			$status = (isset($_GET["status"])) ? $_GET["status"] : "";
-			$type = (isset($_GET["type"])) ? $_GET["type"] : "";
-			$more = (isset($_GET["more"])) ? $_GET["more"] : "";
-			$params = "?status={$status}&type={$type}&more={$more}";
-		}
-		?>
-
-		<div class="row text-center">
-			<div class="col-lg-12">
-				<ul class="pagination">
-					<?php if($this->params["curentPage"] > 1):?>
-						<li><a href='/page/<?php echo $prev?><?php echo $params?>'>&laquo;</a></li>
-					<?php endif;?>
-					<?php
-					for($i = 1;$i <= $this->params["numOfPages"]; $i++){
-						if(($radiusPlus <= $i) && ($radiusMinus >= $i)){
-
-							$active = ($this->params["curentPage"] == $i) ? 'class="active"' : "" ;
-							echo "<li {$active}><a href='/page/{$i}{$params}'>{$i}</a></li>";
-
-						}
-					}
-					?>
-					<?php if($this->params["numOfPages"] > $radiusMinus):?>
-						<li><a href="#">...</a></li>
-						<li><a href="/page/<?php echo $this->params["numOfPages"]?><?php echo $params?>"><?php echo $this->params["numOfPages"]?></a></li>
-					<?php endif;?>
-
-					<?php if($this->params["curentPage"] > 1):?>
-						<li><a href="/page/<?php echo $next?><?php echo $params?>">&raquo;</a></li>
-					<?php endif;?>
-				</ul>
+				<?php endforeach;?>
 			</div>
 		</div>
 
-	</div>
+		<div class="col-md-9">
+
+			<div class="row header-keeper">
+				<div class="col-sm-7 col-lg-7 col-md-7">
+					<h1 class = "main-header"><?php echo $this->translate("Клуб сепаратистів та ватніків України")?> (<?php echo count($this->params["terrorists"])?>) </h1>
+				</div>
+					<div class="col-sm-5 col-lg-5 col-md-5">
+					<div class="addthis_sharing_toolbox"></div>
+				</div>
+			</div>
+
+			<?php $c = 0;$r = 0;?>
+			<?php
+			if(isset($this->params["terrorists"][4]))$this->params["terrorists"][100] = $this->params["terrorists"][4];
+			if(isset($this->params["terrorists"][10]))$this->params["terrorists"][101] = $this->params["terrorists"][10];
+			if(isset($this->params["terrorists"][16]))$this->params["terrorists"][102] = $this->params["terrorists"][16];
+			?>
+			<?php foreach($this->params["terrorists"] as $key =>  $terrorist):?>
+
+				<?php if(!($r % 3)):?><div class="row"><?php endif;?>
+
+
+					<?php if($c == 4 || $c == 10 || $c == 16):?>
+
+						<div class="col-sm-4 col-lg-4 col-md-4">
+							<?php echo $this->ads();?>
+						</div>
+
+					<?php else:?>
+
+						<div class="col-sm-4 col-lg-4 col-md-4">
+							<div class="thumbnail">
+								<a href="/member/<?php echo $terrorist["id"]?>" class = "picture-holder">
+									<img class = "img-responsive img-thumbnail terror-crop-img" alt = "<?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?>" src="http://vataclub.s3.amazonaws.com/crop_small_<?php echo $terrorist["img"]["img_name"]?>" alt="">
+								</a>
+								<div class="caption">
+									<h3 class = "terror-name-list text-center">
+										<a href="/member/<?php echo $terrorist["id"]?>"><?php echo "{$terrorist["last_name"]} {$terrorist["first_name"]}"?></a>
+									</h3>
+								</div>
+							</div>
+						</div>
+
+					<?php endif;?>
+
+					<?php $c++;$r++?>
+
+				<?php if(!($r % 3)):?></div><?php endif;?>
+
+			<?php endforeach;?>
+
+			<?php
+			$params = "";
+			$prev = $this->params["curentPage"] - 1;
+			$next = $this->params["curentPage"] + 1;
+			$radiusPlus = ($this->params["curentPage"] > 4) ? $this->params["curentPage"] - 2 : 1;
+			$radiusMinus = ($this->params["curentPage"] > 4) ? $this->params["curentPage"] + 2 : 5;
+
+			if(isset($_GET["type"]) || isset($_GET["status"])) {
+				$status = (isset($_GET["status"])) ? $_GET["status"] : "";
+				$type = (isset($_GET["type"])) ? $_GET["type"] : "";
+				$more = (isset($_GET["more"])) ? $_GET["more"] : "";
+				$params = "?status={$status}&type={$type}&more={$more}";
+			}
+			?>
+
+			<div class="row text-center">
+				<div class="col-lg-12">
+					<ul class="pagination">
+						<?php if($this->params["curentPage"] > 1):?>
+							<li><a href='/page/<?php echo $prev?><?php echo $params?>'>&laquo;</a></li>
+						<?php endif;?>
+						<?php
+						for($i = 1;$i <= $this->params["numOfPages"]; $i++){
+							if(($radiusPlus <= $i) && ($radiusMinus >= $i)){
+
+								$active = ($this->params["curentPage"] == $i) ? 'class="active"' : "" ;
+								echo "<li {$active}><a href='/page/{$i}{$params}'>{$i}</a></li>";
+
+							}
+						}
+						?>
+						<?php if($this->params["numOfPages"] > $radiusMinus):?>
+							<li><a href="#">...</a></li>
+							<li><a href="/page/<?php echo $this->params["numOfPages"]?><?php echo $params?>"><?php echo $this->params["numOfPages"]?></a></li>
+						<?php endif;?>
+
+						<?php if($this->params["curentPage"] > 1):?>
+							<li><a href="/page/<?php echo $next?><?php echo $params?>">&raquo;</a></li>
+						<?php endif;?>
+					</ul>
+				</div>
+			</div>
+
+		</div>
 
 </div>

@@ -38,8 +38,8 @@ class Application_Model_Meta
 		$this->view->headTitle($data['name'] . " " . $this->lang->translate($data['type']) . " " . $this->lang->translate($data['status']));
 		$this->view->headMeta()->setName('description', $data['name'] . $this->lang->translate(" в Україні."));
 		$this->view->headMeta()->setName('keywords', $data['name'] . $this->lang->translate(" в Україні."));
-		$this->view->headMeta()->setProperty('og:title', $data['name'] . " " . $this->lang->translate($data['type']) . " " . $this->lang->translate($data['status']));
-		$this->view->headMeta()->setProperty('og:description', $this->lang->translate("VataClub: ") . " " . $data['name'] . " " . preg_replace("#<(.*?)>#", "", $data['description']));
+		if(!isset($_GET["vk"]))$this->view->headMeta()->setProperty('og:title', $data['name'] . " " . $this->lang->translate($data['type']) . " " . $this->lang->translate($data['status']));
+		if(!isset($_GET["vk"]))$this->view->headMeta()->setProperty('og:description', $this->lang->translate("VataClub: ") . " " . $data['name'] . " " . preg_replace("#<(.*?)>#", "", $data['description']));
 		$this->view->headMeta()->setProperty('og:image', "http://{$config->amazon->bucket}.s3.amazonaws.com/{$data["photo"][0]["img_name"]}");
 
 	}
