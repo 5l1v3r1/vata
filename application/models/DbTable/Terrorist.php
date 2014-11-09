@@ -68,7 +68,7 @@ class Application_Model_DbTable_Terrorist extends Application_Model_DbTable_Abst
 
 	public function getForSocialPosting($social){
 
-		$data = "SELECT * FROM terrorist  WHERE checked = 1 and {$social} = 0 limit 0, 5";
+		$data = "SELECT terrorist.*, oblast.oblast AS oblId, city.city AS cityId FROM terrorist JOIN oblast JOIN city WHERE terrorist.oblast = oblast.id AND terrorist.city = city.id AND {$social} = 0 limit 0, 5";
 		return $this->memcachePdo($data, 1, 0);
 
 	}

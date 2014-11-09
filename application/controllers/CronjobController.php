@@ -139,73 +139,24 @@ class CronjobController extends Zend_Controller_Action
 	public function vkAction()
 	{
 
-		$business = new Application_Model_DbTable_Business();
-		$review = new Application_Model_DbTable_Review();
-		$actions = new Application_Model_DbTable_Actions();
-		$vk = new Application_Model_Users();
+
 		$config = Zend_Registry::get('config');
-		$users = new Application_Model_DbTable_Users();
+		$terrorsDb = new Application_Model_DbTable_Terrorist();
+		$vkModel = new Application_Model_Vkontake();
 
-		$list = $review->getItemsForPosting("vk");
+		foreach ($terrorsDb->getForSocialPosting("vk_posted") as $value) {
 
-		foreach ($list as $value) {
-
-			$bus = $business->getItem($value["business_id"]);
-			$user = $users->getItem($value['owner_id']);
 
 			$params = array(
 				"owner_id" => $config->vk->poster->userId,
-				"attachments" => "http://geoola.com/business/view/" . $bus["url"] . "?review=" . $value["id"],
-				"message" => $user['first_name'] . " " . $user['last_name'] . ": Додав(ла) відгук для " . $bus['name']
+				"attachments" => "http://vata.club/member/{$value["id"]}?vk=1",
+				"message" => "{$value["oblId"]} {$value["cityId"]}"
 			);
 
-			$vk->vkCurl("https://api.vk.com/method/wall.post", $params, $config->vk->poster->access);
-
-			$review->updateItem(array('vk' => '1'), $value['id']);
+			$vkModel->vkCurl("https://api.vk.com/method/wall.post", $params, $config->vk->poster->access);
+			$terrorsDb->updateItem(array('vk_posted' => '1'), $value['id']);
 
 		}
-
-		$list = $business->getItemsForPosting("vk");
-
-		foreach ($list as $value) {
-
-			$params = array(
-				"owner_id" => $config->vk->poster->userId,
-				"attachments" => "http://geoola.com/business/view/" . $value["url"],
-				"message" => preg_replace("#&(.*?);|<(.*?)>#", "", $value["name"]) . " м." . $value["loc_name"] . " додано на Geoola.com"
-			);
-
-			$group = array(
-				"owner_id" => "-{$config->vk->poster->groudId}",
-				"attachments" => "http://geoola.com/business/view/" . $value["url"],
-				"message" => preg_replace("#&(.*?);|<(.*?)>#", "", $value["name"]) . " м." . $value["loc_name"] . " додано на Geoola.com",
-				"from_group" => 1
-			);
-
-			$vk->vkCurl("https://api.vk.com/method/wall.post", $params, $config->vk->poster->access);
-			$vk->vkCurl("https://api.vk.com/method/wall.post", $group, $config->vk->poster->access);
-			$business->updateItem(array('vk' => '1'), $value['id']);
-
-		}
-
-		#actions
-		$list = $actions->getItemsForPosting("vk");
-
-		foreach ($list as $value) {
-
-			$bus = $business->getItem($value["business_id"]);
-
-			$params = array(
-				"owner_id" => $config->vk->poster->userId,
-				"attachments" => "http://geoola.com/business/view/" . $bus["url"] . "?actions=" . $value["id"],
-				"message" => preg_replace("#&(.*?);|<(.*?)>#", "", $bus["name"]) . " м." . $bus["loc_name"] . " розпочинає нову акцію"
-			);
-
-			$vk->vkCurl("https://api.vk.com/method/wall.post", $params, $config->vk->poster->access);
-			$actions->updateItem(array('vk' => '1'), $value['id']);
-
-		}
-
 
 	}
 

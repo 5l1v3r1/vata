@@ -14,7 +14,7 @@ class My_View_Helper_Profile extends Zend_View_Helper_Abstract{
 			case "vk":
 				$baselink = "http://vk.com/id";
 				break;
-			case "fb":
+			case "facebook":
 				$baselink = "http://facebook.com/profile.php?id=";
 				break;
 			default:
