@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered list-of-albums">
+			<tr>
+				<td>ID</td>
+				<td>Query</td>
+				<td>Delete</td>
+			</tr>
+			<?php foreach($this->data as $value):?>
+				<tr>
+					<td><?php echo $value["id"]?></td>
+					<td><?php echo $value["request"]?></td>
+					<td><i data-id = "<?php echo $value["id"]?>" class="fa fa-trash-o"></i></td>
+				</tr>
+			<?php endforeach;?>
+		</table>
+	</div>
+</div>

@@ -50,8 +50,8 @@ class IndexController extends Zend_Controller_Action
 
 		foreach($list as $key => $value){$list[$key]["img"] = $imagesDb->getAlbumImages($value["id"], 0, array("img_name"), 1, 1);}
 
-		$view["numOfPages"] = ceil($total["num"] / $step);
 		$view["total"] = $total["num"];
+		$view["numOfPages"] = ceil($total["num"] / $step);
 		$view["ckeditor"] = 1;
 		$view["terrorists"] = $list;
 		$view["curentPage"] = (isset($page)) ?  $page : 1 ;

@@ -25,6 +25,14 @@ class SearchController extends Zend_Controller_Action
 		$hits = $index->find($searchString);
 		$ukraineModel = new Application_Model_Ukraine();
 
+		$search = new Application_Model_DbTable_Search();
+		$identity       = Zend_Auth::getInstance()->getStorage()->read();
+
+		if((!isset($identity->id) || $identity->role == "user") && $searchString){
+			if(!$search->checkToSame($searchString))
+				if(preg_match('# #', trim($searchString)))$search->createItem(array("request" => $searchString));
+		}
+
 		$in = array();
 
 		foreach($hits as $value){
