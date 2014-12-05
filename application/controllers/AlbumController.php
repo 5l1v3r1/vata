@@ -149,6 +149,7 @@ class AlbumController extends Zend_Controller_Action
 		$cityDb = new Application_Model_DbTable_City();
 		$achievementsDb = new Application_Model_DbTable_Achievements();
 		$achievementsUserDb = new Application_Model_DbTable_AchievementsUser();
+        $cacheModel = new Application_Model_Cache();
 
 		$id = $this->getRequest()->getParam("id");
 
@@ -156,7 +157,7 @@ class AlbumController extends Zend_Controller_Action
 
 			$params = $this->getRequest()->getPost();
 
-			$achievementsUserDb->dropUsetAchievemnts($id);
+            if(!empty($params["medals"]))$achievementsUserDb->dropUsetAchievemnts($id);
 			if(!empty($params["medals"]))foreach($params["medals"] as $value)$achievementsUserDb->createItem(array("user_id" => $id, "ach_id" => $value));
 			unset($params["medals"]);
 			$terroristDb->updateItem($params, $id);
@@ -199,6 +200,8 @@ class AlbumController extends Zend_Controller_Action
 				$c++;
 
 			}
+
+            if(APPLICATION_ENV != "testing")$cacheModel->clearCache();
 
 		}
 

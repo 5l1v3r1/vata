@@ -13,12 +13,6 @@ $forum_id = isset($forum_id) ? $forum_id : 0;
 				<option value="3"<?php echo ($forum_id == 3) ? ' selected="selected"' : '' ?>>Ідентифіція террористів</option>
 			</optgroup>
 			<optgroup label="Сепаратизм в Україні">
-				<option value="24"<?php echo ($forum_id == 24) ? ' selected="selected"' : '' ?>>Харківська область</option>
-				<option value="17"<?php echo ($forum_id == 17) ? ' selected="selected"' : '' ?>>Львівська область</option>
-				<option value="10"<?php echo ($forum_id == 10) ? ' selected="selected"' : '' ?>>Житомирська область</option>
-				<option value="25"<?php echo ($forum_id == 25) ? ' selected="selected"' : '' ?>>Херсонська область</option>
-				<option value="18"<?php echo ($forum_id == 18) ? ' selected="selected"' : '' ?>>Миколаївська область</option>
-				<option value="11"<?php echo ($forum_id == 11) ? ' selected="selected"' : '' ?>>Закарпатська область</option>
 				<option value="26"<?php echo ($forum_id == 26) ? ' selected="selected"' : '' ?>>Хмельницька область</option>
 				<option value="19"<?php echo ($forum_id == 19) ? ' selected="selected"' : '' ?>>Одеська область</option>
 				<option value="12"<?php echo ($forum_id == 12) ? ' selected="selected"' : '' ?>>Запорізька область</option>
@@ -38,6 +32,12 @@ $forum_id = isset($forum_id) ? $forum_id : 0;
 				<option value="23"<?php echo ($forum_id == 23) ? ' selected="selected"' : '' ?>>Тернопільська область</option>
 				<option value="16"<?php echo ($forum_id == 16) ? ' selected="selected"' : '' ?>>Луганська область</option>
 				<option value="9"<?php echo ($forum_id == 9) ? ' selected="selected"' : '' ?>>Донецька область</option>
+				<option value="24"<?php echo ($forum_id == 24) ? ' selected="selected"' : '' ?>>Харківська область</option>
+				<option value="17"<?php echo ($forum_id == 17) ? ' selected="selected"' : '' ?>>Львівська область</option>
+				<option value="10"<?php echo ($forum_id == 10) ? ' selected="selected"' : '' ?>>Житомирська область</option>
+				<option value="25"<?php echo ($forum_id == 25) ? ' selected="selected"' : '' ?>>Херсонська область</option>
+				<option value="18"<?php echo ($forum_id == 18) ? ' selected="selected"' : '' ?>>Миколаївська область</option>
+				<option value="11"<?php echo ($forum_id == 11) ? ' selected="selected"' : '' ?>>Закарпатська область</option>
 			</optgroup>
 			<optgroup label="Оффтоп">
 				<option value="30"<?php echo ($forum_id == 30) ? ' selected="selected"' : '' ?>>Спілкування на будь-які теми</option>
@@ -54,12 +54,6 @@ $forum_javascript_quickjump_code = <<<EOL
 	var sef_friendly_url_array = new Array(28);
 	sef_friendly_url_array[2] = "opznan-terroristi";
 	sef_friendly_url_array[3] = "dentiftsya-terroristv";
-	sef_friendly_url_array[24] = "kharkvska-oblast";
-	sef_friendly_url_array[17] = "lvvska-oblast";
-	sef_friendly_url_array[10] = "zhitomirska-oblast";
-	sef_friendly_url_array[25] = "khersonska-oblast";
-	sef_friendly_url_array[18] = "mikolayivska-oblast";
-	sef_friendly_url_array[11] = "zakarpatska-oblast";
 	sef_friendly_url_array[26] = "khmelnitska-oblast";
 	sef_friendly_url_array[19] = "odeska-oblast";
 	sef_friendly_url_array[12] = "zaporzka-oblast";
@@ -79,6 +73,12 @@ $forum_javascript_quickjump_code = <<<EOL
 	sef_friendly_url_array[23] = "ternoplska-oblast";
 	sef_friendly_url_array[16] = "luganska-oblast";
 	sef_friendly_url_array[9] = "donetska-oblast";
+	sef_friendly_url_array[24] = "kharkvska-oblast";
+	sef_friendly_url_array[17] = "lvvska-oblast";
+	sef_friendly_url_array[10] = "zhitomirska-oblast";
+	sef_friendly_url_array[25] = "khersonska-oblast";
+	sef_friendly_url_array[18] = "mikolayivska-oblast";
+	sef_friendly_url_array[11] = "zakarpatska-oblast";
 	sef_friendly_url_array[30] = "splkuvannya-na-budyak-temi";
 
 	PUNBB.common.addDOMReadyEvent(function () { PUNBB.common.attachQuickjumpRedirect(forum_quickjump_url, sef_friendly_url_array); });
