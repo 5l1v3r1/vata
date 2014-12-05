@@ -41,6 +41,7 @@ class Application_Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract
 		$acl->allow('admin', 'admin', array('cache', 'users'));
 		$acl->allow('admin', 'error', array('error'));
 		$acl->allow('editor', 'cms', array('list', 'create', 'edit','preview'));
+		$acl->allow('editor', 'admin', array('search'));
 		$acl->allow('editor', 'admin', array('index'));
 		$acl->allow('editor', 'album', array('edit'));
 

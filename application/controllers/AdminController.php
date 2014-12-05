@@ -43,4 +43,12 @@ class AdminController extends Zend_Controller_Action{
 
 	}
 
+	public function searchAction(){
+
+		$search = new Application_Model_DbTable_Search();
+
+		$this->view->data = $search->getSearch();
+
+	}
+
 }
